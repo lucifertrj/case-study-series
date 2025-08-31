@@ -6,14 +6,16 @@ This repository contains the implementation and analysis from our live session o
 ## Resources
 
 ### Session Materials
+
 - **YouTube Recording**: [Live Session - How Uber Built Their AI Agent](https://www.youtube.com/watch?v=lROzXRNrXSk)
 - **Presentation Slides**: [Google Slides](https://docs.google.com/presentation/d/1sM48hD1S5Pvpd0tjPe6a4oMwa2HfskILTEqvLomuLgM/edit?usp=sharing)
-- **GitHub Repository**: [Case Study Series](https://github.com/lucifertrj/case-study-series)
 
 ### Original Uber Resources
 - **Uber Engineering Blog**: [Enhanced Agentic RAG](https://www.uber.com/en-IN/blog/enhanced-agentic-rag/?uclick_id=9529bd64-1d38-40a6-bc23-88ce151b1384)
 
 ## Key Concepts from Uber's Genie
+
+<img width="1536" height="1152" alt="figure-1-17484736625654" src="https://github.com/user-attachments/assets/bcfb6719-030b-46d5-a5be-8e9aae040116" />
 
 Uber's Genie is an enhanced agentic RAG (Retrieval-Augmented Generation) system that helps with intelligent document retrieval and question answering. The system combines:
 
