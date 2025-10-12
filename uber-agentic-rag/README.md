@@ -31,6 +31,12 @@ Uber's Genie is an enhanced agentic RAG (Retrieval-Augmented Generation) system 
 pip install -r requirements.txt
 ```
 
+### Get the API keys
+
+- Get [Qdrant API Key](https://cloud.qdrant.io/)
+- Google - Gemini API Key: [AI Studio](https://aistudio.google.com/)
+- SambaNova API Key: [Cloud SambaNova Systems](https://cloud.sambanova.ai/)
+
 ### Running the Application
 ```bash
 # Initialize cold start i.e., load the model once so that when to run app, you don't have load model again
