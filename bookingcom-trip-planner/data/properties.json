@@ -1,0 +1,1504 @@
+{
+  "properties": [
+    {
+      "id": "prop_001",
+      "name": "Canal House Suites",
+      "type": "boutique",
+      "location": {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "neighborhood": "Jordaan",
+        "location_vibe": "riverside"
+      },
+      "price_per_night": 220,
+      "rating": 9.1,
+      "review_count": 1247,
+      "amenities": ["free wifi", "breakfast included", "bicycle rental", "bar", "concierge", "balcony", "24hr front desk", "laundry service"],
+      "vibe_tags": ["romantic", "cultural"],
+      "description": "Tucked into a row of 17th-century townhouses along a quiet Jordaan canal, Canal House Suites feels less like a hotel and more like borrowing a very well-appointed friend's Amsterdam home. Exposed timber beams and original Dutch tilework sit alongside deep soaking tubs and hand-selected local art. As the sun dips below the canal, guests gather on the open-air terrace for evening cocktails with a view that stretches across the glimmering waterways. Mornings begin with a spread of artisan cheeses, fresh stroopwafels, and strong Dutch coffee that makes leaving feel genuinely difficult.",
+      "review_highlights": [
+        "Woke up to the sound of canal boats and church bells — felt like living inside a Vermeer painting. Honestly the most romantic trip of my life.",
+        "The breakfast was ridiculous in the best way. Local cheeses, fresh bread, smoked salmon — I skipped lunch every single day.",
+        "Staff helped us plan our entire itinerary, lent us bikes, and even packed us a picnic. That level of care is rare.",
+        "Perfect for couples. The room had a little window seat overlooking the canal and we just sat there for hours doing nothing.",
+        "It's small, it's personal, and it feels nothing like a chain hotel. This is exactly what Amsterdam should feel like."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_002",
+      "name": "The Vondelpark Loft",
+      "type": "boutique",
+      "location": {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "neighborhood": "Oud-Zuid",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 175,
+      "rating": 8.6,
+      "review_count": 842,
+      "amenities": ["free wifi", "gym", "bicycle rental", "bar", "breakfast included", "city view rooms", "laundry service", "24hr front desk"],
+      "vibe_tags": ["cultural", "quiet"],
+      "description": "Steps from the leafy expanse of Vondelpark, this converted warehouse turned loft hotel is a sanctuary of calm in one of Amsterdam's most desirable neighborhoods. Industrial concrete and warm oak furnishings create a studied minimalism that feels both cool and deeply comfortable. Floor-to-ceiling windows pour morning light across beds dressed in crisp Belgian linen. The onsite café spills onto a terrace where cyclists and dog-walkers drift by in that unhurried Amsterdam way that makes you want to extend your stay indefinitely.",
+      "review_highlights": [
+        "I worked remotely from here for a week — fast wifi, beautiful light, and the park right outside for lunchtime walks. Dream setup.",
+        "Quiet part of the city but still close to everything. Cycled to the Rijksmuseum in 5 minutes.",
+        "The room was so serene. Just white walls, good light, and the sound of the park. I slept better than I have in years.",
+        "Great gym for an Amsterdam hotel. Nothing fancy but well-equipped and never crowded.",
+        "Neighbourhood felt very local. Bakeries, flower shops, cheese stalls — not a tourist trap in sight."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_003",
+      "name": "Brouwersgracht Grand Hotel",
+      "type": "hotel",
+      "location": {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "neighborhood": "Canal Ring",
+        "location_vibe": "waterfront"
+      },
+      "price_per_night": 310,
+      "rating": 8.9,
+      "review_count": 2103,
+      "amenities": ["free wifi", "gym", "spa", "restaurant", "bar", "room service", "concierge", "city view rooms", "balcony", "24hr front desk", "business center"],
+      "vibe_tags": ["luxury", "romantic"],
+      "description": "Occupying five interconnected 18th-century canal houses on the most photographed street in Amsterdam, Brouwersgracht Grand Hotel is where heritage architecture meets considered modern luxury. Each room is an exercise in Dutch restraint — no clutter, only quality, from the hand-thrown ceramics to the sheepskin throws draped over reading chairs. The candlelit restaurant below street level has earned a quiet but devoted following among locals who know to book weeks ahead. A spa tucked into the old wine cellars offers treatments that draw on centuries of Dutch herbal tradition.",
+      "review_highlights": [
+        "Our anniversary dinner in the basement restaurant was one of the best meals of my life. The duck with juniper was extraordinary.",
+        "Checking in felt like arriving somewhere that had been waiting for you. The staff remembered our names by the second day.",
+        "The spa is a hidden gem — I had a treatment that used local North Sea algae and felt incredible for days afterward.",
+        "Views from the balcony at dusk were worth every penny. Canals, bridges, golden light. Absolutely cinematic.",
+        "This is the kind of place you save up for and then spend the rest of the year talking about."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_004",
+      "name": "De Pijp Studio Inn",
+      "type": "hotel",
+      "location": {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "neighborhood": "De Pijp",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 95,
+      "rating": 7.8,
+      "review_count": 1560,
+      "amenities": ["free wifi", "bar", "bicycle rental", "laundry service", "24hr front desk", "breakfast included"],
+      "vibe_tags": ["budget", "cultural"],
+      "description": "In the beating creative heart of De Pijp, this no-nonsense inn gives you everything Amsterdam actually is — street markets, independent cafés, art studios, and the Albert Cuyp Market spilling out around the corner. The rooms are compact and smart rather than grand, furnished with reclaimed pieces sourced from local flea markets. A communal table in the breakfast room becomes a spontaneous meeting place for solo travellers and young couples who end up sharing recommendations until checkout. It is the kind of honest, unpretentious place that makes you feel like a local within hours.",
+      "review_highlights": [
+        "Exactly what I wanted — affordable, central, clean and full of character. No pretension whatsoever.",
+        "Met so many interesting people at breakfast. Ended up exploring with a couple I met on day one for the rest of the week.",
+        "The market outside is genuinely amazing. Fresh stroopwafels at 9am is a lifestyle I want to adopt permanently.",
+        "Beds are comfortable, wifi is fast, and the neighbourhood is the real deal. What more do you need?",
+        "Solo travel friendly in the best way. Felt safe, social, and never lonely."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_005",
+      "name": "Amstel Wellness Retreat",
+      "type": "resort",
+      "location": {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "neighborhood": "Amstel River",
+        "location_vibe": "riverside"
+      },
+      "price_per_night": 420,
+      "rating": 9.3,
+      "review_count": 678,
+      "amenities": ["free wifi", "spa", "gym", "swimming pool", "sauna", "hot tub", "yoga studio", "restaurant", "breakfast included", "room service", "balcony"],
+      "vibe_tags": ["wellness", "quiet"],
+      "description": "Perched on the Amstel River's quieter southern bank, this purpose-built wellness retreat exists entirely outside the rhythm of the city — though Amsterdam's bustle is only twelve minutes by water taxi. Floor-to-ceiling glass walls dissolve the boundary between the heated indoor pool and the reedy riverscape beyond. Mornings begin with a guided breathwork session on floating pontoons before moving into a breakfast that reads like a nutritionist's love letter — cold-pressed juices, seed-dusted bowls, and warm rye from the in-house bakery. The spa's signature river stone massage has achieved near-mythical status among repeat guests.",
+      "review_highlights": [
+        "I came here burned out and left feeling genuinely reset. The yoga at sunrise over the river is something I'll never forget.",
+        "Best sleep of my adult life. Blackout curtains, perfect temperature, no noise — and the mattress deserves its own award.",
+        "The breakfast situation is extraordinary. I'm not someone who cares about food at hotels but this changed me.",
+        "Spent three days just cycling, swimming, and doing nothing. My nervous system needed this more than I realised.",
+        "Couples retreat done right. Felt connected to my partner again in a way that city life doesn't allow."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_006",
+      "name": "Noord Harbour Hostel & Suites",
+      "type": "hotel",
+      "location": {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "neighborhood": "Amsterdam Noord",
+        "location_vibe": "waterfront"
+      },
+      "price_per_night": 68,
+      "rating": 7.5,
+      "review_count": 2890,
+      "amenities": ["free wifi", "bar", "bicycle rental", "laundry service", "24hr front desk", "business center", "garden"],
+      "vibe_tags": ["budget", "party"],
+      "description": "A short ferry hop across the IJ from Centraal Station, Noord Harbour has become the spiritual home of Amsterdam's creative underground — and this converted shipyard building sits at its center. The common areas crackle with energy: ping-pong tables, a craft beer bar that showcases local Noord breweries, and a courtyard strung with lights where the party quietly migrates after midnight. Rooms are deliberately simple, giving you just enough comfort to recover before doing it all again. It attracts designers, musicians, digital nomads, and anyone who'd rather sleep somewhere interesting than somewhere expensive.",
+      "review_highlights": [
+        "Took the ferry over and immediately understood why this part of Amsterdam is having a moment. So much cooler than the tourist centre.",
+        "Met my travel best friend at the bar on night one. Still messaging each other months later.",
+        "For the price it's honestly unbeatable. Clean, safe, friendly staff, and the vibe is great.",
+        "The courtyard on a summer evening with a local beer is peak Amsterdam cool.",
+        "Perfect for solo travellers who want to actually meet people. You won't be alone here unless you want to be."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_007",
+      "name": "Hôtel des Lumières",
+      "type": "boutique",
+      "location": {
+        "city": "Paris",
+        "country": "France",
+        "neighborhood": "Saint-Germain-des-Prés",
+        "location_vibe": "old town"
+      },
+      "price_per_night": 380,
+      "rating": 9.4,
+      "review_count": 1893,
+      "amenities": ["free wifi", "restaurant", "bar", "room service", "concierge", "breakfast included", "spa", "balcony", "city view rooms", "24hr front desk"],
+      "vibe_tags": ["romantic", "luxury"],
+      "description": "On a cobbled street that hasn't changed much since Hemingway walked it, Hôtel des Lumières occupies a Haussmann building whose bones are magnificent and whose rooms have been dressed with the quiet confidence of someone who has always had good taste. Each suite is named for a different Impressionist painter and furnished in a palette drawn from their work — a Monet room glows in watery greens and lilacs; a Renoir suite warms you in blush and gold. Breakfast is an event in itself, served on silver beneath a Belle Époque ceiling, and the bar is the kind of place where serious conversations have been having themselves for a hundred years.",
+      "review_highlights": [
+        "Paris is full of beautiful hotels but this one felt like it had a soul. The Monet suite was so perfectly considered.",
+        "We had champagne in bed watching the Eiffel Tower sparkle at midnight. I proposed and she said yes. This hotel is the reason.",
+        "The concierge got us into a restaurant that had a six-week wait. I still don't know how. Absolute magician.",
+        "Breakfast changed my relationship with mornings. Croissants that shatter, coffee that sings, and a room so beautiful you don't want to leave it.",
+        "This is the Paris hotel you dream about before you know it exists."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_008",
+      "name": "Le Marais Atelier Hotel",
+      "type": "boutique",
+      "location": {
+        "city": "Paris",
+        "country": "France",
+        "neighborhood": "Le Marais",
+        "location_vibe": "old town"
+      },
+      "price_per_night": 245,
+      "rating": 8.8,
+      "review_count": 1102,
+      "amenities": ["free wifi", "bar", "breakfast included", "concierge", "balcony", "laundry service", "24hr front desk", "bicycle rental"],
+      "vibe_tags": ["cultural", "romantic"],
+      "description": "In the layers of Le Marais, where medieval lanes open suddenly onto baroque courtyards, this converted artist's atelier has preserved the creative spirit of the neighbourhood in every carefully chosen object. Original skylights flood the reception with northern light. The rooms feel like the private apartments of a Parisian with very good friends in the art world — original works hang on exposed stone walls, and the reading nooks are stocked with actual books worth reading. Evenings in Le Marais have a particular electricity, and the hotel's small bar becomes a natural gathering point for guests before they disperse into the brilliant chaos of the neighbourhood.",
+      "review_highlights": [
+        "Stayed here during Paris art week and it was perfect. The neighbourhood was buzzing and the hotel felt like part of it.",
+        "The art on the walls is all by living Parisian artists. I ended up buying two pieces after asking the front desk about them.",
+        "My room had a view of a tiny courtyard garden and church spire. Woke up to church bells at 7am and felt like I was in a film.",
+        "Good for couples and solo travellers alike. The bar has great energy in the evenings without being loud.",
+        "Felt like I was living in Paris rather than visiting. That's the highest compliment I can give."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_009",
+      "name": "Grand Palais Residence",
+      "type": "hotel",
+      "location": {
+        "city": "Paris",
+        "country": "France",
+        "neighborhood": "8th Arrondissement",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 560,
+      "rating": 9.2,
+      "review_count": 3241,
+      "amenities": ["free wifi", "gym", "spa", "swimming pool", "restaurant", "bar", "room service", "concierge", "city view rooms", "business center", "24hr front desk", "airport shuttle"],
+      "vibe_tags": ["luxury", "scenic"],
+      "description": "From its position steps from the Champs-Élysées, the Grand Palais Residence has been hosting heads of state, film stars, and the discerning elite since before the Eiffel Tower was built. The public rooms are unapologetically theatrical — soaring gilded ceilings, museum-quality tapestries, and floral arrangements that a florist changes every morning. The rooftop pool, suspended above the city with glass walls on three sides, offers a view of Paris that seems simultaneously impossible and perfectly right. The restaurant holds two Michelin stars and a reservation is, appropriately, its own achievement.",
+      "review_highlights": [
+        "This is what luxury actually means. Not just expensive things but an attention to every detail that makes you feel completely cared for.",
+        "Swam laps at sunrise in the rooftop pool with the Eiffel Tower in view. That image will never leave me.",
+        "The spa therapist remembered my preferences from two years ago. I hadn't told anyone. That's either impressive or slightly unnerving.",
+        "Dinner at the restaurant was the finest meal I've had anywhere in the world. Worth every euro.",
+        "A place that justifies the word legendary."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_010",
+      "name": "Montmartre Maison",
+      "type": "villa",
+      "location": {
+        "city": "Paris",
+        "country": "France",
+        "neighborhood": "Montmartre",
+        "location_vibe": "hilltop"
+      },
+      "price_per_night": 195,
+      "rating": 9.0,
+      "review_count": 487,
+      "amenities": ["free wifi", "garden", "breakfast included", "bar", "balcony", "city view rooms", "laundry service", "concierge"],
+      "vibe_tags": ["romantic", "scenic"],
+      "description": "Hidden behind a vine-covered gate on one of Montmartre's most secretive lanes, this 1890s artist's villa has been meticulously restored by its owner, a former set designer who could not resist making a beautiful thing. The garden is a tangle of roses and fig trees around a wrought-iron breakfast table, and on clear mornings the whole of Paris stretches below you like a painting you are somehow inside. Six rooms, each different, each impossibly charming. The village rhythm of Montmartre — the accordion player on the corner, the smell of crepes from the square — becomes your own personal soundtrack.",
+      "review_highlights": [
+        "I've stayed in many Paris hotels. This is the only one that felt like home. Genuinely didn't want to leave.",
+        "Breakfast in the garden with Paris laid out below us. We both sat in silence for a while because there was nothing to say.",
+        "Only six rooms so it's very intimate. Met lovely people. Felt more like a house party than a hotel.",
+        "The owner is extraordinary. Recommended places that were entirely off the tourist path and entirely perfect.",
+        "If you're going to Paris with someone you love, this is where you stay."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_011",
+      "name": "Oberkampf Social House",
+      "type": "hotel",
+      "location": {
+        "city": "Paris",
+        "country": "France",
+        "neighborhood": "Oberkampf",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 110,
+      "rating": 8.2,
+      "review_count": 2145,
+      "amenities": ["free wifi", "bar", "laundry service", "24hr front desk", "business center", "bicycle rental", "garden"],
+      "vibe_tags": ["party", "budget"],
+      "description": "Oberkampf has been Paris's after-dark laboratory for two decades, and this hotel sits at its chaotic heart with absolutely no apologies. The stripped-back industrial design is part statement and part practicality — there are better uses for money in this neighbourhood than thread count. A basement bar with rotating DJ sets and natural wine has become a local fixture, hosting a crowd that dresses better than you and dances longer. Days are quieter — walk to the Canal Saint-Martin, cycle through Belleville, eat your way through the best cheap lunch city in Europe.",
+      "review_highlights": [
+        "Went out in Oberkampf every night and the hotel bar was always a brilliant warm-up. Great energy, great music.",
+        "Don't come here expecting luxury. Come here expecting Paris as it actually lives and breathes.",
+        "The cheapest I've stayed in Paris that didn't make me feel sad about it. Clean, stylish, buzzing neighbourhood.",
+        "Perfect for a long weekend with friends. We were out until 4am three nights running.",
+        "The canal is a 10-minute walk. Spent my afternoons there people-watching with a bottle of wine."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_012",
+      "name": "Île Saint-Louis Private Suites",
+      "type": "villa",
+      "location": {
+        "city": "Paris",
+        "country": "France",
+        "neighborhood": "Île Saint-Louis",
+        "location_vibe": "waterfront"
+      },
+      "price_per_night": 490,
+      "rating": 9.6,
+      "review_count": 312,
+      "amenities": ["free wifi", "concierge", "room service", "breakfast included", "balcony", "city view rooms", "spa", "bar"],
+      "vibe_tags": ["luxury", "quiet"],
+      "description": "There are perhaps no more enviable addresses in Paris than the island that floats within the city like a held breath. These private suites, occupying the upper floors of a 17th-century hôtel particulier, offer something almost no other property in Paris can — genuine quiet, genuine privacy, and a view of Notre-Dame through medieval windows that has been making people feel things for four hundred years. With only four suites, personalised service becomes something different here: less a policy, more a daily conversation. Berthillon ice cream, the island's most famous export, is a short stroll away.",
+      "review_highlights": [
+        "We had Notre-Dame framed in our window, a bottle of Burgundy, and nowhere we needed to be. Perfect Paris.",
+        "Four suites total. You feel like you have the whole building to yourself. Extraordinary privacy in the middle of a city of millions.",
+        "The suite was so beautiful I photographed every corner before unpacking. I never do that.",
+        "Honeymooned here. The concierge organised a private river cruise at sunset as a surprise. We still talk about it.",
+        "Quiet enough to hear the Seine. That's not something you say about Paris hotels."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_013",
+      "name": "Seminyak Sands Villa",
+      "type": "villa",
+      "location": {
+        "city": "Bali",
+        "country": "Indonesia",
+        "neighborhood": "Seminyak",
+        "location_vibe": "beachfront"
+      },
+      "price_per_night": 340,
+      "rating": 9.5,
+      "review_count": 764,
+      "amenities": ["free wifi", "private pool", "beach access", "spa", "breakfast included", "room service", "concierge", "garden", "balcony", "yoga studio"],
+      "vibe_tags": ["romantic", "luxury"],
+      "description": "Set behind walls of frangipani and bougainvillea on Seminyak's golden beach, this three-bedroom villa is the Bali of collective imagination made physical. A private pool shimmers in the courtyard as warm Balinese winds move through the open-sided living pavilion. Staff prepare a different Balinese breakfast ceremony each morning — hand-shaped rice, tropical fruit arranged as art, and coffee made from beans grown in the highland mist. As the Indian Ocean catches the last light of each evening, the terrace becomes the only place on Earth worth being.",
+      "review_highlights": [
+        "Woke up every morning, walked ten steps, and jumped in the pool. Then walked twenty more steps to the beach. That was our entire holiday and it was perfect.",
+        "This is where we came for our honeymoon and I cannot imagine a more romantic place existing anywhere on the planet.",
+        "The staff were extraordinary. They decorated the villa for our anniversary without being asked. Flowers everywhere.",
+        "Breakfast was different every single morning and all of it was spectacular. The Balinese pancakes with palm sugar are life-changing.",
+        "The kind of place you arrive at and immediately start calculating how to extend your stay."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_014",
+      "name": "Ubud Jungle Retreat",
+      "type": "resort",
+      "location": {
+        "city": "Bali",
+        "country": "Indonesia",
+        "neighborhood": "Ubud",
+        "location_vibe": "countryside"
+      },
+      "price_per_night": 280,
+      "rating": 9.4,
+      "review_count": 1534,
+      "amenities": ["free wifi", "spa", "yoga studio", "swimming pool", "restaurant", "breakfast included", "garden", "gym", "mountain view rooms"],
+      "vibe_tags": ["wellness", "scenic"],
+      "description": "Carved into a steep jungle hillside above the Ayung River gorge, this retreat reaches the kind of silence that modern life has made almost inaccessible. Villas are connected by stone pathways wound through tropical gardens where butterflies outnumber guests. Daily yoga sessions on a platform suspended over the canopy feel less like exercise and more like a negotiation with the natural world. The spa uses only locally sourced botanicals — turmeric, ylang-ylang, virgin coconut — in treatments designed around the ancient Balinese concept of Tri Hita Karana: harmony between self, community, and nature.",
+      "review_highlights": [
+        "I did the sunrise yoga over the jungle and genuinely cried. Not from sadness, just from it being so overwhelming and beautiful.",
+        "Came here broken and overwhelmed. Left feeling like a different person. This place does something to you.",
+        "The spa treatment using local plants and oils was the best I've ever had. And I've tried many.",
+        "No traffic noise, no phones, no stress. Just jungle, birdsong, and the river far below. Absolute paradise.",
+        "A digital detox you don't resent. Brought my laptop and never opened it."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_015",
+      "name": "Canggu Surf Lodge",
+      "type": "boutique",
+      "location": {
+        "city": "Bali",
+        "country": "Indonesia",
+        "neighborhood": "Canggu",
+        "location_vibe": "beachfront"
+      },
+      "price_per_night": 85,
+      "rating": 8.3,
+      "review_count": 2876,
+      "amenities": ["free wifi", "swimming pool", "bar", "restaurant", "beach access", "gym", "bicycle rental", "laundry service", "24hr front desk"],
+      "vibe_tags": ["adventure", "party"],
+      "description": "Canggu's surf culture is the real thing — not a performance for tourists but a genuine daily practice — and this low-slung lodge is where the surfers who take it seriously actually stay. Boards line the entrance hallway. The open-air restaurant serves power bowls at dawn for those heading to early morning sessions. By sunset, the pool deck evolves into something louder and more festive as boards are rinsed and cold Bintangs are opened. The lodge sits a ninety-second walk from the break and shares the beach with fishermen who have been here longer than the surf culture itself.",
+      "review_highlights": [
+        "Surfed every morning for ten days straight. The lodge is steps from the water, staff are surfers, and the vibe is everything.",
+        "Not a luxury stay but the energy is incredible. Spent most of my time in the pool, at the bar, or on the beach.",
+        "Met the most interesting people here. Digital nomads, professional surfers, artists. Everyone had a story.",
+        "The smoothie bowls at breakfast are genuinely incredible. I had the same one every morning and never got bored.",
+        "For the price and the location this is impossible to beat. Canggu is the right choice."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_016",
+      "name": "Nusa Dua Ocean Resort",
+      "type": "resort",
+      "location": {
+        "city": "Bali",
+        "country": "Indonesia",
+        "neighborhood": "Nusa Dua",
+        "location_vibe": "beachfront"
+      },
+      "price_per_night": 520,
+      "rating": 9.1,
+      "review_count": 4122,
+      "amenities": ["free wifi", "swimming pool", "private pool", "spa", "beach access", "restaurant", "bar", "kids club", "gym", "ocean view rooms", "room service", "airport shuttle", "water sports"],
+      "vibe_tags": ["family", "luxury"],
+      "description": "Behind the manicured privacy of Nusa Dua's guarded peninsula, this resort sprawls across twelve ocean-facing acres like a self-contained kingdom. The children's club — staffed by trained educators and running from dawn until after dinner — transforms family travel from stressful to euphoric. Parents rediscover each other over cocktails beside a pool that seems to spill directly into the Indian Ocean. The reef-protected lagoon makes for safe snorkeling from the beach, and the resort's marine biologist leads weekly coral restoration sessions that children speak about for months.",
+      "review_highlights": [
+        "Best family holiday we have ever taken, full stop. The kids club was unbelievable — our kids didn't want to leave.",
+        "My husband and I actually had time alone together on a family holiday. That alone is worth five stars.",
+        "The beach is spectacular and incredibly safe for children. Our 4-year-old swam every single day.",
+        "Every staff member knew our children's names by day two. That kind of attention makes everything feel magical.",
+        "We've done Bali with kids twice now and this is the only resort that truly gets it right."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_017",
+      "name": "Amed Cliffside Hideaway",
+      "type": "boutique",
+      "location": {
+        "city": "Bali",
+        "country": "Indonesia",
+        "neighborhood": "Amed",
+        "location_vibe": "hilltop"
+      },
+      "price_per_night": 130,
+      "rating": 9.2,
+      "review_count": 389,
+      "amenities": ["free wifi", "swimming pool", "breakfast included", "ocean view rooms", "balcony", "garden", "snorkeling", "restaurant"],
+      "vibe_tags": ["quiet", "scenic"],
+      "description": "On Bali's black-sand east coast, far from the Instagram crowds, Amed is where the island keeps its oldest secrets. This small hideaway perches above a fishing village whose outriggers paint the dawn orange as they head out to sea. The infinity pool hangs over a coastline of volcanic drama, and below it, one of Bali's richest coral gardens begins just metres from the shore. Evenings here have an unhurried beauty — the kind of quiet that reminds you what rest actually is. Breakfast arrives with fresh papaya from the garden and the view changes hour by hour as the light moves across Mount Agung.",
+      "review_highlights": [
+        "This is the Bali I was looking for and couldn't find in Seminyak or Ubud. Authentic, beautiful, and utterly peaceful.",
+        "Snorkelled directly from the beach every morning. Saw turtles twice. The marine life is extraordinary.",
+        "Sunrise over the volcano from the infinity pool is something I will never stop thinking about.",
+        "Six rooms and a lot of silence. Perfect for anyone who needs to genuinely decompress.",
+        "Felt like we discovered somewhere secret. Recommended it to absolutely no one so it stays that way."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_018",
+      "name": "Kuta Budget Beach Inn",
+      "type": "hotel",
+      "location": {
+        "city": "Bali",
+        "country": "Indonesia",
+        "neighborhood": "Kuta",
+        "location_vibe": "beachfront"
+      },
+      "price_per_night": 42,
+      "rating": 7.2,
+      "review_count": 3780,
+      "amenities": ["free wifi", "swimming pool", "bar", "beach access", "laundry service", "24hr front desk", "breakfast included"],
+      "vibe_tags": ["budget", "party"],
+      "description": "Kuta is Bali's uncomplicated id — loud, cheerful, relentless, and completely honest about what it is. This beachfront inn does not pretend to be something it isn't: the rooms are clean and simple, the pool is cold and refreshing, and the bar serves sunset cocktails that are sized for serious celebration. The beach begins at the property's edge and Kuta's legendary nightlife begins everywhere else. For first-time Bali visitors or those who want maximum sunshine and minimum pretension, this is a straightforwardly excellent base.",
+      "review_highlights": [
+        "Came for the beach and the party and got both in abundance. Exactly what I wanted.",
+        "Don't overthink it. For $42 a night in Bali with a pool and beach access you're doing just fine.",
+        "Staff are incredibly friendly and helpful. Organised a scooter for me and drew me a hand-drawn map of the area.",
+        "Noisy at night if you're near the bar, but ear plugs and you're golden.",
+        "Perfect for a group holiday where you're rarely in the room anyway."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_019",
+      "name": "Shinjuku Tower Hotel",
+      "type": "hotel",
+      "location": {
+        "city": "Tokyo",
+        "country": "Japan",
+        "neighborhood": "Shinjuku",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 185,
+      "rating": 8.6,
+      "review_count": 5000,
+      "amenities": ["free wifi", "gym", "restaurant", "bar", "room service", "city view rooms", "business center", "laundry service", "24hr front desk", "concierge"],
+      "vibe_tags": ["cultural", "scenic"],
+      "description": "Rising forty-two floors above the controlled chaos of Shinjuku, this tower hotel gives you Tokyo as it should first be seen — from above, at night, when the city dissolves into an impossible grid of light that stretches to every horizon. The rooms are compact in the efficient Japanese tradition, but every centimetre is considered, with sliding screens and cedar-scented linens that make small feel curated rather than cramped. The executive lounge on the 38th floor becomes an unlikely community every evening, where businesspeople and tourists compare notes over whisky highballs as the city performs below.",
+      "review_highlights": [
+        "The view from my room at night was the single most extraordinary sight I've ever had from a hotel window.",
+        "Shinjuku is overwhelming and brilliant and this hotel is the perfect home base for making sense of it.",
+        "Japanese hospitality is a different category of service. The attention to every small detail genuinely moved me.",
+        "Used the business center every morning for work before spending the afternoons exploring. Efficient and comfortable.",
+        "Efficient check-in, immaculate room, staff who genuinely want to help. Tokyo hotels set the global standard."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_020",
+      "name": "Yanaka Heritage Inn",
+      "type": "boutique",
+      "location": {
+        "city": "Tokyo",
+        "country": "Japan",
+        "neighborhood": "Yanaka",
+        "location_vibe": "old town"
+      },
+      "price_per_night": 145,
+      "rating": 9.3,
+      "review_count": 612,
+      "amenities": ["free wifi", "breakfast included", "garden", "bicycle rental", "concierge", "sauna", "laundry service"],
+      "vibe_tags": ["cultural", "quiet"],
+      "description": "In Yanaka — Tokyo's most stubbornly preserved old neighbourhood, where wood-frame shophouses and cat temples have outlasted every modernisation wave — this ryokan-style inn moves at a different pace than the rest of the city. Traditional tatami rooms with futon bedding, paper screens, and a garden that changes imperceptibly through the seasons create a contemplative atmosphere that the surrounding temple-dotted streets only reinforce. The morning consists of a traditional Japanese breakfast in the garden followed by the discovery that Yanaka is exactly the Tokyo you didn't know you were looking for.",
+      "review_highlights": [
+        "This is Old Tokyo. No skyscrapers, no screens, just narrow lanes, temples, and cats. Absolutely magical.",
+        "The tatami room and futon experience was not what I expected and completely transformed how I think about sleep.",
+        "Ate my traditional Japanese breakfast in the garden while watching a tabby cat investigate the koi pond. Peak Tokyo.",
+        "The owner recommended temples and markets that aren't in any guidebook. Those were the best parts of the trip.",
+        "A quiet sanctuary in a city that never stops. Came here exhausted by sensory overload and left genuinely restored."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_021",
+      "name": "Shibuya Cross Hotel",
+      "type": "hotel",
+      "location": {
+        "city": "Tokyo",
+        "country": "Japan",
+        "neighborhood": "Shibuya",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 160,
+      "rating": 8.4,
+      "review_count": 3890,
+      "amenities": ["free wifi", "gym", "rooftop bar", "restaurant", "city view rooms", "laundry service", "24hr front desk", "business center", "concierge"],
+      "vibe_tags": ["cultural", "party"],
+      "description": "The Shibuya crossing is one of humanity's great unrepeatable spectacles, and this hotel positions you at its epicenter with rooms that frame the intersection like a living cinema. The rooftop bar has become an unofficial Tokyo institution — a place where the city's creative class comes to watch the organised chaos below while drinking cocktails invented to represent Tokyo neighbourhoods. By day, the hotel sits at the intersection of everything: Harajuku, Daikanyama, Shimokitazawa all within walking distance or a single subway stop. This is Tokyo for people who want to feel the city's pulse directly.",
+      "review_highlights": [
+        "Watched the Shibuya crossing from my window with coffee at 7am. Nothing prepares you for how extraordinary it actually is.",
+        "The rooftop bar is genuinely one of the coolest places I've ever had a drink. The Shibuya cocktail tastes like the city somehow.",
+        "Perfect location for exploring. Hopped on the subway from here and was anywhere I wanted within 15 minutes.",
+        "Gym is excellent — well-equipped and open early. Worked out, grabbed ramen for breakfast, and was out exploring by 9am.",
+        "This hotel has its own energy. Felt part of Tokyo rather than just passing through it."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_022",
+      "name": "Ginza Kapsel & Suites",
+      "type": "hotel",
+      "location": {
+        "city": "Tokyo",
+        "country": "Japan",
+        "neighborhood": "Ginza",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 75,
+      "rating": 8.0,
+      "review_count": 2234,
+      "amenities": ["free wifi", "sauna", "bar", "laundry service", "24hr front desk", "gym", "business center"],
+      "vibe_tags": ["budget", "cultural"],
+      "description": "The Japanese capsule hotel has been perfected over decades and this Ginza property represents the form at its most evolved. The pods themselves are engineering marvels — adjustable lighting, blackout blinds, USB charging integrated into every surface, and a privacy screen that creates genuine solitude within a shared space. A communal sauna on the fourth floor is the social heart of the hotel, where guests sit in companionable quiet in the Japanese tradition. Ginza's extraordinary restaurants are at the door, making this the most extravagant eating-out budget stretcher in all of Tokyo.",
+      "review_highlights": [
+        "The capsule experience is genuinely excellent. Better sleep than many full-sized hotel rooms I've paid triple for.",
+        "Sauna culture in Japan is something special. Sat in there with businesspeople and tourists all doing the same silent decompression.",
+        "Ginza neighbourhood means incredible restaurants everywhere. Spent my accommodation savings on the best sushi of my life.",
+        "Perfect for solo travel. Everything is designed for one person to feel entirely comfortable.",
+        "Don't think of it as a budget option. Think of it as a design solution to urban accommodation."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_023",
+      "name": "Asakusa Riverside Ryokan",
+      "type": "boutique",
+      "location": {
+        "city": "Tokyo",
+        "country": "Japan",
+        "neighborhood": "Asakusa",
+        "location_vibe": "riverside"
+      },
+      "price_per_night": 210,
+      "rating": 9.1,
+      "review_count": 891,
+      "amenities": ["free wifi", "spa", "restaurant", "breakfast included", "garden", "balcony", "hot tub", "concierge", "laundry service"],
+      "vibe_tags": ["cultural", "romantic"],
+      "description": "On the Sumida River's western bank, with Senso-ji Temple's pagoda rising through the morning mist in the near distance, this traditional ryokan has been operated by the same family for three generations without any great desire to change. Guests are received with a formal tea ceremony on arrival, followed by a transition into yukata robes for the duration of the stay. The rooftop onsen faces directly across to the temple complex, where evening lantern light reflects on the river. A multi-course kaiseki dinner, served in your room on lacquered trays, is Tokyo's greatest antidote to the city outside.",
+      "review_highlights": [
+        "The kaiseki dinner alone was worth the trip to Tokyo. Eight courses of extraordinary artistry delivered to my tatami room.",
+        "Woke at 5am to watch the sunrise over Senso-ji from the rooftop onsen. One of the most peaceful moments of my life.",
+        "Three generations of the same family running this place. The grandmother still supervises breakfast service.",
+        "It's everything you imagine when you think about a traditional Japanese inn, and then better.",
+        "Came as a couple and left feeling profoundly reconnected. Something about the rituals here encourages real presence."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_024",
+      "name": "Harajuku Design Hostel",
+      "type": "hotel",
+      "location": {
+        "city": "Tokyo",
+        "country": "Japan",
+        "neighborhood": "Harajuku",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 58,
+      "rating": 7.9,
+      "review_count": 1870,
+      "amenities": ["free wifi", "bar", "laundry service", "24hr front desk", "bicycle rental", "business center"],
+      "vibe_tags": ["budget", "cultural"],
+      "description": "In the neighbourhood that gave the world Harajuku fashion, it would be strange for a hostel not to have an opinion about design, and this one has very strong opinions indeed. Common areas commission a new mural artist every three months, ensuring that repeat visitors always find something new. The bunk rooms are private affairs with lockable pod-style beds that respect your right to sleep in, and a ground-floor café serves Tokyo's most creative sandwiches to a clientele that consists almost entirely of people who got distracted on Takeshita Street and ended up staying longer than planned.",
+      "review_highlights": [
+        "The design is legitimately brilliant. Felt more like an art gallery you slept in than a hostel.",
+        "Takeshita Street is two minutes away. Lost three hours to it daily. The fashion is extraordinary.",
+        "For a budget stay in Tokyo this is exceptional value. Clean, safe, interesting, and brilliantly located.",
+        "Met people from everywhere in the common area. The bulletin board has a skill-swap section which led to the most interesting day of my trip.",
+        "If you're young and curious and want to feel like you're inside Tokyo rather than watching it — this."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_025",
+      "name": "Hotel Arts Barcelona",
+      "type": "hotel",
+      "location": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "neighborhood": "Barceloneta",
+        "location_vibe": "beachfront"
+      },
+      "price_per_night": 450,
+      "rating": 9.1,
+      "review_count": 4501,
+      "amenities": ["free wifi", "swimming pool", "spa", "gym", "restaurant", "bar", "beach access", "room service", "concierge", "ocean view rooms", "business center", "24hr front desk"],
+      "vibe_tags": ["luxury", "scenic"],
+      "description": "Standing tall on Barcelona's golden waterfront, this landmark tower hotel has reshaped the city's silhouette since the 1992 Olympics and shows no signs of relinquishing its visual command. The sea-view rooms — and nearly all rooms face the sea — watch over a Mediterranean that shifts from silver at dawn to deep indigo at dusk. The rooftop infinity pool, shared only between guests, is a Barcelonian institution in its own right. Below, the beach begins at the hotel's shadow, and the tapas bars of La Barceloneta evolve through the day from espresso stops to sangría sanctuaries.",
+      "review_highlights": [
+        "Woke up to the Mediterranean every morning. I couldn't have designed a better start to each day.",
+        "The pool is genuinely spectacular. Swam with the city on one side and the sea on the other at sunset.",
+        "This hotel is Barcelona's personality made architectural. Everything here is confident, joyful, and stylish.",
+        "Spent mornings on the beach, afternoons at the spa, evenings eating our way through Barceloneta. Repeat.",
+        "The spa is the best urban escape I've experienced. Came in stressed, left feeling completely renewed."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_026",
+      "name": "Gothic Quarter Posada",
+      "type": "boutique",
+      "location": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "neighborhood": "Gothic Quarter",
+        "location_vibe": "old town"
+      },
+      "price_per_night": 155,
+      "rating": 8.7,
+      "review_count": 1234,
+      "amenities": ["free wifi", "bar", "breakfast included", "concierge", "balcony", "laundry service", "24hr front desk", "rooftop bar"],
+      "vibe_tags": ["cultural", "romantic"],
+      "description": "In the Gothic Quarter's labyrinthine heart — where Roman walls are built into medieval buildings, which are built into Renaissance churches, which are built into modern lives — this posada occupies a palazzo that has been continuously inhabited since the 15th century. The owners have preserved the old stones and high ceilings while adding a rooftop terrace that catches the evening light from which the whole of this extraordinary city can be appreciated one rooftop at a time. The smell of coffee rising from the lanes below is as reliable as any alarm clock.",
+      "review_highlights": [
+        "Woke up every morning to church bells and the smell of fresh bread from the bakery below. Perfect cultural immersion.",
+        "The rooftop at golden hour with a Catalan rosé is as good as Barcelona gets.",
+        "History is everywhere here. The owner showed us a piece of Roman wall incorporated into the basement wall.",
+        "Perfect for couples. Small, intimate, historical, and with that extraordinary rooftop.",
+        "I've been to Barcelona four times. This is the only place I've stayed that felt truly connected to the old city."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_027",
+      "name": "Eixample Modernista Hotel",
+      "type": "hotel",
+      "location": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "neighborhood": "Eixample",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 220,
+      "rating": 8.9,
+      "review_count": 2670,
+      "amenities": ["free wifi", "gym", "rooftop bar", "restaurant", "spa", "city view rooms", "concierge", "room service", "24hr front desk", "business center"],
+      "vibe_tags": ["cultural", "luxury"],
+      "description": "Modernisme — Barcelona's exuberant, biomorphic, entirely un-sensible architectural movement — finds its finest expression in the Eixample grid, and this hotel lives inside one of its most extraordinary buildings. The facade is a Gaudí dream of ceramic tiles and iron balconies. Inside, the original mosaic floors and plasterwork ceilings have been preserved in the public areas while the rooms themselves offer the clean lines and technological comfort of the present. The rooftop terrace looks directly across to the Sagrada Família, whose towers have been growing incrementally since 1882 and remain, endlessly, the most dramatic view in the neighbourhood.",
+      "review_highlights": [
+        "Sipped my morning coffee looking directly at the Sagrada Família. I did that every day and it never became ordinary.",
+        "The building itself is the attraction. I spent an hour just photographing the lobby and stairwell.",
+        "Gym is brilliant — modern, well-stocked, and the view from the treadmill looking over the city is motivating.",
+        "Great business hotel that's also genuinely culturally interesting. Rare combination.",
+        "Walkable to everything that matters in Barcelona. A perfect strategic base."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_028",
+      "name": "Poblenou Loft Suites",
+      "type": "boutique",
+      "location": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "neighborhood": "Poblenou",
+        "location_vibe": "waterfront"
+      },
+      "price_per_night": 130,
+      "rating": 8.5,
+      "review_count": 734,
+      "amenities": ["free wifi", "rooftop bar", "gym", "bicycle rental", "business center", "laundry service", "bar", "balcony"],
+      "vibe_tags": ["cultural", "party"],
+      "description": "Poblenou is Barcelona's former industrial district turned creative hub, where design studios, tech companies, and natural wine bars have colonised converted factories with great enthusiasm. These loft suites — occupying a former textile workshop with original iron columns and ten-metre ceilings — attract the kind of guests who find the Gothic Quarter too tourist-heavy and Barceloneta too sandy. The rooftop bar has views to the sea and runs late into the night with a crowd that mixes local designers with international visitors who all found this neighbourhood by accident and consider themselves very clever for it.",
+      "review_highlights": [
+        "Exactly the Barcelona I was looking for — creative, local, design-forward, and not full of stag parties.",
+        "The loft rooms are enormous and the ceilings are incredible. Great natural light and space to actually work.",
+        "Worked remotely from here for two weeks. Fast wifi, great café culture nearby, and the beach when I needed it.",
+        "The rooftop crowd is genuinely interesting. Met a furniture designer and a documentary filmmaker on my first night.",
+        "Neighbourhood is rapidly becoming one of the coolest in Europe. Get there now."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_029",
+      "name": "Gracia Family Guesthouse",
+      "type": "hotel",
+      "location": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "neighborhood": "Gràcia",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 88,
+      "rating": 8.1,
+      "review_count": 1120,
+      "amenities": ["free wifi", "breakfast included", "garden", "laundry service", "24hr front desk", "kids club", "bicycle rental", "bar"],
+      "vibe_tags": ["family", "budget"],
+      "description": "Gràcia is the village within the city — a neighbourhood of small plazas, school-run rhythms, and local bars where the same people sit in the same seats every evening. This guesthouse, run by a Barcelonian family who have lived in Gràcia for three generations, captures that spirit with unpretentious warmth. A back garden has a sandpit and tricycles for small guests and a vine-shaded table for their parents. The family breakfast includes home-baked pan con tomate and whatever fruit came from the market that morning. Families who come once almost always find a reason to return.",
+      "review_highlights": [
+        "First family trip with our toddler and this made it effortless. Garden, helpful staff, baby equipment ready on arrival.",
+        "Pan con tomate from scratch at breakfast every morning. That alone is worth the stay.",
+        "The neighbourhood is extraordinary for families. Playgrounds everywhere, bakeries at every turn, safe streets.",
+        "Staff helped us find family-friendly restaurants in Gràcia that weren't tourist traps. Genuinely excellent advice.",
+        "Felt like staying with friends rather than at a hotel. That's very hard to replicate."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_030",
+      "name": "Sitges Coastal Villa",
+      "type": "villa",
+      "location": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "neighborhood": "Sitges",
+        "location_vibe": "beachfront"
+      },
+      "price_per_night": 480,
+      "rating": 9.4,
+      "review_count": 267,
+      "amenities": ["free wifi", "private pool", "beach access", "ocean view rooms", "garden", "breakfast included", "balcony", "bar", "concierge", "parking"],
+      "vibe_tags": ["luxury", "scenic"],
+      "description": "Forty minutes south of Barcelona on the most luminous stretch of the Garraf coast, this whitewashed cliff villa occupies a position of unreasonable beauty above the Mediterranean. The terraced garden descends in jasmine-scented steps from the private pool to a staircase cut directly into the rock, leading to a small private cove. Sitges itself — a town of art galleries, Modernista mansions, and a legendary carnival — is a short walk along the coastal path. From the villa's top terrace, on clear days, you can see the Balearic shimmer in the far distance.",
+      "review_highlights": [
+        "Our own pool, our own cove, the Mediterranean, and Sitges five minutes away. I want to retire here.",
+        "The most beautiful place I have ever stayed. Every view was better than the last.",
+        "Came for a long weekend and extended by three days. Couldn't leave.",
+        "Morning swims in the private cove before breakfast on the terrace. This is what life is supposed to feel like.",
+        "Worth every cent and then some. Transformative."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_031",
+      "name": "Caldera Cliffs Resort",
+      "type": "resort",
+      "location": {
+        "city": "Santorini",
+        "country": "Greece",
+        "neighborhood": "Oia",
+        "location_vibe": "hilltop"
+      },
+      "price_per_night": 750,
+      "rating": 9.6,
+      "review_count": 2890,
+      "amenities": ["free wifi", "private pool", "swimming pool", "spa", "restaurant", "bar", "ocean view rooms", "balcony", "concierge", "room service", "breakfast included"],
+      "vibe_tags": ["romantic", "luxury"],
+      "description": "Oia is earth's most photographed sunset, and Caldera Cliffs Resort positions itself on the caldera rim with shameless confidence, as if it has known all along that this is where the sky performs best. The cave suites, carved into the volcanic cliff face across centuries, have been transformed into rooms of extraordinary sensory intelligence — cool stone walls in the heat, warm candlelight in the evenings, and an infinity pool that ends, apparently, in the Aegean Sea far below. Breakfast arrives on a private terrace as the light turns the caldera gold, and nobody speaks because language feels insufficient.",
+      "review_highlights": [
+        "Watched the Oia sunset from our private pool with a glass of Assyrtiko. I have never felt so fortunate in my life.",
+        "Our honeymoon. This was every bit of the dream and more. The staff upgraded us to the caldera-view cave suite.",
+        "Everything here is designed for couples to fall more deeply in love. The architecture, the light, the silence.",
+        "The breakfast served on our terrace overlooking the caldera was the most romantic meal I've ever shared.",
+        "Santorini is touristy. This resort exists outside of that reality entirely."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_032",
+      "name": "Fira White Cube Hotel",
+      "type": "boutique",
+      "location": {
+        "city": "Santorini",
+        "country": "Greece",
+        "neighborhood": "Fira",
+        "location_vibe": "hilltop"
+      },
+      "price_per_night": 290,
+      "rating": 8.8,
+      "review_count": 1543,
+      "amenities": ["free wifi", "swimming pool", "bar", "breakfast included", "ocean view rooms", "balcony", "concierge", "spa", "laundry service"],
+      "vibe_tags": ["romantic", "scenic"],
+      "description": "Fira crackles with energy that Oia's studied quietness lacks, and this boutique hotel captures that tension perfectly — all clean white geometry against volcanic panorama, all elegant restraint in the face of an island that's designed to overwhelm. The pool terrace cantilevers over the caldera edge with a recklessness that pays off visually at every hour. Local ceramic tiles, handwoven textiles, and volcanic stone surfaces connect the interior to the island's ancient material culture. Sunset here has the same drama as Oia but with a wine bar crowd that's more interested in Santorini than in social media.",
+      "review_highlights": [
+        "The pool hanging over the caldera is genuinely terrifying and genuinely magnificent. I swam in it every day.",
+        "Better location than Oia for exploring the whole island. Used it as a hub and got everywhere easily.",
+        "Had dinner watching the sun go down into the sea. It was like the end of a very good film.",
+        "The bar staff are brilliant — recommended local wineries and arranged a private tasting for us.",
+        "Fira is the real Santorini. This hotel is the best of Fira."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_033",
+      "name": "Akrotiri Cave Suites",
+      "type": "villa",
+      "location": {
+        "city": "Santorini",
+        "country": "Greece",
+        "neighborhood": "Akrotiri",
+        "location_vibe": "hilltop"
+      },
+      "price_per_night": 380,
+      "rating": 9.2,
+      "review_count": 421,
+      "amenities": ["free wifi", "private pool", "breakfast included", "ocean view rooms", "balcony", "garden", "spa", "concierge"],
+      "vibe_tags": ["quiet", "scenic"],
+      "description": "Near the Bronze Age ruins of ancient Akrotiri, far from Oia's Instagram processions, these cave suites offer a Santorini of solitude and scholarship. The volcanic tufa walls maintain a natural cool throughout the hottest Aegean afternoons. Each suite opens onto its own terraced garden with a pool that frames a long view of the caldera and the neighbouring islands across the blue. Evenings are entirely about the light — the southern exposure means you watch it longer and in more dimensions than anywhere on the island. The archaeological site next door belongs, before the tourist coaches arrive at 9am, entirely to you.",
+      "review_highlights": [
+        "We wanted the real Santorini without the crowds and we found it here. Quiet, beautiful, and genuinely special.",
+        "Swam in our private pool at midnight looking at the stars. There was no moon and the Milky Way was astonishing.",
+        "Visited the ruins before they opened to the public — arranged by the hotel. Extraordinary privilege.",
+        "Best sunset views on the entire island because you're not jostling for position with a thousand other people.",
+        "This is for people who want Santorini, not the Santorini content. Different experience entirely."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_034",
+      "name": "Perissa Black Beach Hotel",
+      "type": "hotel",
+      "location": {
+        "city": "Santorini",
+        "country": "Greece",
+        "neighborhood": "Perissa",
+        "location_vibe": "beachfront"
+      },
+      "price_per_night": 115,
+      "rating": 8.0,
+      "review_count": 2134,
+      "amenities": ["free wifi", "swimming pool", "beach access", "bar", "restaurant", "breakfast included", "water sports", "laundry service", "24hr front desk"],
+      "vibe_tags": ["adventure", "budget"],
+      "description": "Most visitors to Santorini never find the black volcanic beaches of the southern coast, and most of those visitors are missing the best thing on the island. Perissa's dramatic dark shore backed by the monolithic cliff of Mesa Vouno is unlike anywhere else in Greece. This family-run hotel sits with its feet practically in the sea, where water sports equipment, fishing boats, and beach chairs coexist in easy Mediterranean disorder. A sunset seen from the black beach — the water iridescent, the cliff turning amber — is the island's best-kept secret.",
+      "review_highlights": [
+        "Black sand beaches are nothing like white sand beaches. Alien, dramatic, and completely empty in the mornings.",
+        "Had the best fresh fish of my life at a taverna the owners recommended. Went back three times.",
+        "Incredibly good value for Santorini. Clean rooms, great pool, and that extraordinary beach twenty metres away.",
+        "Rented a scooter and drove up to Oia but honestly preferred coming back to our quieter corner of the island.",
+        "The cliffs at sunset from the beach are as cinematic as anything on the island. And nobody's there to watch."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_035",
+      "name": "Imerovigli Horizon Villa",
+      "type": "villa",
+      "location": {
+        "city": "Santorini",
+        "country": "Greece",
+        "neighborhood": "Imerovigli",
+        "location_vibe": "hilltop"
+      },
+      "price_per_night": 620,
+      "rating": 9.5,
+      "review_count": 308,
+      "amenities": ["free wifi", "private pool", "breakfast included", "ocean view rooms", "balcony", "spa", "concierge", "room service", "bar"],
+      "vibe_tags": ["luxury", "romantic"],
+      "description": "At the highest point of the caldera rim, between Fira and Oia, Imerovigli is Santorini's least-visited and most-elevated village — and from this private villa, the entire caldera unfolds in a 270-degree panorama that makes every other view feel incomplete. The plunge pool is heated through autumn evenings. The breakfast, served on a blue-shuttered terrace where the wind carries salt and thyme from the hillside, consists of local cheeses, Santorinian tomatoes, and honey from the property's own hives. This is a place designed for people who have seen enough of the world to know when they've found the best of it.",
+      "review_highlights": [
+        "The 270-degree view is not an exaggeration. We sat on the terrace for three hours on our first evening just turning slowly.",
+        "The most genuinely private feeling I've had on any holiday. Felt like we owned the whole caldera.",
+        "The honey from the property's bees on fresh bread at breakfast. That simple thing was the taste of the whole trip.",
+        "Celebrated our 10th anniversary here. The staff knew without being told and made the night unforgettable.",
+        "Santorini's highest point, quietest village, most spectacular view. That is a very precise description of perfection."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_036",
+      "name": "Pyrgos Village Inn",
+      "type": "boutique",
+      "location": {
+        "city": "Santorini",
+        "country": "Greece",
+        "neighborhood": "Pyrgos",
+        "location_vibe": "hilltop"
+      },
+      "price_per_night": 170,
+      "rating": 8.6,
+      "review_count": 567,
+      "amenities": ["free wifi", "breakfast included", "bar", "balcony", "mountain view rooms", "garden", "laundry service", "concierge"],
+      "vibe_tags": ["cultural", "quiet"],
+      "description": "The medieval village of Pyrgos sits at Santorini's inland high point, a Venetian-era castle village of narrow alleys and defensive walls that most visitors never reach. This inn, in a restored Cycladic captain's house, offers the Santorini that existed before tourism — a quieter, more domestic island of wine producers, olive groves, and views that extend from both coasts simultaneously. The terrace bar serves local Assyrtiko and barrel-aged Vinsanto poured by owners who have deep opinions about both. Being here feels like a correction to an overcrowded narrative.",
+      "review_highlights": [
+        "Arrived in Oia, couldn't handle it, retreated to Pyrgos. Best travel decision I've ever made.",
+        "The medieval castle lanes at night with no other tourists — completely magical. A different island.",
+        "The wine knowledge of the owners is extraordinary. Came here knowing nothing about Santorinian wine and left evangelical about it.",
+        "Views in two directions from the castle walls. Sea on both sides of the island visible on clear days.",
+        "This is the authentic Santorini. Unpretentious, beautiful, and entirely itself."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_037",
+      "name": "The High Line Hotel",
+      "type": "hotel",
+      "location": {
+        "city": "New York",
+        "country": "USA",
+        "neighborhood": "Chelsea",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 390,
+      "rating": 9.0,
+      "review_count": 3421,
+      "amenities": ["free wifi", "gym", "restaurant", "bar", "room service", "concierge", "business center", "city view rooms", "garden", "24hr front desk", "laundry service"],
+      "vibe_tags": ["cultural", "luxury"],
+      "description": "In a seminary building that has resisted the Chelsea neighbourhood's waves of transformation — from industrial to gallery district to tech corridor — with the impassive confidence of dressed stone, the High Line Hotel keeps its own pace. The rooms are furnished with a literary seriousness: vintage maps, antiquarian books, and leather armchairs that invite you to sit in them for hours with no purpose. Outside, the famous High Line elevated park begins steps away, threading north through the neighbourhood like a long thought. The garden courtyard, where a fire burns on cool evenings, is one of New York's great open secrets.",
+      "review_highlights": [
+        "The most handsome building in New York, I think. The cloistered courtyard with the firepit at night is impossibly romantic.",
+        "Used it as a creative base for a writing trip. The atmosphere is extremely conducive to focused work. Barely left.",
+        "High Line is right there. Ran it at 6am before anyone else was out. That experience defines New York at its best.",
+        "The bar attracts a very interesting crowd. Met a novelist, a gallery owner, and a chef in one evening.",
+        "New York hotels often feel interchangeable. This one is deeply, specifically itself."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_038",
+      "name": "Brooklyn Bridge View Inn",
+      "type": "boutique",
+      "location": {
+        "city": "New York",
+        "country": "USA",
+        "neighborhood": "DUMBO",
+        "location_vibe": "waterfront"
+      },
+      "price_per_night": 265,
+      "rating": 8.7,
+      "review_count": 1876,
+      "amenities": ["free wifi", "rooftop bar", "restaurant", "gym", "city view rooms", "balcony", "bar", "concierge", "business center", "laundry service", "24hr front desk"],
+      "vibe_tags": ["scenic", "cultural"],
+      "description": "DUMBO's particular genius is the framed view — the Brooklyn Bridge and Manhattan skyline between the warehouse columns of Washington Street — and this boutique inn has oriented every possible space toward that view with architectural determination. The rooftop bar looks directly at the bridge's cable geometry as the towers of Manhattan arrange themselves in the background. Below, the cobblestone streets of one of New York's most cinematically beautiful neighbourhoods lead to independent bookshops, gallery spaces, and waterfront parks where the city arranges itself for you as if on request.",
+      "review_highlights": [
+        "The rooftop at night with the bridge lit up and Manhattan glittering behind it. New York giving its absolute best.",
+        "DUMBO is the perfect New York neighbourhood and this hotel is the perfect DUMBO base.",
+        "Photographed the bridge from every angle for three days. The hotel organised a morning session with a photographer friend of theirs.",
+        "Ate at the restaurant twice. Modern American with genuinely brilliant ingredients. The scallops were extraordinary.",
+        "Worked from the bar most mornings with a view of the bridge. The best office I've ever had."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_039",
+      "name": "Times Square Grand",
+      "type": "hotel",
+      "location": {
+        "city": "New York",
+        "country": "USA",
+        "neighborhood": "Midtown",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 285,
+      "rating": 8.2,
+      "review_count": 7890,
+      "amenities": ["free wifi", "gym", "spa", "restaurant", "bar", "room service", "business center", "24hr front desk", "concierge", "city view rooms", "airport shuttle", "laundry service"],
+      "vibe_tags": ["luxury", "cultural"],
+      "description": "Times Square is either the center of the universe or evidence of everything that has gone wrong with it, and this hotel occupies that ambiguity with a knowing smile. The soundproofed rooms look out over the sign-blizzard below while remaining in a parallel universe of calm. The gym is among the best in midtown — serious equipment, long hours, and enough space for a proper session before Broadway or before a day of meetings. A rooftop club sits above the noise with views that would be enough to justify the entire stay. Central Park is twelve blocks north; the theatre district is two blocks in every direction.",
+      "review_highlights": [
+        "I know Times Square is a cliché but watching it at midnight from my room was genuinely thrilling. Spectacle is spectacle.",
+        "The gym is exceptional for a Times Square hotel. Best workout I've had on any business trip.",
+        "Everything in New York is walkable from here. Did Broadway twice, the Met once, and Central Park every morning.",
+        "Soundproofing actually works. Slept perfectly despite being in the noisiest place on earth.",
+        "For business travel to New York this is ideal. Central, efficient, excellent facilities."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_040",
+      "name": "Williamsburg Hostel & Co-working",
+      "type": "hotel",
+      "location": {
+        "city": "New York",
+        "country": "USA",
+        "neighborhood": "Williamsburg",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 78,
+      "rating": 7.8,
+      "review_count": 2341,
+      "amenities": ["free wifi", "bar", "business center", "laundry service", "24hr front desk", "rooftop bar", "bicycle rental", "gym"],
+      "vibe_tags": ["budget", "cultural"],
+      "description": "Williamsburg's particular creative energy — the murals, the record shops, the coffee bars where everyone is working on something — finds its natural accommodation form in this hostel-meets-studio. The co-working space is the heart of the building: fast wifi, standing desks, private booths, and a coffee subscription that keeps pace with demanding schedules. Sleeping options range from thoughtfully designed pod rooms to private doubles with rooftop terrace access. The neighbourhood feeds you brilliantly at every price point and the L train to Manhattan runs every few minutes.",
+      "review_highlights": [
+        "The co-working space is genuinely excellent. Worked productively here for two weeks while exploring New York in the evenings.",
+        "Williamsburg is an extraordinary neighbourhood. Could live here. The coffee scene alone is worth relocating for.",
+        "Best value New York stay I've found. You're in the most interesting part of Brooklyn with Manhattan twenty minutes away.",
+        "Met other freelancers and remote workers at the co-working area. Spontaneous collaborations happened.",
+        "Rooftop at sunset with Manhattan skyline view and a $6 beer. New York doesn't have to be expensive."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_041",
+      "name": "Upper West Side Family Suite Hotel",
+      "type": "hotel",
+      "location": {
+        "city": "New York",
+        "country": "USA",
+        "neighborhood": "Upper West Side",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 320,
+      "rating": 8.5,
+      "review_count": 1560,
+      "amenities": ["free wifi", "gym", "swimming pool", "restaurant", "kids club", "room service", "laundry service", "24hr front desk", "concierge", "breakfast included", "parking"],
+      "vibe_tags": ["family", "cultural"],
+      "description": "Central Park begins at the end of the block and the American Museum of Natural History is a six-minute walk, which tells you everything you need to know about why families return to this Upper West Side hotel year after year with increasing numbers of children. The interconnected suites are designed around how families actually travel — separate sleeping areas, storage for the ridiculous amount of things children require, and a kitchenette for the inevitable 2am toddler demands. The rooftop pool is heated through October, and the supervised kids' programme gives parents enough time for a quiet dinner at the hotel's excellent restaurant.",
+      "review_highlights": [
+        "Best family hotel we've found in New York. The Museum of Natural History is around the corner. The kids talked about it for a year.",
+        "The interconnecting suites are genuinely smart. Separate space for the kids meant we actually got to sleep.",
+        "Central Park right there means morning runs and afternoon picnics sorted. The city becomes manageable from this neighbourhood.",
+        "Staff were brilliant with our children from the moment we arrived. New York can feel hostile to families. This hotel solves that.",
+        "Rooftop pool in September with the park turning gold below us. Extraordinary."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_042",
+      "name": "Soho Loft Hotel",
+      "type": "boutique",
+      "location": {
+        "city": "New York",
+        "country": "USA",
+        "neighborhood": "SoHo",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 410,
+      "rating": 8.9,
+      "review_count": 2109,
+      "amenities": ["free wifi", "gym", "spa", "restaurant", "bar", "city view rooms", "balcony", "concierge", "room service", "24hr front desk", "laundry service"],
+      "vibe_tags": ["luxury", "cultural"],
+      "description": "The cast-iron facades of SoHo are a 19th-century commercial district accidentally preserved by industrial decline and then transformed by art world colonisation into the most desirable address in New York. This loft hotel occupies one of the neighbourhood's landmark buildings with all the nonchalant confidence that implies. The rooms have the bones of the original warehouse space — exposed brick, timber beams, ten-foot windows — and the fittings of the moment: custom furniture from local designers, sound systems tuned by a renowned audio engineer, art chosen from the galleries that line every surrounding street.",
+      "review_highlights": [
+        "The architecture alone justifies the price. Woke up in a cast-iron building with ten-foot windows looking onto cobblestones.",
+        "The art in my room was for sale and I nearly bought it. The front desk gave me the gallery contact. That's a lovely touch.",
+        "Spa is extraordinary. Did the full Sunday ritual — steam, treatment, the bathing area. Came out a new person.",
+        "SoHo is the best shopping in New York and the hotel is in the middle of it. This is either helpful or dangerous.",
+        "Feels like a very well-curated private apartment in the best neighbourhood in New York."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_043",
+      "name": "Cape Point Clifftop Hotel",
+      "type": "hotel",
+      "location": {
+        "city": "Cape Town",
+        "country": "South Africa",
+        "neighborhood": "Clifton",
+        "location_vibe": "beachfront"
+      },
+      "price_per_night": 310,
+      "rating": 9.2,
+      "review_count": 1876,
+      "amenities": ["free wifi", "swimming pool", "spa", "restaurant", "bar", "beach access", "ocean view rooms", "balcony", "gym", "concierge", "room service", "24hr front desk"],
+      "vibe_tags": ["scenic", "luxury"],
+      "description": "Clifton's four white-sand beaches are Cape Town's most guarded secret from the perspective of anyone who has ever sat on them and understood why, and this hotel clings to the granite cliffs above with the territorial satisfaction of something that knows exactly what it has. The Atlantic below turns turquoise in direct sunlight and near-black when clouds move over Table Mountain. Rooms are arranged in vertical tiers down the cliff face, each one offering a view that is simultaneously intimate and enormous. At sunset, as the mountain turns terracotta and the sea goes dark, the pool deck becomes the only rational place to be.",
+      "review_highlights": [
+        "Clifton beach from the pool deck at sunset is the most beautiful natural sight I have ever witnessed. And I've been to many.",
+        "Cape Town is extraordinary and this hotel captures everything extraordinary about it. The mountain, the sea, the light.",
+        "The spa is world-class. Had a treatment using fynbos botanicals unique to the Cape. Remarkable.",
+        "Ate at the restaurant most nights because the fish from the Cape is exceptional and the kitchen knows it.",
+        "Woke up every morning grateful to be there. That's the best review I know how to write."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_044",
+      "name": "V&A Waterfront Suites",
+      "type": "hotel",
+      "location": {
+        "city": "Cape Town",
+        "country": "South Africa",
+        "neighborhood": "V&A Waterfront",
+        "location_vibe": "waterfront"
+      },
+      "price_per_night": 245,
+      "rating": 8.8,
+      "review_count": 3240,
+      "amenities": ["free wifi", "gym", "swimming pool", "restaurant", "bar", "room service", "concierge", "business center", "mountain view rooms", "ocean view rooms", "24hr front desk", "airport shuttle"],
+      "vibe_tags": ["scenic", "luxury"],
+      "description": "The Victoria & Alfred Waterfront is Cape Town's remarkable marriage of working harbour and world-class lifestyle destination, and these suites — sitting between the working docks and Table Mountain's vertical face — get the best of both. Robben Island is visible on clear days from the harbour-facing rooms, and behind every other window, Table Mountain fills the frame like a living painting that changes colour by the hour. The hotel's two restaurants draw serious Cape Town foodies for the South African tasting menu, which tells a story of the Cape in eight courses.",
+      "review_highlights": [
+        "Took the Robben Island ferry from directly outside the hotel. The context that gives to Cape Town cannot be overstated.",
+        "Table Mountain from my room changed colour eleven times from dawn to dusk. I counted.",
+        "The South African tasting menu was revelatory. I knew nothing about Cape cuisine and now I think about it constantly.",
+        "Perfect business hotel with a soul. Meetings done by midday and on a boat by 2pm.",
+        "Cape Town is one of the great cities and this hotel serves as an ideal base for understanding all of it."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_045",
+      "name": "Bo-Kaap Heritage House",
+      "type": "boutique",
+      "location": {
+        "city": "Cape Town",
+        "country": "South Africa",
+        "neighborhood": "Bo-Kaap",
+        "location_vibe": "hilltop"
+      },
+      "price_per_night": 145,
+      "rating": 8.9,
+      "review_count": 678,
+      "amenities": ["free wifi", "breakfast included", "garden", "rooftop bar", "mountain view rooms", "concierge", "laundry service", "bar"],
+      "vibe_tags": ["cultural", "scenic"],
+      "description": "The Bo-Kaap's cobblestone streets of brilliantly painted houses represent Cape Town's most joyful response to its painful history — a Cape Malay community's determination to celebrate culture and colour in defiance of what tried to extinguish it. This 18th-century house, in one of the neighbourhood's most photographed rows, has been restored by a local architect with reverence for its history and an eye for beauty. The spice markets at the base of the hill fill mornings with turmeric and cinnamon. The rooftop faces Table Mountain in its entirety, and below it, a city that is working very hard to become what it always should have been.",
+      "review_highlights": [
+        "Bo-Kaap changed my understanding of Cape Town entirely. Staying here rather than at the waterfront was the right decision.",
+        "The breakfast included Cape Malay dishes I'd never encountered. Started every day with something new and extraordinary.",
+        "Rooftop breakfast with Table Mountain in front of you and the whole city below. One of the most striking images of my life.",
+        "The owners explained the neighbourhood's history in depth. Left understanding Cape Town in a way I hadn't expected.",
+        "Colours of the street outside were the most joyful thing. Photographed them fifty times."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_046",
+      "name": "Franschhoek Wine Estate Villa",
+      "type": "villa",
+      "location": {
+        "city": "Cape Town",
+        "country": "South Africa",
+        "neighborhood": "Franschhoek",
+        "location_vibe": "countryside"
+      },
+      "price_per_night": 680,
+      "rating": 9.5,
+      "review_count": 431,
+      "amenities": ["free wifi", "private pool", "spa", "restaurant", "breakfast included", "wine tasting", "mountain view rooms", "garden", "concierge", "parking"],
+      "vibe_tags": ["luxury", "wellness"],
+      "description": "The Franschhoek Valley is arguably the most beautiful in South Africa — a French Huguenot settlement grown into the country's culinary capital, where mountain ranges hold the vine rows like cupped hands. This estate villa, set within a working vineyard, makes the landscape its principal luxury: breakfast on a terrace overlooking vines moving in the mountain wind, spa treatments incorporating local Cape botanicals, and a wine list that could double as a geology lesson in the Cape's unique terroir. The estate's restaurants have helped shape the contemporary Cape food movement.",
+      "review_highlights": [
+        "We drank wine from the estate's own vines on a terrace surrounded by mountains. Peak South Africa.",
+        "The spa here is at a completely different level. Used entirely local ingredients and the knowledge behind it was extraordinary.",
+        "Breakfast was three courses of magnificent ingredients. Could have spent the entire day eating.",
+        "This is the place for a proper romantic getaway. Privacy, beauty, excellent wine, and extraordinary food.",
+        "Cape winelands deserve a whole trip and this is the best way to centre one."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_047",
+      "name": "Kalk Bay Fisherman's Inn",
+      "type": "boutique",
+      "location": {
+        "city": "Cape Town",
+        "country": "South Africa",
+        "neighborhood": "Kalk Bay",
+        "location_vibe": "waterfront"
+      },
+      "price_per_night": 110,
+      "rating": 8.4,
+      "review_count": 892,
+      "amenities": ["free wifi", "breakfast included", "bar", "ocean view rooms", "balcony", "concierge", "laundry service", "garden"],
+      "vibe_tags": ["cultural", "quiet"],
+      "description": "Kalk Bay is the Cape's most perfectly preserved harbour village, a place of working fishing boats, antique dealers, and extraordinarily good fish restaurants that have somehow coexisted for decades without either becoming a tourist trap or losing their soul. This former fisherman's house, overlooking the harbour's colourful chaos, has been sensitively converted into a haven of stripped-back comfort. Mornings begin with the sound of boats heading out to sea and a breakfast of fresh fish caught by the boats you watched leave. The False Bay whale watching season, which runs from July to October, makes this the most wildlife-rich accommodation option on the Cape Peninsula.",
+      "review_highlights": [
+        "Saw a Southern right whale breach from our balcony over breakfast. That cannot be a normal Tuesday.",
+        "Kalk Bay has the best fish restaurants in South Africa. Had the most extraordinary linefish three nights running.",
+        "The village feels entirely real and entirely wonderful. Antique shops, artists, fishermen, and surfers all sharing the same small space.",
+        "Quiet, characterful, and genuinely connected to the place. Couldn't ask for more.",
+        "This is the Cape I dreamed about. Worth the drive from the city."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_048",
+      "name": "Cape Town City Bowl Budget",
+      "type": "hotel",
+      "location": {
+        "city": "Cape Town",
+        "country": "South Africa",
+        "neighborhood": "City Bowl",
+        "location_vibe": "city center"
+      },
+      "price_per_night": 65,
+      "rating": 7.6,
+      "review_count": 2109,
+      "amenities": ["free wifi", "bar", "laundry service", "24hr front desk", "mountain view rooms", "bicycle rental", "gym"],
+      "vibe_tags": ["budget", "cultural"],
+      "description": "Table Mountain fills the window directly from the budget floor rooms of this no-nonsense City Bowl hotel, offering views that hotels charging five times the price would consider their primary selling point. The building itself is honest mid-century Cape architecture — not beautiful but entirely solid — and the rooms inside are clean, functional, and occupied by the interesting mixture of backpackers, musicians, and budget-conscious professionals who have discovered that Cape Town's real character lives in the streets below. The café and bar downstairs serves the City Bowl's creative community all day and most of the night.",
+      "review_highlights": [
+        "Table Mountain from the window for R65 a night equivalent. The mountain doesn't care about your budget.",
+        "The bar downstairs is a genuine local spot. More interesting conversations there than anywhere else on my trip.",
+        "Excellent base for exploring Cape Town on foot. The city is walkable, diverse, and extraordinary.",
+        "For the price this is genuinely excellent. Clean, safe, good wifi, great views, great location.",
+        "Solo traveller's dream. Social atmosphere, central location, and the whole of Cape Town to explore."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_049",
+      "name": "Arashiyama Bamboo Inn",
+      "type": "boutique",
+      "location": {
+        "city": "Kyoto",
+        "country": "Japan",
+        "neighborhood": "Arashiyama",
+        "location_vibe": "riverside"
+      },
+      "price_per_night": 195,
+      "rating": 9.4,
+      "review_count": 1023,
+      "amenities": ["free wifi", "breakfast included", "garden", "hot tub", "concierge", "laundry service", "bicycle rental", "sauna"],
+      "vibe_tags": ["cultural", "quiet"],
+      "description": "On the Oi River's western bank, where the Sagano bamboo grove begins its extraordinary green corridor, this traditional inn occupies a 200-year-old machiya townhouse that has found a new purpose without losing its original soul. Waking here means waking to the sound of the river and, if the hour is early enough, the bamboo grove before the tour groups arrive — a near-religious experience of light and scale that the rest of the day will not match. Afternoon tea is served in a garden where moss and maple trees have been composing themselves for a century.",
+      "review_highlights": [
+        "Got up at 5:30am and walked to the bamboo grove alone before anyone arrived. The most profound natural experience of my life.",
+        "The inn itself is as beautiful as the landscape. Old wood, paper screens, and a garden that seems to have always been perfect.",
+        "Breakfast was kaiseki-style in the garden. Seven small dishes of extraordinary local ingredients. I want to eat it every morning forever.",
+        "Kyoto is Japan's spiritual center and this inn made me feel it. Not just visiting — actually receiving.",
+        "Best sleep I've had anywhere on any trip. The sound of the river, the perfect temperature, the futon. Perfect conditions."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_050",
+      "name": "Gion Machiya Suites",
+      "type": "villa",
+      "location": {
+        "city": "Kyoto",
+        "country": "Japan",
+        "neighborhood": "Gion",
+        "location_vibe": "old town"
+      },
+      "price_per_night": 350,
+      "rating": 9.6,
+      "review_count": 534,
+      "amenities": ["free wifi", "private pool", "breakfast included", "garden", "concierge", "spa", "hot tub", "laundry service"],
+      "vibe_tags": ["luxury", "cultural"],
+      "description": "In the preserved streetscapes of Gion, where geisha move through the evenings with the composure of people who know they are in the most beautiful neighbourhood on earth, this entirely private machiya compound offers the experience of inhabiting Old Kyoto rather than observing it. An entire renovated townhouse — engawa corridor, courtyard garden, ceramic-tiled bathroom, and private onsen — becomes yours for the duration of your stay. The geisha districts lie outside the front door, the Kamo River is two minutes walk, and Kyoto's finest kaiseki restaurants are exactly where the concierge will direct you.",
+      "review_highlights": [
+        "Had the whole traditional townhouse to ourselves. It felt like living inside the Kyoto we'd imagined before we arrived.",
+        "Watched two maiko walk past our gate at dusk. The private setting meant it felt completely real and completely magical.",
+        "The private onsen in the courtyard under the stars was the most extraordinary bath I've ever had.",
+        "The concierge arranged a private tea ceremony the morning of our last day. Perfect ending.",
+        "Gion at night from a private machiya. Indescribable. You have to experience it."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_051",
+      "name": "Higashiyama Temple Hotel",
+      "type": "hotel",
+      "location": {
+        "city": "Kyoto",
+        "country": "Japan",
+        "neighborhood": "Higashiyama",
+        "location_vibe": "old town"
+      },
+      "price_per_night": 175,
+      "rating": 9.0,
+      "review_count": 1890,
+      "amenities": ["free wifi", "spa", "breakfast included", "restaurant", "garden", "hot tub", "sauna", "concierge", "laundry service", "balcony"],
+      "vibe_tags": ["cultural", "wellness"],
+      "description": "The Higashiyama district is Japan's most intact traditional townscape — a chain of preserved machiya and temple approaches that run from Kiyomizudera down through Gion in an unbroken corridor of lanterns, stone pathways, and matcha tea houses. This hotel, once a traditional bathhouse, has been reimagined as an urban wellness retreat where the original onsen baths remain the centerpiece. Dawn visits to Kiyomizudera temple, before the crowds transform it back into a spectacle, begin from this hotel as ritual. The garden serves as a place of quiet recalibration between the day's temple visiting.",
+      "review_highlights": [
+        "Walked to Kiyomizudera at 6am in light rain and had it almost entirely to myself. That is a sacred experience.",
+        "The bathhouse origins mean the bathing facilities are genuinely exceptional. The onsen culture here is the real thing.",
+        "Higashiyama at night is the most beautiful street scene in Japan. And my room was on it.",
+        "Came for cultural exploration and left feeling spiritually rested. The rhythm of temple life is profoundly calming.",
+        "Every detail of this hotel is thoughtful. Felt like staying in a poem."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_052",
+      "name": "Fushimi Budget Ryokan",
+      "type": "boutique",
+      "location": {
+        "city": "Kyoto",
+        "country": "Japan",
+        "neighborhood": "Fushimi",
+        "location_vibe": "old town"
+      },
+      "price_per_night": 72,
+      "rating": 8.2,
+      "review_count": 2456,
+      "amenities": ["free wifi", "breakfast included", "garden", "bicycle rental", "laundry service", "24hr front desk"],
+      "vibe_tags": ["budget", "cultural"],
+      "description": "Fushimi's ten thousand vermillion torii gates creating their famous tunneled corridor are, impossibly, as extraordinary in person as in every photograph ever taken of them — and this family-run budget ryokan places you in the neighbourhood with the right timing to experience them at first and last light, when the corridor breathes. The tatami rooms are modest and genuine rather than performed. Breakfast is a simple Japanese affair of miso, rice, and pickles, served with the care that characterises everything in this city. At these prices in Kyoto, nothing comes close.",
+      "review_highlights": [
+        "Woke at 5am, walked to Fushimi Inari gates in the mist. No one there. Worth the entire trip.",
+        "Don't overthink Kyoto accommodation if budget is a concern. This is clean, traditional, and brilliantly positioned.",
+        "The family who run it have lived in Fushimi for generations. The local knowledge they share is gold.",
+        "Tatami room was genuinely comfortable once I adapted to the futon. Slept deeply every night.",
+        "Kyoto on a sensible budget, done properly. This is how you do it."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_053",
+      "name": "Amalfi Grand Hotel",
+      "type": "hotel",
+      "location": {
+        "city": "Amalfi",
+        "country": "Italy",
+        "neighborhood": "Amalfi Town",
+        "location_vibe": "waterfront"
+      },
+      "price_per_night": 520,
+      "rating": 9.3,
+      "review_count": 2134,
+      "amenities": ["free wifi", "swimming pool", "spa", "restaurant", "bar", "ocean view rooms", "balcony", "concierge", "room service", "breakfast included", "beach access", "24hr front desk"],
+      "vibe_tags": ["luxury", "scenic"],
+      "description": "The Amalfi Coast road is one of Italy's great acts of architectural recklessness — a shelf cut into vertical limestone cliffs above a sea that shifts from jade to cobalt by the hour — and this grand hotel has commanded its position above the medieval harbor since the 18th century with the composed authority of something that has watched a lot of history pass below it. The terraced gardens descend in lemon trees and bougainvillea to the sea. An elevator cut into the cliff delivers guests to a wooden dock where boats bob and the Tyrrhenian morning opens up in every direction.",
+      "review_highlights": [
+        "The view from our terrace at breakfast — lemon trees, medieval harbor, the sea — exceeded every expectation I had of Italy.",
+        "The private boat to Positano took forty minutes and felt like the most beautiful commute imaginable.",
+        "Swam from the wooden dock every morning before breakfast. The sea is so clear you can see your feet from ten metres up.",
+        "The restaurant's seafood pasta is something I will reconstruct in my kitchen forever, unsuccessfully.",
+        "The Amalfi Coast is magical and this hotel is its finest expression."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_054",
+      "name": "Ravello Hilltop Villa",
+      "type": "villa",
+      "location": {
+        "city": "Amalfi",
+        "country": "Italy",
+        "neighborhood": "Ravello",
+        "location_vibe": "hilltop"
+      },
+      "price_per_night": 680,
+      "rating": 9.6,
+      "review_count": 298,
+      "amenities": ["free wifi", "private pool", "ocean view rooms", "garden", "breakfast included", "concierge", "spa", "balcony", "parking"],
+      "vibe_tags": ["romantic", "scenic"],
+      "description": "Ravello sits 350 metres above the Mediterranean, a town of impossible gardens and Wagner associations, where the view over the Amalfi Coast has been inspiring artists, composers, and the supremely fortunate for two thousand years. This private villa, with its infinity pool hovering over a panorama that extends past Capri to the horizon, is the definitive version of that view. Lemon and olive trees screen the terraces from any visible evidence of the present century, and the silence in the afternoon, when the tourist buses have departed and the town returns to itself, is among the deepest available anywhere in Italy.",
+      "review_highlights": [
+        "The villa pool over the Amalfi Coast panorama. I am not going to pretend something better exists.",
+        "Ravello is the most beautiful town in Italy and this is the most beautiful position in Ravello. The logic follows.",
+        "We stayed five days and spoke about nothing beyond what we were looking at. That is a holiday.",
+        "The garden in the morning before the heat arrives is extraordinary. Lemon blossoms everywhere.",
+        "Complete privacy, complete beauty, complete silence. A genuinely healing experience."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_055",
+      "name": "Positano Cliffside Boutique",
+      "type": "boutique",
+      "location": {
+        "city": "Amalfi",
+        "country": "Italy",
+        "neighborhood": "Positano",
+        "location_vibe": "hilltop"
+      },
+      "price_per_night": 290,
+      "rating": 8.9,
+      "review_count": 1765,
+      "amenities": ["free wifi", "swimming pool", "breakfast included", "bar", "ocean view rooms", "balcony", "concierge", "restaurant", "laundry service"],
+      "vibe_tags": ["romantic", "scenic"],
+      "description": "Positano tumbles down its cliff in a cascade of pastel buildings that the town itself cannot quite believe it managed to arrange so perfectly. This boutique hotel is positioned midway down that cascade, meaning the village descends above and below it in equal drama. The terrace breakfast — sfogliatelle still warm from the village baker, blood orange juice, and coffee from the nearby caffè — happens in front of a sea view that is both enormous and intimate. The beach requires a ten-minute walk down, which also means a ten-minute walk back up, which means Positano keeps itself naturally honest about commitment.",
+      "review_highlights": [
+        "There is no photograph that prepares you for Positano. This hotel is at the center of the whole thing.",
+        "Woke up every morning with a coffee on our terrace looking at the sea. That ten minutes was worth the whole trip.",
+        "The beach is glorious. The walk back up keeps you honest. Worth it every time.",
+        "Small, personal, and incredibly beautiful. Staff knew our names and our coffee orders by day two.",
+        "Stayed here on our third anniversary. The coast delivered everything it promised."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_056",
+      "name": "Praiano Secret Cove Hotel",
+      "type": "boutique",
+      "location": {
+        "city": "Amalfi",
+        "country": "Italy",
+        "neighborhood": "Praiano",
+        "location_vibe": "beachfront"
+      },
+      "price_per_night": 195,
+      "rating": 9.1,
+      "review_count": 543,
+      "amenities": ["free wifi", "beach access", "breakfast included", "bar", "ocean view rooms", "balcony", "concierge", "garden", "restaurant"],
+      "vibe_tags": ["quiet", "scenic"],
+      "description": "Between Positano's performance and Amalfi's crowds, Praiano maintains its fishing village composure with impressive resistance. This small hotel, owned by a fisherman's family since the 1960s, offers a private path cut into the cliff that leads to a rocky cove accessible only from the property. The sea there is the colour of a postcard from 1963. Evenings on the shared terrace with local wine and whatever came in on the boats that morning are conducted in an atmosphere of honest contentment that no amount of hotel design budget can manufacture.",
+      "review_highlights": [
+        "The private cove at the bottom of the cliff steps. I swam alone there at 7am with the whole coast to myself.",
+        "This is what the Amalfi Coast is under the Instagram surface. Praiano is the real thing.",
+        "The family who own it are extraordinary. They fed us like relatives, not guests.",
+        "Best value on the entire coast by some distance. The location and views rival anything at triple the price.",
+        "Quiet, real, and extraordinarily beautiful. Found this by accident. Now it's on the permanent list."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_057",
+      "name": "Old Manali River House",
+      "type": "boutique",
+      "location": {
+        "city": "Manali",
+        "country": "India",
+        "neighborhood": "Old Manali",
+        "location_vibe": "riverside"
+      },
+      "price_per_night": 55,
+      "rating": 8.7,
+      "review_count": 1234,
+      "amenities": ["free wifi", "breakfast included", "garden", "mountain view rooms", "balcony", "restaurant", "laundry service", "bar"],
+      "vibe_tags": ["adventure", "scenic"],
+      "description": "Old Manali sits on the Beas River's north bank in a world entirely separate from the highway town on the other side — apple orchards and wooden guesthouses and the smell of pine resin and deodar cedar carried on mountain air that arrives from altitude and has not passed over anything urban for hundreds of kilometres. This stone and timber river house, built in traditional Kullu style, has a garden that overhangs the water where the river makes a sound that colonises your sleep in the most comfortable way. The mountains behind are so large that they only reveal their true scale on clear mornings when cloud finally lifts.",
+      "review_highlights": [
+        "Slept with the window open listening to the Beas River. The best sleep I've had in years. Mountains are medicine.",
+        "Old Manali is a completely different place from the bus-stand chaos. This side is quiet, beautiful, and entirely itself.",
+        "Trek to Hampta Pass organised from the hotel. The most physically demanding and most beautiful day of my life.",
+        "The apple trees in the garden, the snow peaks above, the river below. India at its most extraordinary.",
+        "For digital nomads wanting genuine mountain solitude with good wifi — this is your place."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_058",
+      "name": "Solang Valley Snow Resort",
+      "type": "resort",
+      "location": {
+        "city": "Manali",
+        "country": "India",
+        "neighborhood": "Solang Valley",
+        "location_vibe": "countryside"
+      },
+      "price_per_night": 180,
+      "rating": 8.5,
+      "review_count": 876,
+      "amenities": ["free wifi", "swimming pool", "spa", "restaurant", "bar", "mountain view rooms", "gym", "skiing", "breakfast included", "airport shuttle", "parking"],
+      "vibe_tags": ["adventure", "family"],
+      "description": "Solang Valley in winter is the Himalaya performing for an audience of people who came specifically for this performance — a vast amphitheatre of snow-covered peaks above a valley floor that becomes India's most exuberant ski field. The resort, built in stone and pine with the solidity necessary for mountain winters, offers ski-in proximity to the valley's runs and a base camp atmosphere where the fireplace in the main lodge becomes the social and warming heart of every evening. Summer transforms the valley into a wildflower meadow suitable for paragliding, trekking, and river rafting on the meltwater-swollen Beas.",
+      "review_highlights": [
+        "Skied in the Himalayas with the Rohtang peaks above us. The scenery makes every ski resort in the Alps jealous.",
+        "The lodge fireplace in winter with everyone sharing mountain stories after the slopes. Pure Himalayan magic.",
+        "Brought the family for a winter break. The kids did their first skiing here. No one will forget it.",
+        "Paraglided over the valley in summer. Looking down at wildflowers and snow peaks simultaneously.",
+        "Adventure activities are endless here. We did four different things in four days and exhausted nothing."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_059",
+      "name": "Naggar Castle Heritage Hotel",
+      "type": "hotel",
+      "location": {
+        "city": "Manali",
+        "country": "India",
+        "neighborhood": "Naggar",
+        "location_vibe": "hilltop"
+      },
+      "price_per_night": 70,
+      "rating": 8.9,
+      "review_count": 1567,
+      "amenities": ["free wifi", "restaurant", "breakfast included", "mountain view rooms", "balcony", "garden", "bar", "laundry service"],
+      "vibe_tags": ["cultural", "scenic"],
+      "description": "Naggar Castle, built in the 15th century by the Raja of Kullu in the interlocking timber-and-stone style particular to this Himalayan valley, has looked across the Kullu Valley from its hillside for six hundred years with the satisfied expression of something that knows its view is incomparable. Now operating as a heritage hotel, it preserves the original architecture while adding the essentials of comfort without disturbing the atmosphere. The Russian painter Nicholas Roerich spent years painting the mountains from this valley, and his museum is a five-minute walk. The view he was painting is unchanged.",
+      "review_highlights": [
+        "Slept inside a 600-year-old Himalayan castle. I repeat: a 600-year-old castle. Everything else follows from that.",
+        "The Kullu Valley view from the balcony is the same one Roerich painted a hundred times. I understand why.",
+        "The heritage atmosphere is entirely genuine. Original stone, timber, and craftsmanship in every room.",
+        "Walked to the Roerich museum and came back feeling like I'd spent the morning inside a painting.",
+        "Best value cultural experience I've had on any trip anywhere. Extraordinary history, extraordinary views."
+      ],
+      "available": true
+    },
+    {
+      "id": "prop_060",
+      "name": "Trastevere Roma Townhouse",
+      "type": "boutique",
+      "location": {
+        "city": "Rome",
+        "country": "Italy",
+        "neighborhood": "Trastevere",
+        "location_vibe": "old town"
+      },
+      "price_per_night": 210,
+      "rating": 9.1,
+      "review_count": 1876,
+      "amenities": ["free wifi", "breakfast included", "garden", "bar", "balcony", "concierge", "laundry service", "rooftop bar", "city view rooms"],
+      "vibe_tags": ["romantic", "cultural"],
+      "description": "Trastevere is the Rome that Romans choose when they want to feel most like themselves — ivy-covered alleys, ivy-covered trattorias, ivy-covered everything, and a neighbourhood rhythm set by locals who eat late, talk loudly, and drink well. This converted merchant's townhouse opens onto a courtyard garden shaded by a centuries-old orange tree, which is either decorative or productive depending on the season. Mornings begin with a rooftop terrace breakfast where the city's domes arrange themselves in a panorama that reminds you daily that this is Rome, which is the most beautiful city in the world.",
+      "review_highlights": [
+        "Trastevere at night with the fountain lit up and dinner running until midnight. This is the Rome people mean when they talk about Rome.",
+        "The rooftop breakfast with the city domes — I cannot tell you what it does to a morning. It improves everything.",
+        "Stayed here for ten days working on a book. The courtyard orange tree, the neighbourhood sound, the coffee. My best writing environment ever.",
+        "Walked everywhere from here. The Pantheon, the Colosseum, Trastevere's own extraordinary churches. Everything is close.",
+        "Felt like living in Rome rather than visiting. That is the ultimate compliment and this place earned it."
+      ],
+      "available": true
+    }
+  ]
+}

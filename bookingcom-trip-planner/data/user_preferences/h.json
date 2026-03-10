@@ -1,0 +1,32 @@
+{
+  "user_id": "h",
+  "travel_style": [
+    "relaxation"
+  ],
+  "property_preferences": [
+    "apartment"
+  ],
+  "typical_budget": "budget",
+  "must_have_amenities": [
+    "pool",
+    "parking"
+  ],
+  "preferred_vibes": [
+    "romantic"
+  ],
+  "typical_companions": [
+    "solo"
+  ],
+  "accessibility_needs": [],
+  "location_preferences": [
+    "beach",
+    "nightlife area"
+  ],
+  "custom_interests": "F1",
+  "dietary_preferences": [
+    "vegetarian",
+    "vegan"
+  ],
+  "created_at": "2026-03-10T22:02:19.805665",
+  "updated_at": "2026-03-10T22:02:19.805716"
+}

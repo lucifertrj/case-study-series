@@ -1,0 +1,29 @@
+{
+  "user_id": "tarun",
+  "travel_style": [
+    "adventure",
+    "shopping"
+  ],
+  "property_preferences": [
+    "boutique",
+    "ryokan"
+  ],
+  "typical_budget": "budget",
+  "must_have_amenities": [
+    "wifi",
+    "parking"
+  ],
+  "preferred_vibes": [
+    "romantic"
+  ],
+  "typical_companions": [
+    "solo"
+  ],
+  "accessibility_needs": [],
+  "location_preferences": [
+    "beach",
+    "nightlife area"
+  ],
+  "created_at": "2026-03-10T16:09:28.427310",
+  "updated_at": "2026-03-10T16:09:28.427994"
+}
