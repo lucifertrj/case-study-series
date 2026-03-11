@@ -1,20 +1,5 @@
 import React from 'react';
 
-function ScoreBar({ label, value, cls }) {
-    const pct = Math.round(value * 100);
-    return (
-        <div className="score-bar-wrap">
-            <div className="score-bar-label">
-                <span>{label}</span>
-                <span>{pct}%</span>
-            </div>
-            <div className="score-bar-track">
-                <div className={`score-bar-fill ${cls}`} style={{ width: `${pct}%` }}></div>
-            </div>
-        </div>
-    );
-}
-
 const PropertyCard = ({ property: p, intent, currentUserId, onBook, onClick }) => {
     const score = Math.round(p.composite_score * 100);
     const scoreColor = score >= 75 ? '#1a9e8f' : score >= 55 ? '#d4a53a' : '#e8622a';
@@ -85,13 +70,6 @@ const PropertyCard = ({ property: p, intent, currentUserId, onBook, onClick }) =
                 {p.review_highlights?.[0] && (
                     <div className="review-highlight">"{p.review_highlights[0]}"</div>
                 )}
-            </div>
-
-            <div className="score-breakdown">
-                <ScoreBar label="Semantic" value={p.semantic_score} cls="semantic" />
-                <ScoreBar label="Filter match" value={p.filter_score} cls="filter" />
-                <ScoreBar label="Quality" value={p.quality_score} cls="quality" />
-                <ScoreBar label="Memory" value={p.memory_score} cls="memory" />
             </div>
 
             <div className="card-footer">

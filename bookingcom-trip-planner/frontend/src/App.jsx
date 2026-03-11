@@ -202,11 +202,6 @@ function App() {
 
   const renderWelcome = () => (
     <div className="welcome">
-      <div className="welcome-title">Tell us what you're looking for</div>
-      <div className="welcome-text">
-        Use natural language — the AI will extract your intent, check your travel memory, and surface
-        properties ranked by real meaning, not just keywords.
-      </div>
       <div className="how-it-works">
         <div className="how-step">
           <div className="step-num">1</div>

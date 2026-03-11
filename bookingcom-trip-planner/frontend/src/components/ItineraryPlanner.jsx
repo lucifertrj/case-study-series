@@ -1,6 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import { apiUrl } from '../api';
 
+const PERSONALIZATION_LOADING_STEPS = [
+  'Model is reading your query and preferences',
+  'Matching top properties to your travel style',
+  'Drafting a personalized day-by-day structure',
+];
+
+const ITINERARY_LOADING_STEPS = [
+  'Model is planning your next revision',
+  'Balancing pacing, activities, and food stops',
+  'Finalizing recommendations with your context',
+];
+
+const normalizeMarkdownPayload = (content = '') => {
+  let normalized = String(content ?? '').replace(/\r\n?/g, '\n');
+
+  // Some model responses return literal escaped newlines/tabs.
+  if (normalized.includes('\\n')) {
+    normalized = normalized.replace(/\\n/g, '\n');
+  }
+  if (normalized.includes('\\t')) {
+    normalized = normalized.replace(/\\t/g, '  ');
+  }
+
+  // If the entire response is wrapped in a markdown fence, unwrap it.
+  const fenced = normalized.match(/^```([a-zA-Z0-9_-]+)?\n([\s\S]*?)\n```$/);
+  if (fenced) {
+    const lang = (fenced[1] || '').toLowerCase();
+    if (!lang || lang === 'md' || lang === 'markdown') {
+      normalized = fenced[2];
+    }
+  }
+
+  return normalized.trim();
+};
+
 const escapeHtml = (text = '') =>
   text
     .replaceAll('&', '&amp;')
@@ -22,7 +57,7 @@ const formatInlineMarkdown = (line) => {
 };
 
 const markdownToHtml = (markdown = '') => {
-  const lines = markdown.split('\n');
+  const lines = normalizeMarkdownPayload(markdown).split('\n');
   const html = [];
   let inUl = false;
   let inOl = false;
@@ -64,7 +99,7 @@ const markdownToHtml = (markdown = '') => {
       continue;
     }
 
-    const heading = trimmed.match(/^(#{1,3})\s+(.*)$/);
+    const heading = trimmed.match(/^(#{1,6})\s+(.*)$/);
     if (heading) {
       closeLists();
       const level = heading[1].length;
@@ -140,6 +175,11 @@ function ItineraryPlanner({
   const [draft, setDraft] = useState('');
   const [loading, setLoading] = useState(false);
   const [loadingLabel, setLoadingLabel] = useState('Building your itinerary...');
+  const [loadingStepIndex, setLoadingStepIndex] = useState(0);
+
+  const loadingSteps = loadingLabel.startsWith('Personalizing')
+    ? PERSONALIZATION_LOADING_STEPS
+    : ITINERARY_LOADING_STEPS;
 
   const sendMessage = async (messageText, historyOverride = messages) => {
     if (!messageText.trim()) return;
@@ -187,6 +227,15 @@ function ItineraryPlanner({
     const initialPrompt = buildInitialPrompt(searchData, userPreferences);
     void sendMessage(initialPrompt, []);
   }, [searchData, userPreferences, messages.length]);
+
+  useEffect(() => {
+    if (!loading) return undefined;
+    setLoadingStepIndex(0);
+    const timer = setInterval(() => {
+      setLoadingStepIndex((prev) => (prev + 1) % loadingSteps.length);
+    }, 1400);
+    return () => clearInterval(timer);
+  }, [loading, loadingSteps.length]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -243,7 +292,16 @@ function ItineraryPlanner({
         {loading && (
           <div className="planner-message planner-message-assistant">
             <div className="planner-message-role">Planner</div>
-            <div className="planner-message-body">{loadingLabel}</div>
+            <div className="planner-message-body planner-loader">
+              <div className="planner-loader-spinner" aria-hidden="true" />
+              <div>
+                <div className="planner-loader-title">
+                  {loadingLabel}
+                  <span className="planner-loader-dots" aria-hidden="true" />
+                </div>
+                <div className="planner-loader-status">{loadingSteps[loadingStepIndex]}</div>
+              </div>
+            </div>
           </div>
         )}
       </div>
