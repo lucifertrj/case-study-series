@@ -20,6 +20,8 @@ Booking.com partnered with OpenAI to transform their travel platform with AI-pow
 
 ## Architecture
 
+<img width="829" height="754" alt="Screenshot 2026-03-11 at 20 07 01" src="https://github.com/user-attachments/assets/4a89d2d0-041c-406a-8c83-69a21a863ca3" />
+
 The implementation includes:
 - **Backend**: FastAPI server with semantic search, composite scoring, property Q&A, and itinerary planning
 - **Frontend**: React application for the user interface
