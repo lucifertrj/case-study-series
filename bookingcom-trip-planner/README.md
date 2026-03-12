@@ -3,6 +3,10 @@
 ## Overview
 This repository contains the implementation and analysis from our case study on **Booking.com's AI-Powered Travel Platform**. This initiative focuses on understanding the AI-driven features that Booking.com built using OpenAI's models, including conversational trip planning, smart filters, property Q&A, and review summarization.
 
+> How Booking.com is using AI: (Watch on YouTube)
+
+[![Booking.com AI Case Study](https://img.youtube.com/vi/IZv6CRcGMOg/maxresdefault.jpg)](https://www.youtube.com/watch?v=IZv6CRcGMOg)
+
 ## Resources
 
 ### Original Booking.com Resources
@@ -17,6 +21,8 @@ Booking.com partnered with OpenAI to transform their travel platform with AI-pow
 - **Property Q&A**: AI-powered question answering about property details using fine-tuned models on user-generated content
 - **AI Review Summaries**: Automated summarization of property reviews into key themes for faster decision-making
 - **Help Me Reply**: Automated response generation for guest communications
+
+> In our implementation, we will only tackle Smart Filters and PropertyQA. Bonus: I am using an AI Memory layer, so using this, I have also implemented: Itinerary Planner (not just focused on property listings)
 
 ## Architecture
 
