@@ -34,6 +34,23 @@ The implementation includes:
 - **Data Layer**: Qdrant vector database for property embeddings and search
 - **AI Integration**: OpenAI models for intent parsing, question answering, and itinerary generation
 
+## App Screenshots
+
+### Welcome Screen
+![Welcome Screen](asset/1_welcome.png)
+
+### Home Page
+![Home Page](asset/2_home.png)
+
+### Search Results
+![Search Results](asset/3_search_results.png)
+
+### Onboarding Questions
+![Onboarding Questions](asset/4_onboarding_questions.png)
+
+### Setting Up Memory
+![Setting Up Memory](asset/5_setting_up_memory.png)
+
 ## Getting Started
 
 ### Prerequisites
@@ -54,9 +71,12 @@ npm install
 ### Running the Application
 
 ```bash
+# Index the data (run once)
+python -m scripts.index_properties
+
 # Start the backend
 cd backend
-python main.py
+uvicorn main:app --reload
 
 # In another terminal, start the frontend
 cd frontend
