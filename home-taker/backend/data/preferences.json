@@ -1,0 +1,149 @@
+[
+  {
+    "id": 1,
+    "userType": "elderly",
+    "preferences": {
+      "name": "Tarun",
+      "dateOfBirth": "07-05-2001",
+      "bloodType": "O+",
+      "phone": "",
+      "emergencyContact": {
+        "name": "Rakesh",
+        "relationship": "Dad",
+        "phone": "+919986197355"
+      },
+      "doctor": {
+        "name": "",
+        "clinic": "",
+        "phone": ""
+      },
+      "allergies": [
+        "Shellfish",
+        "Peanuts",
+        "No known allergies"
+      ],
+      "customAllergy": "",
+      "conditions": [
+        "Heart Disease",
+        "Kidney Disease"
+      ],
+      "customCondition": "",
+      "medications": [],
+      "diet": "",
+      "dietNotes": "",
+      "waterReminder": "Yes",
+      "waterFrequency": "Every 3 hrs",
+      "medicationReminder": "Yes",
+      "wakeTime": "9:00 AM",
+      "sleepTime": "10:00 PM",
+      "careRecipients": [],
+      "currentRecipient": {
+        "name": "",
+        "relationship": "",
+        "dateOfBirth": "",
+        "phone": "",
+        "address": ""
+      },
+      "challenges": [],
+      "familyHelpers": []
+    },
+    "createdAt": "2026-01-19T22:17:40.233Z",
+    "updatedAt": "2026-01-20T03:47:40.259053"
+  },
+  {
+    "id": 2,
+    "userType": "elderly",
+    "preferences": {
+      "name": "TRJ",
+      "dateOfBirth": "07-05-2001",
+      "bloodType": "O+",
+      "phone": "",
+      "emergencyContact": {
+        "name": "Rakesh ",
+        "relationship": "Dad",
+        "phone": "9986197355"
+      },
+      "doctor": {
+        "name": "",
+        "clinic": "",
+        "phone": ""
+      },
+      "allergies": [
+        "Peanuts"
+      ],
+      "customAllergy": "",
+      "conditions": [
+        "Depression"
+      ],
+      "customCondition": "",
+      "medications": [],
+      "diet": "",
+      "dietNotes": "",
+      "waterReminder": "Yes",
+      "waterFrequency": "Every 3 hrs",
+      "medicationReminder": "Yes",
+      "wakeTime": "8:00 AM",
+      "sleepTime": "10:00 PM",
+      "careRecipients": [],
+      "currentRecipient": {
+        "name": "",
+        "relationship": "",
+        "dateOfBirth": "",
+        "phone": "",
+        "address": ""
+      },
+      "challenges": [],
+      "familyHelpers": []
+    },
+    "createdAt": "2026-01-19T22:25:12.660Z",
+    "updatedAt": "2026-01-20T03:55:12.677284"
+  },
+  {
+    "id": 3,
+    "userType": "elderly",
+    "preferences": {
+      "name": "Tarun",
+      "dateOfBirth": "07-05-2001",
+      "bloodType": "O+",
+      "phone": "",
+      "emergencyContact": {
+        "name": "Rakesh",
+        "relationship": "Dad",
+        "phone": "9900000000"
+      },
+      "doctor": {
+        "name": "",
+        "clinic": "",
+        "phone": ""
+      },
+      "allergies": [
+        "Peanuts"
+      ],
+      "customAllergy": "",
+      "conditions": [
+        "Depression"
+      ],
+      "customCondition": "",
+      "medications": [],
+      "diet": "",
+      "dietNotes": "",
+      "waterReminder": "Yes",
+      "waterFrequency": "Every 3 hrs",
+      "medicationReminder": "Yes",
+      "wakeTime": "8:00 AM",
+      "sleepTime": "10:00 PM",
+      "careRecipients": [],
+      "currentRecipient": {
+        "name": "",
+        "relationship": "",
+        "dateOfBirth": "",
+        "phone": "",
+        "address": ""
+      },
+      "challenges": [],
+      "familyHelpers": []
+    },
+    "createdAt": "2026-01-21T19:13:08.130Z",
+    "updatedAt": "2026-01-22T00:43:08.150539"
+  }
+]
