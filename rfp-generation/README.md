@@ -6,6 +6,29 @@ DOCX response.
 
 ![Architecture](assets/arch.png)
 
+## Motivation
+
+This project draws inspiration from **BMW Group's "Offer Analyst"**, a generative-AI
+solution built with AWS and BCG to modernize BMW's procurement offer-review process.
+Offer Analyst quickly revolutionized the traditional offer-review procedure — automating
+the extraction, comparison, and evaluation of supplier offers against RFP requirements,
+cutting a process that used to take days down to a matter of hours.
+
+Reference: [Revamping procurement operations with generative AI](https://aws.amazon.com/blogs/industries/revamping-procurement-operations-with-generative-ai/) (AWS Industries Blog, with BCG)
+
+![Offer Analyst review flow](assets/offer-analyst-flow.jpg)
+*Figure: the updated offer-review process as described in the AWS/BCG blog post.*
+
+> **Disclaimer**: We reference Offer Analyst purely as **motivation** for the problem
+> space (turning unstructured RFP/offer documents into structured, grounded answers).
+> The tech stack here is **not** the same — Offer Analyst runs on AWS (Bedrock,
+> OpenSearch, etc.), while this project uses **OpenAI + Cognee + Qdrant**. We also go a
+> step further than the flow above by adding a persistent **memory layer** on top of
+> **vector search**: instead of treating each RFP as a one-off retrieval-and-answer pass,
+> Cognee builds and reuses a knowledge graph across the company's documents, so answers
+> stay grounded and get more nuanced as more RFPs and knowledge sources are ingested
+> over time.
+
 ## Stack
 
 - **Backend**: FastAPI (async), in-memory storage for PoC state
