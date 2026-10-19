@@ -7,8 +7,25 @@ built on the walkthrough scenario from the post:
 > *"You're building an AI assistant that answers questions about a travel
 > platform's support policies."*
 
-The assistant is a RAG pipeline over a small corpus of **support-policy
-documents** (refunds & cancellations, guest safety & claims, host payouts).
+The assistant is a RAG pipeline over a corpus of **real Airbnb support policies**,
+collected verbatim from the Airbnb Help Center:
+
+- **Cancellation policies & refunds** — [article 475](https://www.airbnb.com/help/article/475)
+- **AirCover for guests** — [article 3218](https://www.airbnb.com/help/article/3218),
+  [article 170](https://www.airbnb.com/help/article/170)
+- **Host payouts** — [article 92](https://www.airbnb.com/help/article/92),
+  [article 425](https://www.airbnb.com/help/article/425)
+- **Major Disruptive Events Policy** — [article 1320](https://www.airbnb.com/help/article/1320)
+- **Service fees** — [article 1857](https://www.airbnb.com/help/article/1857)
+- **Reviews** — [article 367](https://www.airbnb.com/help/article/367)
+- **Changing a reservation** — [article 913](https://www.airbnb.com/help/article/913),
+  [article 1505](https://www.airbnb.com/help/article/1505)
+
+Every question in the golden set is grounded in these documents (with exact
+numbers — 72-hour AirCover windows, the 1.5% / $15 Fast Pay fee, the Firm
+7-to-30-day 50% rule, the 14.1%–16.5% guest service fee, the 14-day review window,
+and so on), and the clean negatives ask about things these policies genuinely
+don't cover (loyalty points, pet fees, crypto payments, cleaning-fee caps).
 Evaluation is treated as a first-class engineering discipline, implemented as the
 blog's three layered defenses and its keep/reject experiment loop.
 
@@ -153,6 +170,12 @@ edd run topk-2        # compared against baseline; kept or reverted automaticall
   have run out and a structural change is needed (reranking, chunking, hybrid
   search).
 
+> **Note on Git**: `edd run` makes real commits to enforce keep/reject. This
+> folder lives inside the shared `case-study-series` repo, so those commits land
+> there (scoped to the `src/` and `evals/` paths — it won't touch sibling
+> projects). If you want an isolated history, copy this folder out into its own
+> repo before running experiments.
+
 ### Step 5 — Inspect failures
 
 ```sh
@@ -186,7 +209,14 @@ Explore records, span timelines, feedback scores, and the experiment leaderboard
 
 ```
 airbnb-eval-driven-development/
-├── data/support_policies/        # the RAG corpus (markdown policy docs)
+├── data/support_policies/        # the RAG corpus — real Airbnb Help Center policies
+│   ├── cancellation_and_refunds.md
+│   ├── aircover_for_guests.md
+│   ├── host_payouts.md
+│   ├── major_disruptive_events_policy.md
+│   ├── service_fees.md
+│   ├── reviews.md
+│   └── changing_a_reservation.md
 ├── evals/
 │   ├── golden.jsonl              # golden set: positives + clean negatives
 │   ├── experiments.json          # one-variable-at-a-time experiments + verdicts
