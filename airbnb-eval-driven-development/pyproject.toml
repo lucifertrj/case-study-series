@@ -19,6 +19,9 @@ dependencies = [
   # Orchestration — Haystack 3.x (deepset) + Qdrant Cloud integration
   "haystack-ai>=3.0",
   "qdrant-haystack>=9.0",
+  # Required by Haystack's MarkdownToDocument converter
+  "markdown-it-py>=3.0",
+  "mdit-plain>=1.0",
   # Generation & embeddings
   "openai>=1.40",
   # Evaluation & tracing — TruLens (virtual judges + dashboard)
