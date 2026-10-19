@@ -1,26 +1,33 @@
 """The golden dataset — the single most important artifact in EDD.
 
-Per the blog: "Include bad examples in your Gold Set. You can't test discernment
-without them." So every row carries a human ``label``:
+The blog is not prescriptive about the dataset schema; it only says a gold set is
+"rows labeled by subject-matter experts" that MUST "include bad examples". We
+mirror exactly that — no more fields than the blog implies (in particular, no
+``metadata`` block, which was carried over from an unrelated project and has been
+removed):
 
-    label = 1  answerable from the policy corpus (a positive)
-    label = 0  a clean negative — NOT covered by any policy; the assistant is
-               expected to refuse honestly rather than fabricate an answer.
-
-Schema (one JSON object per line):
     input           the guest's question
-    expected_output the ground-truth answer lifted from the corpus (positives)
-                    or a plausible-but-unsupported answer (clean negatives)
-    metadata.source the policy file the answer comes from (or null)
-    label           1 or 0 (human ground truth)
-    critique        why it is grounded, or why it is unanswerable
+    expected_output the human ground-truth answer (for positives) or a
+                    plausible-but-unsupported answer (for clean negatives)
+    label           human ground-truth score: 1 = answerable from the corpus,
+                    0 = a clean negative the assistant must refuse honestly
+    critique        the human domain expert's annotation — why it is grounded, or
+                    why it is a clean negative
+
+Note the division of labour the blog draws: HERE, a human subject-matter expert
+acts as the source of truth and writes the ``critique``. That is distinct from the
+Layer-2 virtual judge (edd.judges), an LLM that emits its own ``reason`` + ``score``
+at eval time. Calibration (edd.calibration) measures how well the judge agrees
+with these human labels.
+
+"Include bad examples in your Gold Set. You can't test discernment without them."
 """
 
 import json
 from pathlib import Path
 from typing import Any
 
-REQUIRED_FIELDS = {"input", "expected_output", "metadata", "label", "critique"}
+REQUIRED_FIELDS = {"input", "expected_output", "label", "critique"}
 
 
 def load_items(path: Path) -> list[dict[str, Any]]:
@@ -45,8 +52,6 @@ def validate_items(items: list[dict[str, Any]]) -> None:
             raise ValueError(
                 f"Golden item {position}: input and expected_output must be strings"
             )
-        if not isinstance(item["metadata"], dict):
-            raise ValueError(f"Golden item {position}: metadata must be an object")
         if item["label"] not in (0, 1):
             raise ValueError(f"Golden item {position}: label must be 0 or 1")
         if not isinstance(item["critique"], str):
