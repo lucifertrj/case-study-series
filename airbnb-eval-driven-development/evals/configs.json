@@ -1,0 +1,7 @@
+[
+  {
+    "name": "baseline",
+    "chat_model": "gpt-4o-mini",
+    "retrieval_k": 4
+  }
+]
