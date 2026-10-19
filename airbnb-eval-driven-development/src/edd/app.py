@@ -67,22 +67,19 @@ class SupportPolicyRAG:
             api_key=api_key, model=self.settings.chat_model
         )
 
-    @instrument(
-        span_type=SpanAttributes.SpanType.RETRIEVAL,
-        attributes={
-            SpanAttributes.RETRIEVAL.QUERY_TEXT: "query",
-            SpanAttributes.RETRIEVAL.RETRIEVED_CONTEXTS: "return",
-        },
-    )
-    def retrieve(self, query: str) -> list[str]:
+    # --- Plain implementations (no TruLens span) -------------------------
+    # The instrumented methods below wrap these. Code paths that run *outside*
+    # a recording context (edd ask / explore / calibrate / monitor) call the
+    # _impl methods directly, so they never depend on an active TruSession.
+
+    def _retrieve_impl(self, query: str) -> list[str]:
         embedding = self._embedder.run(text=query)["embedding"]
         documents = self._retriever.run(
             query_embedding=embedding, top_k=self.settings.retrieval_k
         )["documents"]
         return [doc.content for doc in documents if doc.content]
 
-    @instrument(span_type=SpanAttributes.SpanType.GENERATION)
-    def generate(self, query: str, contexts: list[str]) -> str:
+    def _generate_impl(self, query: str, contexts: list[str]) -> str:
         messages = [
             ChatMessage.from_system(SYSTEM_PROMPT),
             ChatMessage.from_user(
@@ -92,6 +89,22 @@ class SupportPolicyRAG:
         ]
         replies = self._generator.run(messages=messages)["replies"]
         return replies[0].text if replies else ""
+
+    # --- Instrumented surface (recorded by TruLens during evaluation) ----
+
+    @instrument(
+        span_type=SpanAttributes.SpanType.RETRIEVAL,
+        attributes={
+            SpanAttributes.RETRIEVAL.QUERY_TEXT: "query",
+            SpanAttributes.RETRIEVAL.RETRIEVED_CONTEXTS: "return",
+        },
+    )
+    def retrieve(self, query: str) -> list[str]:
+        return self._retrieve_impl(query)
+
+    @instrument(span_type=SpanAttributes.SpanType.GENERATION)
+    def generate(self, query: str, contexts: list[str]) -> str:
+        return self._generate_impl(query, contexts)
 
     @instrument(
         span_type=SpanAttributes.SpanType.RECORD_ROOT,
@@ -104,12 +117,20 @@ class SupportPolicyRAG:
         contexts = self.retrieve(query)
         return self.generate(query, contexts)
 
+    # --- Uninstrumented helpers for non-recording CLI commands -----------
+
+    def retrieve_plain(self, query: str) -> list[str]:
+        return self._retrieve_impl(query)
+
+    def generate_plain(self, query: str, contexts: list[str]) -> str:
+        return self._generate_impl(query, contexts)
+
     def answer(self, query: str) -> dict:
-        """Non-instrumented convenience path for the ``edd ask`` CLI command."""
-        contexts = self.retrieve(query)
+        """Uninstrumented path for the ``edd ask`` CLI command."""
+        contexts = self._retrieve_impl(query)
         return {
             "question": query,
-            "answer": self.generate(query, contexts),
+            "answer": self._generate_impl(query, contexts),
             "contexts": contexts,
         }
 

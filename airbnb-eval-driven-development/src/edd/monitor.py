@@ -72,8 +72,8 @@ def monitor(
 
     report = MonitorReport(sampled=len(sample), total=len(queries))
     for question in sample:
-        contexts = app.retrieve(question)
-        answer = app.generate(question, contexts)
+        contexts = app.retrieve_plain(question)
+        answer = app.generate_plain(question, contexts)
 
         reasons: list[str] = []
         checks = run_production_checks(answer)

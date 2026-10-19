@@ -15,6 +15,14 @@ and calls answerable / not-answerable, then compare it to the human label.
 (Calibrating the triad judges — groundedness, etc. — would require per-dimension
 human scores on the generated outputs; add a ``human_scores`` field to the golden
 rows and extend this module the same way when you need it.)
+
+CAVEAT — read before interpreting the kappa: the human ``label`` says "answerable
+from the whole corpus", while this judge sees only the *retrieved* excerpts, so it
+effectively rates "answerable from these retrieved excerpts". A retrieval miss on
+a positive therefore registers as a disagreement, which means the reported kappa
+mixes retrieval quality into judge calibration. That is an acceptable scaffold
+choice (it mirrors what the judge would actually see in production), but do not
+read the number as *pure* judge trust — improve retrieval and re-calibrate.
 """
 
 from dataclasses import dataclass
@@ -108,7 +116,7 @@ def calibrate(
 
     for item in items:
         human = 1 if item["label"] == 1 else 0  # human: answerable?
-        contexts = app.retrieve(item["input"])
+        contexts = app.retrieve_plain(item["input"])
         judge, reason = _judge_answerable(
             client, settings.eval_model, item["input"], contexts
         )

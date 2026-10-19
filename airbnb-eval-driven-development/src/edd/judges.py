@@ -94,10 +94,23 @@ def get_virtual_judges(settings: Settings) -> list[Metric]:
         agg=np.mean,
     )
 
-    f_conciseness = Metric(
-        implementation=provider.conciseness_with_cot_reasons,
-        name=CONCISENESS,
-        selectors={"text": Selector.select_record_output()},
-    )
+    judges = [f_groundedness, f_answer_relevance, f_context_relevance]
 
-    return [f_groundedness, f_answer_relevance, f_context_relevance, f_conciseness]
+    # Conciseness is a product-specific extra, not part of the required gate.
+    # Guard it so an API-name change in the provider can never take down the
+    # whole panel (and therefore `edd evaluate` / `edd run`).
+    conciseness_impl = getattr(
+        provider, "conciseness_with_cot_reasons", None
+    ) or getattr(provider, "conciseness", None)
+    if conciseness_impl is not None:
+        judges.append(
+            Metric(
+                implementation=conciseness_impl,
+                name=CONCISENESS,
+                selectors={"text": Selector.select_record_output()},
+            )
+        )
+    else:
+        print("[judges] conciseness not available in this TruLens provider; skipping.")
+
+    return judges
