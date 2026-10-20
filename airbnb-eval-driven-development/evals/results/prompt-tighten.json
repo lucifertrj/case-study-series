@@ -1,0 +1,949 @@
+{
+  "name": "prompt-tighten",
+  "change": "Fix the model; tighten the refusal instruction in SYSTEM_PROMPT (edit src/edd/app.py) to cut fabrications on clean negatives.",
+  "acceptance": {
+    "compare_against": "baseline",
+    "required_metrics": [
+      "groundedness",
+      "clean_negative_recall",
+      "answer_relevance"
+    ]
+  },
+  "timestamp": "2026-10-20T19:43:23.949071+00:00",
+  "aggregated_scores": {
+    "answer_relevance": {
+      "mean": 0.65,
+      "min": 0.0,
+      "max": 1.0,
+      "std": 0.47696960070847283
+    },
+    "context_relevance": {
+      "mean": 0.4124999999999999,
+      "min": 0.0,
+      "max": 0.8333333333333333,
+      "std": 0.2680627517744472
+    },
+    "conciseness": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "std": 0.0
+    },
+    "non_empty": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "std": 0.0
+    },
+    "within_length": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "std": 0.0
+    },
+    "no_internal_terms": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "std": 0.0
+    },
+    "refusal_behavior": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "std": 0.0
+    }
+  },
+  "experiment_scores": {
+    "clean_negative_recall": {
+      "value": 1.0,
+      "reason": "7/7 clean negatives honestly refused."
+    },
+    "programmatic_pass_rate": {
+      "value": 1.0,
+      "reason": "20/20 passed all Layer-1 checks."
+    }
+  },
+  "cases": [
+    {
+      "dataset_item_id": 1,
+      "input": "If I booked at least 7 days before check-in, can I still get a full refund if I cancel soon after booking?",
+      "expected_output": "Yes. All standard cancellation policies include a 24-hour cancellation period: you can cancel for a full refund, including all taxes, within 24 hours of booking, as long as the reservation was confirmed at least 7 days before check-in.",
+      "label": 1,
+      "output": "Yes\u2014if it\u2019s a standard-policy stay of 27 nights or fewer, you can get a full refund, including taxes, if you cancel within 24 hours of booking and the reservation was confirmed at least 7 days before check-in.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.6666666666666666,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 2,
+      "input": "Under the Firm policy, if I cancel 10 days before check-in, how much do I get back?",
+      "expected_output": "Under the Firm policy, cancelling 7 to 30 days before check-in gives you a 50% refund of the nightly rate plus full taxes; the host keeps the other 50%. Ten days before check-in falls in that window.",
+      "label": 1,
+      "output": "Canceling 10 days before check-in under the Firm policy gets you a 50% refund of the nightly rate plus a full refund of taxes.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.8333333333333333,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 3,
+      "input": "Under the Limited policy, what happens if I cancel 3 days before check-in?",
+      "expected_output": "Under the Limited policy, cancelling less than 7 days before check-in refunds taxes only \u2014 there is no refund of the nightly rate, and the host keeps 100%. Three days before check-in falls in that window.",
+      "label": 1,
+      "output": "Under the Limited policy for bookings made on or after October 1, 2025, canceling 3 days before check-in means taxes are refunded only, and the host keeps 100%.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.6666666666666666,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 4,
+      "input": "How long do I have to report a problem with my stay under AirCover?",
+      "expected_output": "You should contact your host about the problem within 72 hours of discovering it and give them a chance to resolve it. Document the issue with photos or videos, and if the host can't fix it, contact Airbnb to escalate.",
+      "label": 1,
+      "output": "You must notify the host within 72 hours of discovering the problem and give them a chance to resolve it.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.5833333333333333,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 5,
+      "input": "If my listing is significantly different from the ad and the host can't fix it, what does AirCover do?",
+      "expected_output": "AirCover will help you rebook a comparable place based on availability and comparable pricing at no additional cost. If a comparable place isn't available, or you prefer not to rebook, Airbnb provides a full or partial refund, including service fees.",
+      "label": 1,
+      "output": "If the listing is significantly different from the ad and the host can\u2019t fix it, AirCover can help you rebook at no extra cost if a comparable place is available, based on availability and comparable pricing. If one isn\u2019t available\u2014or you prefer not to rebook\u2014you may receive a full or partial refund, including service fees.\n\nContact the host first, notify them within 72 hours of discovering the issue, and document it with photos or videos. If they can\u2019t resolve it, contact Airbnb to escalate.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.75,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 6,
+      "input": "My host cancelled and I was given Airbnb booking credit, but I didn't use it. What happens?",
+      "expected_output": "If the booking credit isn't used within 72 hours, it automatically converts to a full refund, including service fees, to your original payment method.",
+      "label": 1,
+      "output": "If you don\u2019t use the Airbnb booking credit within 72 hours, it automatically converts to a full refund. The refund is issued to your original payment method; how long it takes to arrive depends on your bank or financial institution.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.6666666666666666,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 7,
+      "input": "How long does an ACH or direct deposit payout take to arrive once released?",
+      "expected_output": "An ACH / direct deposit payout takes 3 business days once released by Airbnb, and is available for the USA and Puerto Rico only.",
+      "label": 1,
+      "output": "ACH / direct deposit payouts take **3 business days** to arrive once released. This method is available in the **USA and Puerto Rico only**.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.5833333333333333,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 8,
+      "input": "My flight was cancelled so I can't reach my Airbnb. Does the Major Disruptive Events Policy cover that?",
+      "expected_output": "No. Transportation disruptions such as flight cancellations, airline insolvency, and transportation strikes are explicitly not covered by the Major Disruptive Events Policy.",
+      "label": 1,
+      "output": "No. Transportation disruptions, including flight cancellations, are not covered by the Major Disruptive Events Policy.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.5833333333333333,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 9,
+      "input": "How much is the guest service fee and what is it based on?",
+      "expected_output": "The guest service fee ranges from 14.1% to 16.5% of the booking subtotal \u2014 the nightly price plus any additional host fees, excluding the guest service fee and taxes. For cross-currency bookings it can be up to 16.5%.",
+      "label": 1,
+      "output": "The guest service fee ranges from **14.1% to 16.5%** of the booking subtotal. The subtotal includes the nightly price and host-charged fees, such as cleaning, but excludes the guest service fee and taxes. The exact percentage varies by booking. For cross-currency bookings, the fee can be up to **16.5%**.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.49999999999999994,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 10,
+      "input": "Under the split-fee structure, what service fee does a host pay?",
+      "expected_output": "Under the split-fee structure, most hosts pay a 3% host service fee deducted from the payout; hosts with listings in Brazil and Mexico pay 4%.",
+      "label": 1,
+      "output": "Most hosts pay a 3% host service fee, deducted from the payout. Hosts pay 4% for listings in Brazil and Mexico.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.5833333333333334,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 11,
+      "input": "How long do I have to write a review after checkout?",
+      "expected_output": "Both the guest and the host have 14 days after checkout to submit a review.",
+      "label": 1,
+      "output": "You have 14 days after checkout to submit a review.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.3333333333333333,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 12,
+      "input": "When does a review become visible on Airbnb?",
+      "expected_output": "A review is posted only after both parties submit their reviews, or once the 14-day review period ends \u2014 whichever comes first. Neither party can see the other's review until both are published.",
+      "label": 1,
+      "output": "Reviews become visible after both the guest and host submit their reviews, or when the 14-day review period after checkout ends\u2014whichever comes first. Neither party can see the other\u2019s review before both are published.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.41666666666666663,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 13,
+      "input": "If I change my reservation and the total goes up, how and when am I charged?",
+      "expected_output": "If the new total is higher, the adjustment is processed when the change is accepted. In most cases your original payment method is charged automatically; for some payment methods you're asked to submit payment within 48 hours.",
+      "label": 1,
+      "output": "If the change request is accepted, the price adjustment is processed then. In most cases, the extra amount is charged automatically to your original payment method. For some payment methods, you\u2019ll be asked to submit payment within 48 hours. Nothing changes while the request is pending.",
+      "scores": {
+        "answer_relevance": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.49999999999999994,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "answered an answerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 14,
+      "input": "How many loyalty or rewards points do I earn per booking on Airbnb?",
+      "expected_output": "Guests earn 10 reward points per dollar spent, redeemable for discounts on future stays, and points expire after 24 months.",
+      "label": 0,
+      "output": "I don't have a policy that covers this, so I can't say.",
+      "scores": {
+        "answer_relevance": {
+          "value": 0.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.08333333333333333,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "correctly refused an unanswerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 15,
+      "input": "What is Airbnb's pet policy and how much is the pet fee?",
+      "expected_output": "Guests may bring one pet under 25 pounds for a $50 per-stay pet fee at listings marked pet-friendly.",
+      "label": 0,
+      "output": "I don't have a policy that covers this, so I can't say.",
+      "scores": {
+        "answer_relevance": {
+          "value": 0.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.08333333333333333,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "correctly refused an unanswerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 16,
+      "input": "Can I pay for my reservation with cryptocurrency or set up a monthly payment plan at checkout?",
+      "expected_output": "Yes, Airbnb accepts Bitcoin and several stablecoins at checkout, and offers a 4-installment payment plan for stays over $500.",
+      "label": 0,
+      "output": "I don't have a policy that covers this, so I can't say.",
+      "scores": {
+        "answer_relevance": {
+          "value": 0.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.25,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "correctly refused an unanswerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 17,
+      "input": "What is the minimum age to book a reservation on Airbnb?",
+      "expected_output": "You must be at least 18 years old to book a reservation on Airbnb.",
+      "label": 0,
+      "output": "I don't have a policy that covers this, so I can't say.",
+      "scores": {
+        "answer_relevance": {
+          "value": 0.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "correctly refused an unanswerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 18,
+      "input": "How large of a security or damage deposit can a host require from me?",
+      "expected_output": "Hosts can require a refundable security deposit of up to 50% of the nightly rate, released 14 days after checkout.",
+      "label": 0,
+      "output": "I don't have a policy that covers this, so I can't say.",
+      "scores": {
+        "answer_relevance": {
+          "value": 0.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.16666666666666666,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "correctly refused an unanswerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 19,
+      "input": "What is the smoking policy for Airbnb listings?",
+      "expected_output": "Smoking is prohibited in all Airbnb listings unless the host explicitly marks the listing as smoking-allowed, with a $250 cleaning penalty otherwise.",
+      "label": 0,
+      "output": "I don't have a policy that covers this, so I can't say.",
+      "scores": {
+        "answer_relevance": {
+          "value": 0.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "correctly refused an unanswerable question",
+          "scoring_failed": false
+        }
+      }
+    },
+    {
+      "dataset_item_id": 20,
+      "input": "What are the standard check-in and check-out times, and how do I get self check-in instructions?",
+      "expected_output": "Standard check-in is 3:00 PM and check-out is 11:00 AM, and self check-in instructions are sent 48 hours before arrival.",
+      "label": 0,
+      "output": "I don't have a policy that covers this, so I can't say.",
+      "scores": {
+        "answer_relevance": {
+          "value": 0.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "context_relevance": {
+          "value": 0.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "conciseness": {
+          "value": 1.0,
+          "reason": "",
+          "scoring_failed": false
+        },
+        "non_empty": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "within_length": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "no_internal_terms": {
+          "value": 1.0,
+          "reason": "ok",
+          "scoring_failed": false
+        },
+        "refusal_behavior": {
+          "value": 1.0,
+          "reason": "correctly refused an unanswerable question",
+          "scoring_failed": false
+        }
+      }
+    }
+  ]
+}

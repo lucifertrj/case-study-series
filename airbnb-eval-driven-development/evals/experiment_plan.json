@@ -67,6 +67,60 @@
           "clean_negative_recall",
           "answer_relevance"
         ]
+      },
+      "result": {
+        "decision": "keep",
+        "reason": "Improved. Ship gates NOT met: groundedness, answer_relevance.",
+        "plateaued": false,
+        "shippable": false,
+        "gates_passed": false,
+        "flat": false,
+        "comparisons": [
+          {
+            "metric": "groundedness",
+            "current": null,
+            "baseline": null,
+            "delta": null,
+            "direction": "higher",
+            "regressed": false
+          },
+          {
+            "metric": "clean_negative_recall",
+            "current": 1.0,
+            "baseline": 1.0,
+            "delta": 0.0,
+            "direction": "higher",
+            "regressed": false
+          },
+          {
+            "metric": "answer_relevance",
+            "current": 0.65,
+            "baseline": 0.65,
+            "delta": 0.0,
+            "direction": "higher",
+            "regressed": false
+          }
+        ],
+        "gates": [
+          {
+            "metric": "groundedness",
+            "value": null,
+            "threshold": 0.8,
+            "passed": false
+          },
+          {
+            "metric": "answer_relevance",
+            "value": 0.65,
+            "threshold": 0.8,
+            "passed": false
+          },
+          {
+            "metric": "clean_negative_recall",
+            "value": 1.0,
+            "threshold": 0.9,
+            "passed": true
+          }
+        ]
       }
     },
     {
