@@ -36,7 +36,7 @@ blog's three layered defenses and its keep/reject experiment loop.
 | Orchestration (indexing + RAG) | **Haystack 3.x** (deepset) |
 | Vector database | **Qdrant Cloud** |
 | Virtual judges, tracing, dashboard | **TruLens** |
-| Generator under test / judge model | OpenAI (`gpt-4o-mini` / `gpt-4o`) |
+| Generator under test / judge model | OpenAI (`gpt-5.6-luna` / `gpt-5.6-luna`) |
 
 ## The three evaluation layers (from the blog)
 
@@ -72,12 +72,15 @@ selector resolves to real data. `TRULENS_OTEL_TRACING=1` is set in
 [src/edd/__init__.py](src/edd/__init__.py) **before** any `trulens` import — if it
 isn't, spans are empty and scores come back null.
 
-## The golden dataset
+## The gold set
 
-[evals/golden.jsonl](evals/golden.jsonl) contains **both** positives (`label: 1`,
-answerable from the corpus) **and clean negatives** (`label: 0`, not covered —
-the assistant must refuse honestly). *"You can't test discernment without bad
-examples."* Validation (`edd golden`) fails if either class is missing.
+[evals/gold_set.jsonl](evals/gold_set.jsonl) contains **both** positives
+(`label: 1`, answerable from the corpus) **and clean negatives** (`label: 0`, not
+covered — the assistant must refuse honestly). *"You can't test discernment
+without bad examples."* Validation (`edd golden`) fails if either class is
+missing. The schema follows the blog, not any boilerplate — `input`,
+`expected_output`, `label`, `critique` (the human domain expert's annotation); no
+`metadata` block. The current set is 16 positives / 9 clean negatives.
 
 ---
 
@@ -128,15 +131,15 @@ documents under [data/support_policies/](data/support_policies/) change.
 Before building any metric, read the outputs and traces.
 
 ```sh
-edd golden          # validate the golden set (positives + clean negatives)
-edd explore         # generate answers for every golden question and read them
+edd golden          # validate the gold set (positives + clean negatives)
+edd explore         # generate answers for every gold-set question and read them
 edd ask "how long do refunds take?"
 ```
 
 ### Step 2 — Evaluate across all three layers
 
 ```sh
-edd evaluate        # Layer 1 + Layer 2 over the golden set, with clean-negative recall
+edd evaluate        # Layer 1 + Layer 2 over the gold set, with clean-negative recall
 ```
 
 ### Step 3 — Calibrate the virtual judge (Layer 3)
@@ -150,25 +153,48 @@ If agreement is below target, analyze the printed disagreements, sharpen the
 rubric / few-shots in [src/edd/calibration.py](src/edd/calibration.py), and re-run
 until the judge is trustworthy.
 
-### Step 4 — Run experiments, one variable at a time
+### Step 4 — Define goals & gates upfront, then iterate one variable at a time
 
-Each entry in [evals/experiments.json](evals/experiments.json) isolates **one**
-change (a model, a `retrieval_k`, or a prompt in
-[src/edd/app.py](src/edd/app.py)). `edd run` evaluates it, compares required
-metrics to the baseline, and lets **Git enforce the verdict**:
+[evals/experiment_plan.json](evals/experiment_plan.json) encodes the blog's two
+iteration rules directly:
+
+1. **Goals & gates upfront** — a top-level `goals` statement and a `gates` block
+   of absolute thresholds ("what must be true before you ship"), decided *before*
+   iterating:
+
+   ```json
+   "gates": { "groundedness": 0.8, "answer_relevance": 0.8, "clean_negative_recall": 0.9 }
+   ```
+
+2. **Fix one variable at a time** — each experiment carries a `varies` tag and
+   follows the blog's staged protocol: *fix the model and vary the prompt → fix
+   the prompt and vary the model → fix both and vary the serving configuration.*
+   Virtual-judge results narrow the candidate pool at each stage.
+
+`edd run <name>` evaluates one experiment, compares its required metrics to the
+baseline (relative, to narrow the pool), checks the absolute **ship gates**, and
+lets **Git enforce the verdict**:
 
 ```sh
-edd run baseline      # always kept — it defines the benchmark
-edd run topk-2        # compared against baseline; kept or reverted automatically
+edd run baseline         # stage 0 — defines the benchmark
+edd run prompt-tighten   # stage 1 — fix model, vary prompt
+edd run model-gpt4o      # stage 2 — fix prompt, vary model
+edd run retrieval-k2     # stage 3 — fix both, vary serving config
 ```
 
-- **Keep** — every required metric flat-or-better → the source change + result
-  snapshot are committed.
+- **Keep** — every required metric flat-or-better vs. baseline → the source change
+  + result snapshot are committed.
 - **Reject** — any required metric regressed → `src/` is reverted to the last
   clean state; only the result record is committed.
+- **Shippable** — a kept candidate that *also* clears every absolute ship gate.
+  Keep/reject narrows the pool; the gates decide whether a winner is actually
+  releasable.
 - **Plateau** — two consecutive flat keeps → the loop warns that prompt tweaks
   have run out and a structural change is needed (reranking, chunking, hybrid
   search).
+
+> Prompt experiments (`varies: prompt`) are edits to `SYSTEM_PROMPT` in
+> [src/edd/app.py](src/edd/app.py); the Git keep/reject captures them automatically.
 
 > **Note on Git**: `edd run` makes real commits to enforce keep/reject. This
 > folder lives inside the shared `case-study-series` repo, so those commits land
@@ -179,16 +205,16 @@ edd run topk-2        # compared against baseline; kept or reverted automaticall
 ### Step 5 — Inspect failures
 
 ```sh
-edd report topk-2                      # worst cases + judge chain-of-thought
-edd report topk-2 --metric groundedness --worst 3
+edd report retrieval-k2                      # worst cases + judge chain-of-thought
+edd report retrieval-k2 --metric groundedness --worst 3
 ```
 
 ### Step 6 — Mirror the evals in production
 
 Evaluation is never one-and-done. `edd monitor` samples a fraction of a
-de-identified traffic log ([evals/traffic.jsonl](evals/traffic.jsonl)), runs the
-Layer-1 checks plus the answerability judge over each sampled query, and surfaces
-flagged outputs (including likely fabrications) for human review.
+de-identified traffic log ([evals/production_traffic.jsonl](evals/production_traffic.jsonl)),
+runs the Layer-1 checks plus the answerability judge over each sampled query, and
+surfaces flagged outputs (including likely fabrications) for human review.
 
 ```sh
 edd monitor --sample-rate 0.3
@@ -218,10 +244,9 @@ airbnb-eval-driven-development/
 │   ├── reviews.md
 │   └── changing_a_reservation.md
 ├── evals/
-│   ├── golden.jsonl              # golden set: positives + clean negatives
-│   ├── experiments.json          # one-variable-at-a-time experiments + verdicts
-│   ├── configs.json              # multi-config sweep definitions
-│   ├── traffic.jsonl             # de-identified traffic for production monitoring
+│   ├── gold_set.jsonl            # gold set: positives + clean negatives
+│   ├── experiment_plan.json      # goals + ship gates + staged one-variable experiments
+│   ├── production_traffic.jsonl  # de-identified traffic for production monitoring
 │   └── results/                  # per-experiment result snapshots
 └── src/edd/
     ├── __init__.py               # enables TRULENS_OTEL_TRACING before imports
@@ -229,7 +254,7 @@ airbnb-eval-driven-development/
     ├── store.py                  # shared Qdrant Cloud document store
     ├── indexing.py               # Haystack indexing pipeline
     ├── app.py                    # instrumented Haystack RAG app (the seam)
-    ├── dataset.py                # golden-set loader + validator
+    ├── dataset.py                # gold-set loader + validator
     ├── programmatic.py           # Layer 1 — programmatic checks
     ├── judges.py                 # Layer 2 — virtual judges (RAG triad + conciseness)
     ├── calibration.py            # Layer 3 — judge calibration (Cohen's kappa)
@@ -250,7 +275,7 @@ airbnb-eval-driven-development/
 | One evaluator per dimension | `judges.py` (triad + conciseness, no God evaluator) |
 | Calibrate to high 80s–90s before trusting a judge | `edd calibrate` (Cohen's kappa) |
 | Use all three methods as layered defenses | `programmatic` → `judges` → `calibration` |
-| Include bad examples in the gold set | `golden.jsonl` clean negatives + `dataset.py` guard |
+| Include bad examples in the gold set | `gold_set.jsonl` clean negatives + `dataset.py` guard |
 | Evaluate the system, not just the model | instrumented `retrieve`/`generate` spans |
 | Mirror evals in production | `edd monitor` |
-| Appoint a decision-maker / gates | `experiments.json` acceptance + `report.decide` |
+| Define goals & gates upfront; fix one variable at a time | `experiment_plan.json` (goals/gates/staged) + `report.decide` gates |

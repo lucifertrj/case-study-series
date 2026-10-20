@@ -25,10 +25,11 @@ from .report import Verdict, decide
 from .results import save_result, to_result_record
 
 SOURCE_PATHS = ["src"]
-RECORD_PATHS = ["evals/experiments.json", "evals/results"]
+RECORD_PATHS = ["evals/experiment_plan.json", "evals/results"]
 
 
-def load_experiments(path: Path) -> list[dict[str, Any]]:
+def load_plan(path: Path) -> dict[str, Any]:
+    """Load the experiment plan: {goals, gates, iteration_protocol, experiments}."""
     return json.loads(path.read_text())
 
 
@@ -91,32 +92,37 @@ def _revert(paths: list[str]) -> None:
 
 def run_iteration(
     name: str,
-    experiments_path: Path = Path("evals/experiments.json"),
+    plan_path: Path = Path("evals/experiment_plan.json"),
     settings: Settings | None = None,
 ) -> Verdict:
     settings = settings or get_settings()
-    experiments = load_experiments(experiments_path)
+    plan = load_plan(plan_path)
+    experiments = plan["experiments"]
+    gates = plan.get("gates", {})
     entry = next((e for e in experiments if e["name"] == name), None)
     if entry is None:
-        raise ValueError(f"No entry named {name!r} in {experiments_path}")
+        raise ValueError(f"No entry named {name!r} in {plan_path}")
 
     result = run_experiment(entry, settings)
     save_result(to_result_record(result))
 
-    verdict = decide(name, experiments)
+    verdict = decide(name, experiments, gates=gates)
     _record_decision_in_dashboard(result["evaluation"].app_id, verdict, settings)
 
     entry["result"] = {
         "decision": verdict.decision,
         "reason": verdict.reason,
         "plateaued": verdict.plateaued,
+        "shippable": verdict.shippable,
+        "gates_passed": verdict.gates_passed,
         "flat": bool(verdict.comparisons)
         and all(
             c.delta is not None and c.delta == 0 for c in verdict.comparisons
         ),
         "comparisons": [asdict(c) for c in verdict.comparisons],
+        "gates": [asdict(g) for g in verdict.gates],
     }
-    experiments_path.write_text(json.dumps(experiments, indent=2) + "\n")
+    plan_path.write_text(json.dumps(plan, indent=2) + "\n")
 
     if verdict.decision == "reject":
         _revert(SOURCE_PATHS)

@@ -3,10 +3,10 @@
 Commands mirror the stages of the blog:
 
     index        Index the support-policy corpus into Qdrant Cloud
-    golden       Validate the golden dataset (positives + clean negatives)
+    golden       Validate the gold set (positives + clean negatives)
     explore      "Look at your data" — read outputs & traces before building evals
     evaluate     Run the three-layer evaluation on the current config
-    run <name>   Run one experiment, decide keep/reject, let Git enforce it
+    run <name>   Run one experiment from the plan, decide keep/reject + ship gates
     report <name>  Inspect the worst-scoring cases + judge reasons
     calibrate    Calibrate the virtual judge against human labels (Cohen's kappa)
     monitor      Mirror the evals on sampled production traffic
@@ -15,7 +15,6 @@ Commands mirror the stages of the blog:
 """
 
 import argparse
-import json
 import logging
 from pathlib import Path
 import warnings
@@ -33,7 +32,7 @@ def main() -> None:
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("index", help="Index the policy corpus into Qdrant Cloud")
-    sub.add_parser("golden", help="Validate the golden evaluation dataset")
+    sub.add_parser("golden", help="Validate the gold set (positives + clean negatives)")
 
     explore_p = sub.add_parser(
         "explore", help="Read outputs & contexts for the golden questions"
@@ -42,14 +41,11 @@ def main() -> None:
 
     sub.add_parser("evaluate", help="Run the three-layer eval on the baseline")
 
-    loop_p = sub.add_parser("loop", help="Run a multi-config sweep")
-    loop_p.add_argument("--config", default="evals/configs.json")
-
     run_p = sub.add_parser(
         "run", help="Run one experiment, persist it, decide keep/reject/revert"
     )
     run_p.add_argument("name")
-    run_p.add_argument("--config", default="evals/experiments.json")
+    run_p.add_argument("--plan", default="evals/experiment_plan.json")
 
     report_p = sub.add_parser(
         "report", help="Show the worst-scoring cases for an experiment"
@@ -65,7 +61,7 @@ def main() -> None:
 
     mon_p = sub.add_parser("monitor", help="Mirror evals on sampled traffic")
     mon_p.add_argument("--sample-rate", type=float, default=0.2)
-    mon_p.add_argument("--traffic", default="evals/traffic.jsonl")
+    mon_p.add_argument("--traffic", default="evals/production_traffic.jsonl")
 
     ask_p = sub.add_parser("ask", help="Ask the assistant a single question")
     ask_p.add_argument("question")
@@ -82,11 +78,11 @@ def main() -> None:
     elif args.command == "golden":
         from .dataset import load_validated_items
 
-        items = load_validated_items(Path("evals/golden.jsonl"))
+        items = load_validated_items(Path("evals/gold_set.jsonl"))
         positives = sum(1 for i in items if i["label"] == 1)
         negatives = len(items) - positives
         print(
-            f"Golden dataset valid: {len(items)} items "
+            f"Gold set valid: {len(items)} items "
             f"({positives} positives, {negatives} clean negatives)."
         )
 
@@ -99,23 +95,21 @@ def main() -> None:
         result = run_evaluation()
         _print_scores(result.aggregated_scores, result.experiment_scores)
 
-    elif args.command == "loop":
-        from .evals import run_config_loop
-
-        configs = json.loads(Path(args.config).read_text())
-        for result in run_config_loop(configs):
-            print(f"\nResult for {result.experiment_name}:")
-            _print_scores(result.aggregated_scores, result.experiment_scores)
-
     elif args.command == "run":
         from .loop import run_iteration
 
-        verdict = run_iteration(args.name, Path(args.config))
+        verdict = run_iteration(args.name, Path(args.plan))
         print(f"\n{verdict.decision.upper()}: {verdict.reason}")
         for c in verdict.comparisons:
             print(
                 f"  {c.metric}: {c.baseline} -> {c.current} (delta {c.delta})"
             )
+        if verdict.gates:
+            print("  Ship gates (what must be true before shipping):")
+            for g in verdict.gates:
+                mark = "PASS" if g.passed else "FAIL"
+                print(f"    [{mark}] {g.metric}: {g.value} (>= {g.threshold})")
+            print(f"  Shippable: {verdict.shippable}")
         if verdict.plateaued:
             print(
                 "\nPlateaued: no movement over the last few kept runs. "
@@ -165,7 +159,7 @@ def _explore(limit: int) -> None:
     from .dataset import load_validated_items
     from .programmatic import run_checks
 
-    items = load_validated_items(Path("evals/golden.jsonl"))
+    items = load_validated_items(Path("evals/gold_set.jsonl"))
     if limit > 0:
         items = items[:limit]
     app = build_app()

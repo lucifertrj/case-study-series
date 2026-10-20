@@ -1,0 +1,76 @@
+{
+  "goals": "Answer guest questions strictly from Airbnb support policy, and honestly refuse questions the policies do not cover. Ground every answer; never fabricate a number, timeframe, or policy.",
+  "gates": {
+    "groundedness": 0.8,
+    "answer_relevance": 0.8,
+    "clean_negative_recall": 0.9
+  },
+  "iteration_protocol": "Fix one variable at a time (per the blog): first fix the model and vary the prompt, then fix the prompt and vary the model, then fix both and vary the serving configuration. Virtual-judge results narrow the candidate pool at each stage.",
+  "experiments": [
+    {
+      "name": "baseline",
+      "stage": "0 - baseline",
+      "varies": "none",
+      "change": "Measure the starting configuration (gpt-5.6-luna, retrieval_k=4, baseline prompt) across all three evaluation layers.",
+      "chat_model": "gpt-5.6-luna",
+      "retrieval_k": 4,
+      "acceptance": {
+        "compare_against": null,
+        "required_metrics": [
+          "answer_relevance",
+          "groundedness",
+          "context_relevance",
+          "clean_negative_recall"
+        ]
+      }
+    },
+    {
+      "name": "prompt-tighten",
+      "stage": "1 - fix model, vary prompt",
+      "varies": "prompt",
+      "change": "Fix the model; tighten the refusal instruction in SYSTEM_PROMPT (edit src/edd/app.py) to cut fabrications on clean negatives.",
+      "chat_model": "gpt-5.6-luna",
+      "retrieval_k": 4,
+      "acceptance": {
+        "compare_against": "baseline",
+        "required_metrics": [
+          "groundedness",
+          "clean_negative_recall",
+          "answer_relevance"
+        ]
+      }
+    },
+    {
+      "name": "model-gpt4o",
+      "stage": "2 - fix prompt, vary model",
+      "varies": "model",
+      "change": "Fix the (kept) prompt; re-run on the generator gpt-5.6-luna (no model change — both endpoints now use gpt-5.6-luna) to confirm the groundedness baseline holds.",
+      "chat_model": "gpt-5.6-luna",
+      "retrieval_k": 4,
+      "acceptance": {
+        "compare_against": "baseline",
+        "required_metrics": [
+          "groundedness",
+          "answer_relevance",
+          "context_relevance"
+        ]
+      }
+    },
+    {
+      "name": "retrieval-k2",
+      "stage": "3 - fix model & prompt, vary serving config",
+      "varies": "retrieval_k",
+      "change": "Fix model and prompt; vary retrieval breadth retrieval_k 4 -> 2.",
+      "chat_model": "gpt-5.6-luna",
+      "retrieval_k": 2,
+      "acceptance": {
+        "compare_against": "baseline",
+        "required_metrics": [
+          "answer_relevance",
+          "groundedness",
+          "context_relevance"
+        ]
+      }
+    }
+  ]
+}

@@ -4,7 +4,7 @@
 de-identified traffic log, runs the SAME Layer-1 programmatic checks plus a
 lightweight answerability judge over each sampled query, and surfaces flagged
 outputs for human review. In a real deployment the traffic would be sampled from
-live, privacy-preserved logs; here it reads ``evals/traffic.jsonl``.
+live, privacy-preserved logs; here it reads ``evals/production_traffic.jsonl``.
 
 A query is flagged when either:
     * a programmatic check fails (empty, over-length, leaked internal term), or
@@ -25,7 +25,7 @@ from .calibration import _judge_answerable
 from .config import Settings, get_settings
 from .programmatic import is_refusal, passed_all, run_production_checks
 
-TRAFFIC_PATH = Path("evals/traffic.jsonl")
+TRAFFIC_PATH = Path("evals/production_traffic.jsonl")
 
 
 @dataclass

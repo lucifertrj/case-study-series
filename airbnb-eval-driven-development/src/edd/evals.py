@@ -11,7 +11,7 @@ make sense in aggregate — most importantly ``clean_negative_recall``: of the
 clean negatives (label 0), how many did the assistant honestly refuse?
 """
 
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -27,7 +27,7 @@ from .judges import JUDGE_NAMES, get_virtual_judges
 from .programmatic import CHECK_NAMES, checks_to_scores, run_checks
 
 APP_NAME = "support-policy-assistant"
-GOLDEN_PATH = Path("evals/golden.jsonl")
+GOLDEN_PATH = Path("evals/gold_set.jsonl")
 
 
 @dataclass
@@ -208,22 +208,3 @@ def _experiment_metrics(cases: list[dict[str, Any]]) -> dict[str, dict[str, Any]
             "reason": f"{programmatic_pass}/{len(cases)} passed all Layer-1 checks.",
         },
     }
-
-
-def run_config_loop(
-    configurations: list[dict[str, Any]], settings: Settings | None = None
-) -> list[EvaluationResult]:
-    settings = settings or get_settings()
-    results = []
-    for configuration in configurations:
-        experiment_settings = replace(
-            settings,
-            chat_model=configuration.get("chat_model", settings.chat_model),
-            retrieval_k=configuration.get("retrieval_k", settings.retrieval_k),
-        )
-        results.append(
-            run_evaluation(
-                experiment_settings, experiment_name=configuration["name"]
-            )
-        )
-    return results

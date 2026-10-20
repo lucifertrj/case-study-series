@@ -43,6 +43,16 @@ class MetricComparison:
 
 
 @dataclass
+class GateResult:
+    """An absolute ship gate — 'what must be true before you ship' (blog)."""
+
+    metric: str
+    value: float | None
+    threshold: float
+    passed: bool
+
+
+@dataclass
 class Verdict:
     experiment: str
     baseline: str | None
@@ -50,6 +60,21 @@ class Verdict:
     comparisons: list[MetricComparison]
     plateaued: bool
     reason: str
+    gates: list[GateResult]
+    gates_passed: bool
+    shippable: bool
+
+
+def evaluate_gates(
+    current: dict[str, Any], gates: dict[str, float] | None
+) -> tuple[list[GateResult], bool]:
+    """Check the experiment's metrics against the upfront absolute gates."""
+    results: list[GateResult] = []
+    for metric, threshold in (gates or {}).items():
+        value = _metric_mean(current, metric)
+        passed = value is not None and value >= threshold
+        results.append(GateResult(metric, value, threshold, passed))
+    return results, all(r.passed for r in results)
 
 
 def compare(
@@ -113,13 +138,18 @@ def _recent_flat_streak(
 def decide(
     experiment_name: str,
     experiments: list[dict[str, Any]],
+    gates: dict[str, float] | None = None,
     results_dir: Path = RESULTS_DIR,
 ) -> Verdict:
     entry = next((e for e in experiments if e["name"] == experiment_name), None)
     if entry is None:
-        raise ValueError(f"No entry named {experiment_name!r} in experiments.json")
+        raise ValueError(
+            f"No entry named {experiment_name!r} in experiment_plan.json"
+        )
 
     current = load_result(experiment_name, results_dir)
+    gate_results, gates_passed = evaluate_gates(current, gates)
+    gate_note = _gate_note(gate_results)
     baseline_name = entry.get("acceptance", {}).get("compare_against")
 
     if baseline_name is None:
@@ -129,7 +159,10 @@ def decide(
             decision="no_baseline",
             comparisons=[],
             plateaued=False,
-            reason="No compare_against set - treated as the new baseline.",
+            reason="No compare_against set - treated as the new baseline. " + gate_note,
+            gates=gate_results,
+            gates_passed=gates_passed,
+            shippable=gates_passed,
         )
 
     baseline = load_result(baseline_name, results_dir)
@@ -153,14 +186,30 @@ def decide(
         decision == "keep" and flat and plateau_streak + 1 >= PLATEAU_WINDOW
     )
 
+    # Relative keep/reject narrows the candidate pool; the absolute gates decide
+    # whether the kept candidate is actually shippable.
+    shippable = decision == "keep" and gates_passed
+
     return Verdict(
         experiment=experiment_name,
         baseline=baseline_name,
         decision=decision,
         comparisons=comparisons,
         plateaued=plateaued,
-        reason=reason,
+        reason=f"{reason} {gate_note}",
+        gates=gate_results,
+        gates_passed=gates_passed,
+        shippable=shippable,
     )
+
+
+def _gate_note(gate_results: list[GateResult]) -> str:
+    if not gate_results:
+        return ""
+    failed = [g.metric for g in gate_results if not g.passed]
+    if failed:
+        return f"Ship gates NOT met: {', '.join(failed)}."
+    return "All ship gates met."
 
 
 def worst_cases(

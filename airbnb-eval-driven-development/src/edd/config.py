@@ -25,10 +25,9 @@ class Settings:
     # --- Models ---
     embedding_model: str = "text-embedding-3-small"
     # The generator under test.
-    chat_model: str = "gpt-4o-mini"
-    # A *stronger / different* model judges the generator's output, per the
-    # blog's "different judge than generator" rule.
-    eval_model: str = "gpt-4o"
+    chat_model: str = "gpt-5.6-luna"
+    # The model that judges the generator's output.
+    eval_model: str = "gpt-5.6-luna"
 
     # --- Retrieval ---
     retrieval_k: int = 4
