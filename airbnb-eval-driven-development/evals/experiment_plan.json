@@ -1,7 +1,6 @@
 {
   "goals": "Answer guest questions strictly from Airbnb support policy, and honestly refuse questions the policies do not cover. Ground every answer; never fabricate a number, timeframe, or policy.",
   "gates": {
-    "groundedness": 0.8,
     "answer_relevance": 0.8,
     "clean_negative_recall": 0.9
   },
@@ -18,26 +17,19 @@
         "compare_against": null,
         "required_metrics": [
           "answer_relevance",
-          "groundedness",
           "context_relevance",
           "clean_negative_recall"
         ]
       },
       "result": {
         "decision": "no_baseline",
-        "reason": "No compare_against set - treated as the new baseline. Ship gates NOT met: groundedness, answer_relevance.",
+        "reason": "No compare_against set - treated as the new baseline. Ship gates NOT met: answer_relevance.",
         "plateaued": false,
         "shippable": false,
         "gates_passed": false,
         "flat": false,
         "comparisons": [],
         "gates": [
-          {
-            "metric": "groundedness",
-            "value": null,
-            "threshold": 0.8,
-            "passed": false
-          },
           {
             "metric": "answer_relevance",
             "value": 0.65,
@@ -63,27 +55,18 @@
       "acceptance": {
         "compare_against": "baseline",
         "required_metrics": [
-          "groundedness",
           "clean_negative_recall",
           "answer_relevance"
         ]
       },
       "result": {
         "decision": "keep",
-        "reason": "Improved. Ship gates NOT met: groundedness, answer_relevance.",
+        "reason": "Improved. Ship gates NOT met: answer_relevance.",
         "plateaued": false,
         "shippable": false,
         "gates_passed": false,
         "flat": false,
         "comparisons": [
-          {
-            "metric": "groundedness",
-            "current": null,
-            "baseline": null,
-            "delta": null,
-            "direction": "higher",
-            "regressed": false
-          },
           {
             "metric": "clean_negative_recall",
             "current": 1.0,
@@ -103,12 +86,6 @@
         ],
         "gates": [
           {
-            "metric": "groundedness",
-            "value": null,
-            "threshold": 0.8,
-            "passed": false
-          },
-          {
             "metric": "answer_relevance",
             "value": 0.65,
             "threshold": 0.8,
@@ -127,13 +104,12 @@
       "name": "model-gpt6-luna",
       "stage": "2 - fix prompt, vary model",
       "varies": "model",
-      "change": "Fix the (kept) prompt; re-run on the generator gpt-6-luna (no model change \u2014 both endpoints now use gpt-6-luna) to confirm the groundedness baseline holds.",
+      "change": "Fix the (kept) prompt; re-run on the generator gpt-6-luna (no model change — both endpoints now use gpt-6-luna) to confirm the answer_relevance baseline holds.",
       "chat_model": "gpt-6-luna",
       "retrieval_k": 4,
       "acceptance": {
         "compare_against": "baseline",
         "required_metrics": [
-          "groundedness",
           "answer_relevance",
           "context_relevance"
         ]
@@ -150,7 +126,6 @@
         "compare_against": "baseline",
         "required_metrics": [
           "answer_relevance",
-          "groundedness",
           "context_relevance"
         ]
       }

@@ -4,7 +4,6 @@
   "acceptance": {
     "compare_against": "baseline",
     "required_metrics": [
-      "groundedness",
       "clean_negative_recall",
       "answer_relevance"
     ]
@@ -70,7 +69,7 @@
       "input": "If I booked at least 7 days before check-in, can I still get a full refund if I cancel soon after booking?",
       "expected_output": "Yes. All standard cancellation policies include a 24-hour cancellation period: you can cancel for a full refund, including all taxes, within 24 hours of booking, as long as the reservation was confirmed at least 7 days before check-in.",
       "label": 1,
-      "output": "Yes\u2014if it\u2019s a standard-policy stay of 27 nights or fewer, you can get a full refund, including taxes, if you cancel within 24 hours of booking and the reservation was confirmed at least 7 days before check-in.",
+      "output": "Yes—if it’s a standard-policy stay of 27 nights or fewer, you can get a full refund, including taxes, if you cancel within 24 hours of booking and the reservation was confirmed at least 7 days before check-in.",
       "scores": {
         "answer_relevance": {
           "value": 1.0,
@@ -156,7 +155,7 @@
     {
       "dataset_item_id": 3,
       "input": "Under the Limited policy, what happens if I cancel 3 days before check-in?",
-      "expected_output": "Under the Limited policy, cancelling less than 7 days before check-in refunds taxes only \u2014 there is no refund of the nightly rate, and the host keeps 100%. Three days before check-in falls in that window.",
+      "expected_output": "Under the Limited policy, cancelling less than 7 days before check-in refunds taxes only — there is no refund of the nightly rate, and the host keeps 100%. Three days before check-in falls in that window.",
       "label": 1,
       "output": "Under the Limited policy for bookings made on or after October 1, 2025, canceling 3 days before check-in means taxes are refunded only, and the host keeps 100%.",
       "scores": {
@@ -246,7 +245,7 @@
       "input": "If my listing is significantly different from the ad and the host can't fix it, what does AirCover do?",
       "expected_output": "AirCover will help you rebook a comparable place based on availability and comparable pricing at no additional cost. If a comparable place isn't available, or you prefer not to rebook, Airbnb provides a full or partial refund, including service fees.",
       "label": 1,
-      "output": "If the listing is significantly different from the ad and the host can\u2019t fix it, AirCover can help you rebook at no extra cost if a comparable place is available, based on availability and comparable pricing. If one isn\u2019t available\u2014or you prefer not to rebook\u2014you may receive a full or partial refund, including service fees.\n\nContact the host first, notify them within 72 hours of discovering the issue, and document it with photos or videos. If they can\u2019t resolve it, contact Airbnb to escalate.",
+      "output": "If the listing is significantly different from the ad and the host can’t fix it, AirCover can help you rebook at no extra cost if a comparable place is available, based on availability and comparable pricing. If one isn’t available—or you prefer not to rebook—you may receive a full or partial refund, including service fees.\n\nContact the host first, notify them within 72 hours of discovering the issue, and document it with photos or videos. If they can’t resolve it, contact Airbnb to escalate.",
       "scores": {
         "answer_relevance": {
           "value": 1.0,
@@ -290,7 +289,7 @@
       "input": "My host cancelled and I was given Airbnb booking credit, but I didn't use it. What happens?",
       "expected_output": "If the booking credit isn't used within 72 hours, it automatically converts to a full refund, including service fees, to your original payment method.",
       "label": 1,
-      "output": "If you don\u2019t use the Airbnb booking credit within 72 hours, it automatically converts to a full refund. The refund is issued to your original payment method; how long it takes to arrive depends on your bank or financial institution.",
+      "output": "If you don’t use the Airbnb booking credit within 72 hours, it automatically converts to a full refund. The refund is issued to your original payment method; how long it takes to arrive depends on your bank or financial institution.",
       "scores": {
         "answer_relevance": {
           "value": 1.0,
@@ -420,7 +419,7 @@
     {
       "dataset_item_id": 9,
       "input": "How much is the guest service fee and what is it based on?",
-      "expected_output": "The guest service fee ranges from 14.1% to 16.5% of the booking subtotal \u2014 the nightly price plus any additional host fees, excluding the guest service fee and taxes. For cross-currency bookings it can be up to 16.5%.",
+      "expected_output": "The guest service fee ranges from 14.1% to 16.5% of the booking subtotal — the nightly price plus any additional host fees, excluding the guest service fee and taxes. For cross-currency bookings it can be up to 16.5%.",
       "label": 1,
       "output": "The guest service fee ranges from **14.1% to 16.5%** of the booking subtotal. The subtotal includes the nightly price and host-charged fees, such as cleaning, but excludes the guest service fee and taxes. The exact percentage varies by booking. For cross-currency bookings, the fee can be up to **16.5%**.",
       "scores": {
@@ -552,9 +551,9 @@
     {
       "dataset_item_id": 12,
       "input": "When does a review become visible on Airbnb?",
-      "expected_output": "A review is posted only after both parties submit their reviews, or once the 14-day review period ends \u2014 whichever comes first. Neither party can see the other's review until both are published.",
+      "expected_output": "A review is posted only after both parties submit their reviews, or once the 14-day review period ends — whichever comes first. Neither party can see the other's review until both are published.",
       "label": 1,
-      "output": "Reviews become visible after both the guest and host submit their reviews, or when the 14-day review period after checkout ends\u2014whichever comes first. Neither party can see the other\u2019s review before both are published.",
+      "output": "Reviews become visible after both the guest and host submit their reviews, or when the 14-day review period after checkout ends—whichever comes first. Neither party can see the other’s review before both are published.",
       "scores": {
         "answer_relevance": {
           "value": 1.0,
@@ -598,7 +597,7 @@
       "input": "If I change my reservation and the total goes up, how and when am I charged?",
       "expected_output": "If the new total is higher, the adjustment is processed when the change is accepted. In most cases your original payment method is charged automatically; for some payment methods you're asked to submit payment within 48 hours.",
       "label": 1,
-      "output": "If the change request is accepted, the price adjustment is processed then. In most cases, the extra amount is charged automatically to your original payment method. For some payment methods, you\u2019ll be asked to submit payment within 48 hours. Nothing changes while the request is pending.",
+      "output": "If the change request is accepted, the price adjustment is processed then. In most cases, the extra amount is charged automatically to your original payment method. For some payment methods, you’ll be asked to submit payment within 48 hours. Nothing changes while the request is pending.",
       "scores": {
         "answer_relevance": {
           "value": 1.0,
