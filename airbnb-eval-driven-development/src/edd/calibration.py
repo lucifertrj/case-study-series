@@ -1,30 +1,3 @@
-"""Layer 3 — Human evaluation & virtual-judge calibration.
-
-The blog's calibration loop: run a virtual judge against a human-labeled golden
-set, measure agreement (Cohen's kappa / % agreement), analyze disagreements,
-refine the rubric, repeat until agreement reaches the high 80s-90s. A judge you
-have NOT calibrated is worse than no judge, because it gives false confidence.
-
-We calibrate exactly ONE dimension here, and it is the one where our human label
-and the judge measure the *same thing*: **answerability / refusal**. Our golden
-``label`` is a human judgment of whether the corpus can answer the question
-(1 = answerable, 0 = clean negative that should be refused). So we build an
-"answerability" virtual judge that reads the question + the retrieved excerpts
-and calls answerable / not-answerable, then compare it to the human label.
-
-(Calibrating the triad judges — groundedness, etc. — would require per-dimension
-human scores on the generated outputs; add a ``human_scores`` field to the golden
-rows and extend this module the same way when you need it.)
-
-CAVEAT — read before interpreting the kappa: the human ``label`` says "answerable
-from the whole corpus", while this judge sees only the *retrieved* excerpts, so it
-effectively rates "answerable from these retrieved excerpts". A retrieval miss on
-a positive therefore registers as a disagreement, which means the reported kappa
-mixes retrieval quality into judge calibration. That is an acceptable scaffold
-choice (it mirrors what the judge would actually see in production), but do not
-read the number as *pure* judge trust — improve retrieval and re-calibrate.
-"""
-
 from dataclasses import dataclass
 import json
 from pathlib import Path

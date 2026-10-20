@@ -1,20 +1,3 @@
-"""The support-policy RAG assistant under evaluation.
-
-This is a plain Python class wrapping Haystack 3.x components. It is NOT a single
-``Pipeline.run()`` call, and that is deliberate: TruLens records evaluation
-context from the OTEL spans we emit via ``@instrument``. If retrieval and
-generation happened invisibly inside one Haystack pipeline, our RETRIEVAL /
-GENERATION spans would be empty and every virtual judge would score null.
-
-So the class exposes three instrumented methods:
-
-    retrieve(query)            -> RETRIEVAL span   (query text + retrieved chunks)
-    generate(query, contexts)  -> GENERATION span
-    query(query)               -> RECORD_ROOT span (the overall input/output)
-
-The selectors in ``edd.judges`` reference exactly the span attributes set here.
-"""
-
 from haystack.components.embedders import OpenAITextEmbedder
 from haystack.components.generators.chat import OpenAIChatGenerator
 from haystack.dataclasses import ChatMessage

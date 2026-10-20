@@ -1,16 +1,3 @@
-"""Run one experiment end-to-end over the golden dataset.
-
-For every golden item we:
-    1. generate an answer with the instrumented Haystack app (TruLens records
-       the spans and schedules the Layer-2 virtual judges);
-    2. run the Layer-1 programmatic checks on the answer deterministically;
-    3. collect per-case judge scores + CoT reasons from TruLens.
-
-We then aggregate judge scores and compute experiment-level metrics that only
-make sense in aggregate — most importantly ``clean_negative_recall``: of the
-clean negatives (label 0), how many did the assistant honestly refuse?
-"""
-
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any

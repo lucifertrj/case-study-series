@@ -1,9 +1,3 @@
-"""Shared Qdrant Cloud document-store factory.
-
-Both the indexing pipeline and the live RAG app must point at the *same* Qdrant
-Cloud collection, so the construction lives in one place.
-"""
-
 from functools import lru_cache
 
 from haystack.utils import Secret

@@ -1,14 +1,3 @@
-"""Index the support-policy corpus into Qdrant Cloud.
-
-A standard Haystack 3.x indexing pipeline:
-
-    converter -> cleaner -> splitter -> embedder -> writer
-
-Re-run this whenever ``chunk_size``, ``chunk_overlap``, the embedding model, or
-the source documents change.
-"""
-
-from haystack import Pipeline
 from haystack.components.converters import MarkdownToDocument
 from haystack.components.embedders import OpenAIDocumentEmbedder
 from haystack.components.preprocessors import DocumentCleaner, DocumentSplitter
@@ -39,35 +28,31 @@ def index_corpus(settings: Settings | None = None) -> int:
     settings = settings or get_settings()
     store = get_document_store(settings, recreate=True)
 
-    pipeline = Pipeline()
-    pipeline.add_component("converter", MarkdownToDocument())
-    pipeline.add_component("cleaner", DocumentCleaner())
-    pipeline.add_component(
-        "splitter",
-        DocumentSplitter(
-            split_by="word",
-            split_length=settings.chunk_size,
-            split_overlap=settings.chunk_overlap,
-        ),
+    sources = _source_files(settings)
+    converter = MarkdownToDocument()
+    cleaner = DocumentCleaner()
+    splitter = DocumentSplitter(
+        split_by="word",
+        split_length=settings.chunk_size,
+        split_overlap=settings.chunk_overlap,
     )
-    pipeline.add_component(
-        "embedder",
-        OpenAIDocumentEmbedder(
-            api_key=Secret.from_token(settings.openai_api_key)
-            if settings.openai_api_key
-            else Secret.from_env_var("OPENAI_API_KEY"),
-            model=settings.embedding_model,
-        ),
+    embedder = OpenAIDocumentEmbedder(
+        api_key=Secret.from_token(settings.openai_api_key)
+        if settings.openai_api_key
+        else Secret.from_env_var("OPENAI_API_KEY"),
+        model=settings.embedding_model,
     )
-    pipeline.add_component(
-        "writer",
-        DocumentWriter(document_store=store, policy=DuplicatePolicy.OVERWRITE),
+    writer = DocumentWriter(document_store=store, policy=DuplicatePolicy.OVERWRITE)
+
+    docs = converter.run(sources=sources)["documents"]
+    docs = cleaner.run(documents=docs)["documents"]
+    chunks = splitter.run(documents=docs)["documents"]
+
+    print(
+        f"Embedding {len(chunks)} chunks from {len(sources)} policies "
+        f"with {settings.embedding_model} (this is the slow part) ..."
     )
 
-    pipeline.connect("converter", "cleaner")
-    pipeline.connect("cleaner", "splitter")
-    pipeline.connect("splitter", "embedder")
-    pipeline.connect("embedder", "writer")
-
-    result = pipeline.run({"converter": {"sources": _source_files(settings)}})
-    return int(result["writer"]["documents_written"])
+    embedded = embedder.run(documents=chunks)["documents"]
+    written = writer.run(documents=embedded)["documents_written"]
+    return int(written)

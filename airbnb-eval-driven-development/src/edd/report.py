@@ -1,11 +1,3 @@
-"""Compare an experiment against its baseline and render the worst cases.
-
-The acceptance gate is the blog's keep/reject decision: a change is kept only if
-every required metric is flat-or-better; a regression on any required metric is a
-reject. Two consecutive flat keeps => the loop has plateaued and needs a
-structural change, not another prompt tweak.
-"""
-
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any

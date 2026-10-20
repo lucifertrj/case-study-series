@@ -62,37 +62,15 @@ Layer 3  Human evaluation & calibration    validates & calibrates the stack     
   listing disagreements to analyze. Target the high 80s–90s before trusting a
   judge at scale.
 
-### Why the app isn't a single `Pipeline.run()`
-
-TruLens scores from the OTEL spans the app emits. `SupportPolicyRAG`
-([src/edd/app.py](src/edd/app.py)) therefore exposes **separate instrumented
-`retrieve()` and `generate()` methods** orchestrated by `query()`, so the
-`RETRIEVAL` / `GENERATION` / `RECORD_ROOT` spans are populated and every judge
-selector resolves to real data. `TRULENS_OTEL_TRACING=1` is set in
-[src/edd/__init__.py](src/edd/__init__.py) **before** any `trulens` import — if it
-isn't, spans are empty and scores come back null.
-
-## The gold set
-
-[evals/gold_set.jsonl](evals/gold_set.jsonl) contains **both** positives
-(`label: 1`, answerable from the corpus) **and clean negatives** (`label: 0`, not
-covered — the assistant must refuse honestly). *"You can't test discernment
-without bad examples."* Validation (`edd golden`) fails if either class is
-missing. The schema follows the blog, not any boilerplate — `input`,
-`expected_output`, `label`, `critique` (the human domain expert's annotation); no
-`metadata` block. The current set is 16 positives / 9 clean negatives.
-
----
-
 ## Setup
 
 ### 1. Install
 
 ```sh
 cd airbnb-eval-driven-development
-python3 -m venv .venv
+uv venv
 source .venv/bin/activate
-pip install -e .
+uv pip install -e .
 ```
 
 ### 2. Credentials

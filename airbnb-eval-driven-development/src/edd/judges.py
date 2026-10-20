@@ -1,27 +1,3 @@
-"""Layer 2 — Virtual judges (LLM-as-judge).
-
-A small, sharp panel of judges, one per correctness dimension (no "God
-evaluator"), following the blog's five rules:
-
-    * one evaluator per dimension
-    * a *different / stronger* model than the generator (``eval_model``)
-    * chain-of-thought reasons on every score
-    * an explicit scoring contract (TruLens' *_with_cot_reasons providers)
-
-The RAG triad covers the dimensions that matter for a grounded support bot:
-
-    groundedness       is the answer supported by the retrieved policy excerpts?
-    answer_relevance   does the answer actually address the question?
-    context_relevance  did retrieval surface relevant policy excerpts?
-
-plus one product-specific judge from the walkthrough:
-
-    conciseness        is the answer tight, or padded/verbose?
-
-Each selector is keyed to the exact OTEL span attribute emitted in ``edd.app``,
-so the judge inputs and the app instrumentation always reference the same key.
-"""
-
 import numpy as np
 from trulens.core import Metric, Selector
 from trulens.otel.semconv.trace import SpanAttributes

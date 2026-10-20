@@ -1,17 +1,3 @@
-"""Step 4 — Mirror the evals in production.
-
-"Pre-production metrics are not one-and-done." This samples a fraction of a
-de-identified traffic log, runs the SAME Layer-1 programmatic checks plus a
-lightweight answerability judge over each sampled query, and surfaces flagged
-outputs for human review. In a real deployment the traffic would be sampled from
-live, privacy-preserved logs; here it reads ``evals/production_traffic.jsonl``.
-
-A query is flagged when either:
-    * a programmatic check fails (empty, over-length, leaked internal term), or
-    * the answerability judge says the retrieved excerpts do NOT cover the
-      question, yet the assistant answered anyway (a likely fabrication).
-"""
-
 from dataclasses import dataclass, field
 import json
 import random

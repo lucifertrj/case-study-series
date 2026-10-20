@@ -1,9 +1,3 @@
-"""Persist and reload per-experiment result snapshots.
-
-Each ``edd run <name>`` writes ``evals/results/<name>.json`` so later runs (and
-``edd report``) can diff against a baseline without re-evaluating.
-"""
-
 from datetime import datetime, timezone
 import json
 from pathlib import Path

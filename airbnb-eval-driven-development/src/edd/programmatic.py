@@ -1,18 +1,3 @@
-"""Layer 1 — Programmatic & heuristic checks.
-
-Deterministic, code-only checks that run before any LLM judge. They are fast and
-free, and they catch the obvious failures (empty output, leaked internal terms,
-wrong refusal behavior) so you never spend judge tokens on them.
-
-Airbnb's Layer-1 table maps to the checks here:
-    Length & presence   -> non_empty, within_length
-    Keyword / regex      -> no_internal_terms
-    (behavioral)         -> refusal_behavior  (did it refuse exactly when it should?)
-
-Each check returns a 0/1 score plus a short reason, so the output is directly
-comparable to the virtual-judge scores in Layer 2.
-"""
-
 import re
 from dataclasses import dataclass
 from typing import Any

@@ -1,16 +1,3 @@
-"""The EDD iteration loop: run -> decide -> keep or revert (via Git).
-
-Each ``edd run <name>`` evaluates one experiment, compares it to its baseline,
-and lets Git enforce the decision:
-
-    keep    -> commit the source change + the result snapshot
-    reject  -> revert src/ to the last clean state, commit only the record
-
-This makes the experiment history auditable: a clean Git log where every kept
-change actually moved a metric, and every rejected change is recorded without
-polluting the code.
-"""
-
 from dataclasses import asdict, replace
 import json
 from pathlib import Path

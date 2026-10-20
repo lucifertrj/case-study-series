@@ -1,19 +1,3 @@
-"""`edd` — the Eval-Driven Development command line.
-
-Commands mirror the stages of the blog:
-
-    index        Index the support-policy corpus into Qdrant Cloud
-    golden       Validate the gold set (positives + clean negatives)
-    explore      "Look at your data" — read outputs & traces before building evals
-    evaluate     Run the three-layer evaluation on the current config
-    run <name>   Run one experiment from the plan, decide keep/reject + ship gates
-    report <name>  Inspect the worst-scoring cases + judge reasons
-    calibrate    Calibrate the virtual judge against human labels (Cohen's kappa)
-    monitor      Mirror the evals on sampled production traffic
-    ask <q>      Ask the assistant a single question
-    dashboard    Launch the TruLens dashboard
-"""
-
 import argparse
 import logging
 from pathlib import Path
