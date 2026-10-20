@@ -1,0 +1,134 @@
+{
+  "goals": "Answer guest questions strictly from Airbnb support policy, and honestly refuse questions the policies do not cover. Ground every answer; never fabricate a number, timeframe, or policy.",
+  "gates": {
+    "answer_relevance": 0.8,
+    "clean_negative_recall": 0.9
+  },
+  "iteration_protocol": "Fix one variable at a time (per the blog): first fix the model and vary the prompt, then fix the prompt and vary the model, then fix both and vary the serving configuration. Virtual-judge results narrow the candidate pool at each stage.",
+  "experiments": [
+    {
+      "name": "baseline",
+      "stage": "0 - baseline",
+      "varies": "none",
+      "change": "Measure the starting configuration (gpt-6-luna, retrieval_k=4, baseline prompt) across all three evaluation layers.",
+      "chat_model": "gpt-6-luna",
+      "retrieval_k": 4,
+      "acceptance": {
+        "compare_against": null,
+        "required_metrics": [
+          "answer_relevance",
+          "context_relevance",
+          "clean_negative_recall"
+        ]
+      },
+      "result": {
+        "decision": "no_baseline",
+        "reason": "No compare_against set - treated as the new baseline. Ship gates NOT met: answer_relevance.",
+        "plateaued": false,
+        "shippable": false,
+        "gates_passed": false,
+        "flat": false,
+        "comparisons": [],
+        "gates": [
+          {
+            "metric": "answer_relevance",
+            "value": 0.65,
+            "threshold": 0.8,
+            "passed": false
+          },
+          {
+            "metric": "clean_negative_recall",
+            "value": 1.0,
+            "threshold": 0.9,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "prompt-tighten",
+      "stage": "1 - fix model, vary prompt",
+      "varies": "prompt",
+      "change": "Fix the model; tighten the refusal instruction in SYSTEM_PROMPT (edit src/edd/app.py) to cut fabrications on clean negatives.",
+      "chat_model": "gpt-6-luna",
+      "retrieval_k": 4,
+      "acceptance": {
+        "compare_against": "baseline",
+        "required_metrics": [
+          "clean_negative_recall",
+          "answer_relevance"
+        ]
+      },
+      "result": {
+        "decision": "keep",
+        "reason": "Improved. Ship gates NOT met: answer_relevance.",
+        "plateaued": false,
+        "shippable": false,
+        "gates_passed": false,
+        "flat": false,
+        "comparisons": [
+          {
+            "metric": "clean_negative_recall",
+            "current": 1.0,
+            "baseline": 1.0,
+            "delta": 0.0,
+            "direction": "higher",
+            "regressed": false
+          },
+          {
+            "metric": "answer_relevance",
+            "current": 0.65,
+            "baseline": 0.65,
+            "delta": 0.0,
+            "direction": "higher",
+            "regressed": false
+          }
+        ],
+        "gates": [
+          {
+            "metric": "answer_relevance",
+            "value": 0.65,
+            "threshold": 0.8,
+            "passed": false
+          },
+          {
+            "metric": "clean_negative_recall",
+            "value": 1.0,
+            "threshold": 0.9,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "model-gpt6-luna",
+      "stage": "2 - fix prompt, vary model",
+      "varies": "model",
+      "change": "Fix the (kept) prompt; re-run on the generator gpt-6-luna (no model change — both endpoints now use gpt-6-luna) to confirm the answer_relevance baseline holds.",
+      "chat_model": "gpt-6-luna",
+      "retrieval_k": 4,
+      "acceptance": {
+        "compare_against": "baseline",
+        "required_metrics": [
+          "answer_relevance",
+          "context_relevance"
+        ]
+      }
+    },
+    {
+      "name": "retrieval-k2",
+      "stage": "3 - fix model & prompt, vary serving config",
+      "varies": "retrieval_k",
+      "change": "Fix model and prompt; vary retrieval breadth retrieval_k 4 -> 2.",
+      "chat_model": "gpt-6-luna",
+      "retrieval_k": 2,
+      "acceptance": {
+        "compare_against": "baseline",
+        "required_metrics": [
+          "answer_relevance",
+          "context_relevance"
+        ]
+      }
+    }
+  ]
+}

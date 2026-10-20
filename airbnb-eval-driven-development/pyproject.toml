@@ -1,0 +1,44 @@
+[build-system]
+build-backend = "hatchling.build"
+
+requires = [
+  "hatchling",
+]
+
+[project]
+name = "edd-haystack-trulens"
+version = "0.1.0"
+description = "Eval-Driven Development for a support-policy RAG assistant, built with Haystack, Qdrant, and TruLens — a faithful replication of Airbnb's EDD methodology."
+requires-python = ">=3.11"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+  # Orchestration — Haystack 3.x (deepset) + Qdrant Cloud integration
+  "haystack-ai>=3.0",
+  "qdrant-haystack>=9.0",
+  # Required by Haystack's MarkdownToDocument converter
+  "markdown-it-py>=3.0",
+  "mdit-plain>=1.0",
+  # Generation & embeddings
+  "openai>=1.40",
+  # Evaluation & tracing — TruLens (virtual judges + dashboard)
+  "trulens-core>=1.4",
+  "trulens-dashboard>=1.4",
+  "trulens-feedback>=1.4",
+  "trulens-providers-openai>=1.4",
+  "trulens-otel-semconv>=1.4",
+  # Supporting
+  "numpy>=1.26",
+  "python-dotenv>=1",
+  "tqdm>=4.66",
+]
+
+scripts.edd = "edd.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+  "src/edd",
+]
