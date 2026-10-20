@@ -1,4 +1,4 @@
-# Eval-Driven Development — Haystack × Qdrant × TruLens
+# Eval-Driven Development
 
 A faithful, runnable replication of Airbnb's
 [**Eval-driven development: Lessons from evaluating GenAI at scale**](https://medium.com/airbnb-engineering/eval-driven-development-lessons-from-evaluating-genai-at-scale-e817e5ae5788),
@@ -20,14 +20,6 @@ collected verbatim from the Airbnb Help Center:
 - **Reviews** — [article 367](https://www.airbnb.com/help/article/367)
 - **Changing a reservation** — [article 913](https://www.airbnb.com/help/article/913),
   [article 1505](https://www.airbnb.com/help/article/1505)
-
-Every question in the golden set is grounded in these documents (with exact
-numbers — 72-hour AirCover windows, the 1.5% / $15 Fast Pay fee, the Firm
-7-to-30-day 50% rule, the 14.1%–16.5% guest service fee, the 14-day review window,
-and so on), and the clean negatives ask about things these policies genuinely
-don't cover (loyalty points, pet fees, crypto payments, cleaning-fee caps).
-Evaluation is treated as a first-class engineering discipline, implemented as the
-blog's three layered defenses and its keep/reject experiment loop.
 
 ## Stack
 
