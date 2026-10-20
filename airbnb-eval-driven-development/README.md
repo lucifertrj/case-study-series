@@ -36,7 +36,7 @@ blog's three layered defenses and its keep/reject experiment loop.
 | Orchestration (indexing + RAG) | **Haystack 3.x** (deepset) |
 | Vector database | **Qdrant Cloud** |
 | Virtual judges, tracing, dashboard | **TruLens** |
-| Generator under test / judge model | OpenAI (`gpt-5.6-luna` / `gpt-5.6-luna`) |
+| Generator under test / judge model | OpenAI (`gpt-6-luna` / `gpt-6-luna`) |
 
 ## The three evaluation layers (from the blog)
 
@@ -53,8 +53,8 @@ Layer 3  Human evaluation & calibration    validates & calibrates the stack     
   LLM call, so it filters the obvious failures before any judge spends a token.
 - **Layer 2 — virtual judges**: a small, sharp panel — **one evaluator per
   dimension**, no "God evaluator" — judged by a *different, stronger* model than
-  the generator. The RAG triad (**groundedness**, **answer_relevance**,
-  **context_relevance**) plus a product-specific **conciseness** judge. Every
+  the generator. **answer_relevance** and **context_relevance** plus a
+  product-specific **conciseness** judge. Every
   score carries a chain-of-thought reason.
 - **Layer 3 — calibration**: a judge you haven't calibrated gives false
   confidence. `edd calibrate` runs the answerability judge against the human
@@ -100,6 +100,8 @@ edd index
 Re-run whenever `chunk_size`, `chunk_overlap`, the embedding model, or the
 documents under [data/support_policies/](data/support_policies/) change.
 
+![Indexing the corpus into Qdrant](assets/index.png)
+
 ---
 
 ## The eval-driven loop
@@ -114,77 +116,63 @@ edd explore         # generate answers for every gold-set question and read them
 edd ask "how long do refunds take?"
 ```
 
+![Exploring gold-set answers and traces](assets/explore.png)
+
 ### Step 2 — Evaluate across all three layers
 
 ```sh
 edd evaluate        # Layer 1 + Layer 2 over the gold set, with clean-negative recall
 ```
 
+![Evaluating across all three layers](assets/evaluate.png)
+
 ### Step 3 — Calibrate the virtual judge (Layer 3)
 
 ```sh
-edd calibrate                 # % agreement + Cohen's kappa vs. human labels
-edd calibrate --target 0.9    # raise the bar
+edd calibrate --target 0.9    # % agreement + Cohen's kappa vs. human labels (default target 0.85)
 ```
+
+![Calibrating the virtual judge against human labels](assets/caliberate.png)
 
 If agreement is below target, analyze the printed disagreements, sharpen the
 rubric / few-shots in [src/edd/calibration.py](src/edd/calibration.py), and re-run
 until the judge is trustworthy.
 
-### Step 4 — Define goals & gates upfront, then iterate one variable at a time
+### Step 4 — Set goals & gates upfront, then iterate one variable at a time
 
-[evals/experiment_plan.json](evals/experiment_plan.json) encodes the blog's two
-iteration rules directly:
+[evals/experiment_plan.json](evals/experiment_plan.json) sets absolute ship gates
+decided *before* iterating, and tags each experiment with the one `varies` knob it
+changes (prompt → serving config):
 
-1. **Goals & gates upfront** — a top-level `goals` statement and a `gates` block
-   of absolute thresholds ("what must be true before you ship"), decided *before*
-   iterating:
-
-   ```json
-   "gates": { "groundedness": 0.8, "answer_relevance": 0.8, "clean_negative_recall": 0.9 }
-   ```
-
-2. **Fix one variable at a time** — each experiment carries a `varies` tag and
-   follows the blog's staged protocol: *fix the model and vary the prompt → fix
-   the prompt and vary the model → fix both and vary the serving configuration.*
-   Virtual-judge results narrow the candidate pool at each stage.
-
-`edd run <name>` evaluates one experiment, compares its required metrics to the
-baseline (relative, to narrow the pool), checks the absolute **ship gates**, and
-lets **Git enforce the verdict**:
-
-```sh
-edd run baseline         # stage 0 — defines the benchmark
-edd run prompt-tighten   # stage 1 — fix model, vary prompt
-edd run model-gpt4o      # stage 2 — fix prompt, vary model
-edd run retrieval-k2     # stage 3 — fix both, vary serving config
+```json
+"gates": { "answer_relevance": 0.8, "clean_negative_recall": 0.9 }
 ```
 
-- **Keep** — every required metric flat-or-better vs. baseline → the source change
-  + result snapshot are committed.
-- **Reject** — any required metric regressed → `src/` is reverted to the last
-  clean state; only the result record is committed.
+`edd run <name>` evaluates one experiment, compares its metrics to the baseline,
+checks the ship gates, and lets **Git enforce the verdict**:
+
+```sh
+edd run baseline         # defines the benchmark
+edd run prompt-tighten   # vary the prompt
+edd run retrieval-k2     # vary the serving config
+```
+
+![Running the baseline experiment and ship-gate verdict](assets/baseline.png)
+
+- **Keep** — every metric flat-or-better vs. baseline → source change + snapshot committed.
+- **Reject** — any metric regressed → `src/` reverted; only the result record is committed.
 - **Shippable** — a kept candidate that *also* clears every absolute ship gate.
-  Keep/reject narrows the pool; the gates decide whether a winner is actually
-  releasable.
-- **Plateau** — two consecutive flat keeps → the loop warns that prompt tweaks
-  have run out and a structural change is needed (reranking, chunking, hybrid
-  search).
+- **Plateau** — two consecutive flat keeps → warns that a structural change is needed.
 
-> Prompt experiments (`varies: prompt`) are edits to `SYSTEM_PROMPT` in
-> [src/edd/app.py](src/edd/app.py); the Git keep/reject captures them automatically.
-
-> **Note on Git**: `edd run` makes real commits to enforce keep/reject. This
-> folder lives inside the shared `case-study-series` repo, so those commits land
-> there (scoped to the `src/` and `evals/` paths — it won't touch sibling
-> projects). If you want an isolated history, copy this folder out into its own
-> repo before running experiments.
+> `edd run` makes real commits to enforce keep/reject, scoped to `src/` and `evals/`.
+> This folder lives inside the shared `case-study-series` repo, so commits land there;
+> copy it into its own repo first if you want isolated history.
 
 ### Step 5 — Inspect failures
 
 ```sh
 edd report retrieval-k2                      # worst cases + judge chain-of-thought
-edd report retrieval-k2 --metric groundedness --worst 3
+edd report retrieval-k2 --metric answer_relevance --worst 3
 ```
 
 ### Step 6 — Mirror the evals in production
@@ -201,59 +189,14 @@ edd monitor --sample-rate 0.3
 ### Dashboard
 
 ```sh
-edd dashboard        # TruLens UI at http://localhost:8501
+edd dashboard        # TruLens UI
 ```
 
 Explore records, span timelines, feedback scores, and the experiment leaderboard
 (each experiment carries its keep/reject `decision` as metadata).
 
+![TruLens dashboard — home / leaderboard](assets/dashboard_home.png)
+
+![TruLens dashboard — experiment comparison](assets/dashboard_compare.png)
+
 ---
-
-## Project layout
-
-```
-airbnb-eval-driven-development/
-├── data/support_policies/        # the RAG corpus — real Airbnb Help Center policies
-│   ├── cancellation_and_refunds.md
-│   ├── aircover_for_guests.md
-│   ├── host_payouts.md
-│   ├── major_disruptive_events_policy.md
-│   ├── service_fees.md
-│   ├── reviews.md
-│   └── changing_a_reservation.md
-├── evals/
-│   ├── gold_set.jsonl            # gold set: positives + clean negatives
-│   ├── experiment_plan.json      # goals + ship gates + staged one-variable experiments
-│   ├── production_traffic.jsonl  # de-identified traffic for production monitoring
-│   └── results/                  # per-experiment result snapshots
-└── src/edd/
-    ├── __init__.py               # enables TRULENS_OTEL_TRACING before imports
-    ├── config.py                 # Settings (one experiment = one knob changed)
-    ├── store.py                  # shared Qdrant Cloud document store
-    ├── indexing.py               # Haystack indexing pipeline
-    ├── app.py                    # instrumented Haystack RAG app (the seam)
-    ├── dataset.py                # gold-set loader + validator
-    ├── programmatic.py           # Layer 1 — programmatic checks
-    ├── judges.py                 # Layer 2 — virtual judges (RAG triad + conciseness)
-    ├── calibration.py            # Layer 3 — judge calibration (Cohen's kappa)
-    ├── evals.py                  # run an experiment across all layers
-    ├── report.py                 # keep/reject verdict + worst cases
-    ├── results.py                # persist/load result snapshots
-    ├── loop.py                   # the EDD loop with Git keep/revert
-    ├── monitor.py                # production monitoring on sampled traffic
-    └── cli.py                    # the `edd` command
-```
-
-## Key takeaways, mapped to code
-
-| Blog takeaway | Where it lives |
-| --- | --- |
-| Look at your data first | `edd explore`, `edd ask` |
-| Build evals for *real* failure modes | `programmatic.py`, `judges.py` |
-| One evaluator per dimension | `judges.py` (triad + conciseness, no God evaluator) |
-| Calibrate to high 80s–90s before trusting a judge | `edd calibrate` (Cohen's kappa) |
-| Use all three methods as layered defenses | `programmatic` → `judges` → `calibration` |
-| Include bad examples in the gold set | `gold_set.jsonl` clean negatives + `dataset.py` guard |
-| Evaluate the system, not just the model | instrumented `retrieve`/`generate` spans |
-| Mirror evals in production | `edd monitor` |
-| Define goals & gates upfront; fix one variable at a time | `experiment_plan.json` (goals/gates/staged) + `report.decide` gates |
