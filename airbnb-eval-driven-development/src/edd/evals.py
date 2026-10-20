@@ -1,3 +1,5 @@
+import threading
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -34,6 +36,64 @@ def _retrieve_feedback_df(recording: Any, session: TruSession) -> Any:
     record_ids = [r.record_id for r in getattr(recording, "records", [])]
     df, _ = session.get_records_and_feedback(record_ids=record_ids)
     return df
+
+
+def _count_completed_scores(
+    session: TruSession, record_ids: list[str], feedback_names: list[str]
+) -> int:
+    """How many (record, judge) scores have landed in the store so far."""
+    try:
+        df, _ = session.get_records_and_feedback(record_ids=record_ids)
+    except Exception:
+        return 0
+    done = 0
+    for name in feedback_names:
+        if name in df.columns:
+            done += int(df[name].notna().sum())
+    return done
+
+
+def _await_feedback_with_progress(
+    recording: Any,
+    session: TruSession,
+    record_ids: list[str],
+    feedback_names: list[str],
+    poll_seconds: float = 2.0,
+) -> Any:
+    """Block on TruLens judge scoring while showing live per-judge progress.
+
+    ``retrieve_feedback_results`` is a single opaque blocking call, so we run it
+    off-thread and poll the store for how many judge scores have actually landed
+    — that's the only honest progress signal (each judge cell goes non-null when
+    that judge finishes for that record).
+    """
+    holder: dict[str, Any] = {}
+
+    def _worker() -> None:
+        try:
+            holder["df"] = _retrieve_feedback_df(recording, session)
+        except Exception as exc:  # re-raised after the bar is torn down
+            holder["error"] = exc
+
+    worker = threading.Thread(target=_worker, daemon=True)
+    worker.start()
+
+    total = len(record_ids) * len(feedback_names)
+    with tqdm(total=total, desc="Scoring (judges)", unit="score") as bar:
+        while worker.is_alive():
+            bar.n = min(
+                _count_completed_scores(session, record_ids, feedback_names), total
+            )
+            bar.refresh()
+            time.sleep(poll_seconds)
+        worker.join()
+        # Final read: reflect reality — a short bar here means some judges failed.
+        bar.n = min(_count_completed_scores(session, record_ids, feedback_names), total)
+        bar.refresh()
+
+    if "error" in holder:
+        raise holder["error"]
+    return holder["df"]
 
 
 def _cell(df: Any, col: str, idx: int) -> float | None:
@@ -96,7 +156,11 @@ def run_evaluation(
 
     print("[eval] Awaiting virtual-judge scores from TruLens...")
     session.force_flush()
-    records_df = _retrieve_feedback_df(recording, session)
+    record_ids = [r.record_id for r in getattr(recording, "records", [])]
+    feedback_names = [j.name for j in judges]
+    records_df = _await_feedback_with_progress(
+        recording, session, record_ids, feedback_names
+    )
     print("[eval] Scoring complete.\n")
 
     # --- Per-case: merge Layer-1 programmatic checks + Layer-2 judge scores ---

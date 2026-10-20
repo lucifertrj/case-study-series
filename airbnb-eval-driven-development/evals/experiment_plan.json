@@ -11,8 +11,8 @@
       "name": "baseline",
       "stage": "0 - baseline",
       "varies": "none",
-      "change": "Measure the starting configuration (gpt-5.6-luna, retrieval_k=4, baseline prompt) across all three evaluation layers.",
-      "chat_model": "gpt-5.6-luna",
+      "change": "Measure the starting configuration (gpt-6-luna, retrieval_k=4, baseline prompt) across all three evaluation layers.",
+      "chat_model": "gpt-6-luna",
       "retrieval_k": 4,
       "acceptance": {
         "compare_against": null,
@@ -22,6 +22,35 @@
           "context_relevance",
           "clean_negative_recall"
         ]
+      },
+      "result": {
+        "decision": "no_baseline",
+        "reason": "No compare_against set - treated as the new baseline. Ship gates NOT met: groundedness, answer_relevance.",
+        "plateaued": false,
+        "shippable": false,
+        "gates_passed": false,
+        "flat": false,
+        "comparisons": [],
+        "gates": [
+          {
+            "metric": "groundedness",
+            "value": null,
+            "threshold": 0.8,
+            "passed": false
+          },
+          {
+            "metric": "answer_relevance",
+            "value": 0.65,
+            "threshold": 0.8,
+            "passed": false
+          },
+          {
+            "metric": "clean_negative_recall",
+            "value": 1.0,
+            "threshold": 0.9,
+            "passed": true
+          }
+        ]
       }
     },
     {
@@ -29,7 +58,7 @@
       "stage": "1 - fix model, vary prompt",
       "varies": "prompt",
       "change": "Fix the model; tighten the refusal instruction in SYSTEM_PROMPT (edit src/edd/app.py) to cut fabrications on clean negatives.",
-      "chat_model": "gpt-5.6-luna",
+      "chat_model": "gpt-6-luna",
       "retrieval_k": 4,
       "acceptance": {
         "compare_against": "baseline",
@@ -41,11 +70,11 @@
       }
     },
     {
-      "name": "model-gpt4o",
+      "name": "model-gpt6-luna",
       "stage": "2 - fix prompt, vary model",
       "varies": "model",
-      "change": "Fix the (kept) prompt; re-run on the generator gpt-5.6-luna (no model change — both endpoints now use gpt-5.6-luna) to confirm the groundedness baseline holds.",
-      "chat_model": "gpt-5.6-luna",
+      "change": "Fix the (kept) prompt; re-run on the generator gpt-6-luna (no model change \u2014 both endpoints now use gpt-6-luna) to confirm the groundedness baseline holds.",
+      "chat_model": "gpt-6-luna",
       "retrieval_k": 4,
       "acceptance": {
         "compare_against": "baseline",
@@ -61,7 +90,7 @@
       "stage": "3 - fix model & prompt, vary serving config",
       "varies": "retrieval_k",
       "change": "Fix model and prompt; vary retrieval breadth retrieval_k 4 -> 2.",
-      "chat_model": "gpt-5.6-luna",
+      "chat_model": "gpt-6-luna",
       "retrieval_k": 2,
       "acceptance": {
         "compare_against": "baseline",

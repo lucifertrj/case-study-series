@@ -11,8 +11,6 @@ from trulens.otel.semconv.trace import SpanAttributes
 from .config import Settings, get_settings
 from .store import get_document_store
 
-# The generation prompt is the single most-tuned "one variable" in the EDD loop.
-# Keep it here so a prompt experiment is a small, reviewable diff.
 SYSTEM_PROMPT = (
     "You are a support assistant for a travel platform. Answer the guest's "
     "question using ONLY the policy excerpts provided. Be concise and specific: "
@@ -49,11 +47,6 @@ class SupportPolicyRAG:
         self._generator = OpenAIChatGenerator(
             api_key=api_key, model=self.settings.chat_model
         )
-
-    # --- Plain implementations (no TruLens span) -------------------------
-    # The instrumented methods below wrap these. Code paths that run *outside*
-    # a recording context (edd ask / explore / calibrate / monitor) call the
-    # _impl methods directly, so they never depend on an active TruSession.
 
     def _retrieve_impl(self, query: str) -> list[str]:
         embedding = self._embedder.run(text=query)["embedding"]
@@ -100,8 +93,6 @@ class SupportPolicyRAG:
         contexts = self.retrieve(query)
         return self.generate(query, contexts)
 
-    # --- Uninstrumented helpers for non-recording CLI commands -----------
-
     def retrieve_plain(self, query: str) -> list[str]:
         return self._retrieve_impl(query)
 
@@ -119,6 +110,4 @@ class SupportPolicyRAG:
 
 
 def build_app(settings: Settings | None = None) -> SupportPolicyRAG:
-    # A fresh app per experiment: each experiment may vary chat_model /
-    # retrieval_k, so we must not reuse a cached instance across experiments.
     return SupportPolicyRAG(settings or get_settings())
